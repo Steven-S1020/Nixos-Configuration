@@ -12,8 +12,8 @@
       settings.logo = {
         source = "nixos_medium";
 	color = {
-	  "1" = "default";
-	  "2" = "red";
+	  "1" = "38;2;172;66;66";
+	  "2" = "38;2;58;48;48";
 	};  
         padding = {
 	  top = 2;

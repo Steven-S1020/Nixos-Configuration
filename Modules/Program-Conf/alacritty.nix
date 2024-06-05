@@ -19,6 +19,9 @@
         columns = 120;
 	lines = 35;
       };
+      
+      # Change Window Opacity
+      settings.window.opacity = 0.9;
     };
   };
 }

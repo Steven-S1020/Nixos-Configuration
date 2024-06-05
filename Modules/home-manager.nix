@@ -6,10 +6,14 @@
 
   imports =
     [
+      # Program-Conf
       ./Program-Conf/alacritty.nix
       ./Program-Conf/bash.nix
       ./Program-Conf/fastfetch.nix
       ./Program-Conf/git.nix
+
+      # DesktopEnv-Conf
+      ./DesktopEnv-Conf/hyprland.nix
     ];
 
 

@@ -20,16 +20,24 @@
     alacritty
     discord
     fastfetch
-    git
     google-chrome
     libgcc
     libreoffice-qt
     lsd
     nerdfonts
-    neovim
     python3
+    teams-for-linux
     vscode
+    wofi
   ];
+  
+  # Enable Packages
+  programs.git.enable = true;
+  programs.hyprland.enable = true;
+  programs.hyprlock.enable = true;
+  programs.neovim.enable = true;
+  programs.starship.enable = true;
+  programs.waybar.enable = true;
 
 }
 
