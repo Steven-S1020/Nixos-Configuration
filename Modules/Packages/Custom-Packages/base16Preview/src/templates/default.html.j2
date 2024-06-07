@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Base16 Previewer</title>
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+        <script>
+            $(document).ready(()=>{
+                $("#nt").click(()=>{
+                    window.location.href = "{{ next_theme }}"
+                });
+
+                $("#pt").click(()=>{
+                    window.location.href = "{{ prev_theme }}"
+                });
+
+                $("#st").change(()=>{
+                    const newTheme = $("#st option:selected").val();
+
+                    window.location.href = newTheme;
+                });
+            });
+        </script>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <style>
+            body {
+                background-color: #{{ base00 }};
+                color: #{{ base05 }};
+            }
+
+            h2 {
+                color: #{{ base06 }};
+            }
+
+            .Nav-Bar li {
+                color: #{{ base06 }};
+            }
+
+            .Nav-Bar li:hover {
+                background-color: #{{ base02 }};
+            }
+
+            .comment {
+                color: #{{ base03 }};
+            }
+
+            .string {
+                color: #{{ base0B }};
+            }
+
+            .keyword {
+                color: #{{ base0E }};
+            }
+
+            .number {
+                color: #{{ base09 }};
+            }
+
+            .function {
+                color: #{{ base0D }};
+            }
+        </style>
+    </head>
+    <body>
+        <div class="Nav-Bar">
+            <ul>
+                <li id="pt">Previous Theme</li>
+                <li id="nt">Next Theme</li>
+                <select id="st">
+                    {% for theme in themes %}
+                        <option value="{{ theme['option'] }}">{{ theme['label'] }}</option>
+                    {% endfor %}
+                </select>
+            </ul>
+        </div>
+        <div class="main">
+            <h2>
+                {{ curr_theme }}
+            </h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra justo nec ultrices dui sapien eget. Tellus orci ac auctor augue mauris augue neque gravida. Amet luctus venenatis lectus magna fringilla urna porttitor. Vitae et leo duis ut. Pretium viverra suspendisse potenti nullam. Egestas pretium aenean pharetra magna ac placerat. A iaculis at erat pellentesque adipiscing commodo elit. A arcu cursus vitae congue mauris. Mauris vitae ultricies leo integer malesuada. Arcu dictum varius duis at. Vulputate enim nulla aliquet porttitor. Amet cursus sit amet dictum.
+            </p>
+            <h2>
+                All Colours
+            </h2>
+            <div style="text-align: center">
+                <div class="rectangle" style="background-color: #{{ base00 }};"></div>
+                <div class="rectangle" style="background-color: #{{ base01 }};"></div>
+                <div class="rectangle" style="background-color: #{{ base02 }};"></div>
+                <div class="rectangle" style="background-color: #{{ base03 }};"></div>
+                <div class="rectangle" style="background-color: #{{ base04 }};"></div>
+                <div class="rectangle" style="background-color: #{{ base05 }};"></div>
+                <div class="rectangle" style="background-color: #{{ base06 }};"></div>
+                <div class="rectangle" style="background-color: #{{ base07 }};"></div><br>
+                <div class="rectangle" style="background-color: #{{ base08 }};"></div>
+                <div class="rectangle" style="background-color: #{{ base09 }};"></div>
+                <div class="rectangle" style="background-color: #{{ base0A }};"></div>
+                <div class="rectangle" style="background-color: #{{ base0B }};"></div>
+                <div class="rectangle" style="background-color: #{{ base0C }};"></div>
+                <div class="rectangle" style="background-color: #{{ base0D }};"></div>
+                <div class="rectangle" style="background-color: #{{ base0E }};"></div>
+                <div class="rectangle" style="background-color: #{{ base0F }};"></div>
+            </div>
+            <h2>
+                Syntax Highlighting
+            </h2>
+<pre>
+  <code>
+    <span class="keyword">#include</span> <span class="string">&lt;iostream&gt;</span>
+
+    <span class="comment">// Function to calculate the factorial</span>
+    <span class="keyword">int</span> <span class="function">factorial</span>(<span class="keyword">int</span> n) {
+        <span class="keyword">if</span> (n == <span class="number">0</span> || n == <span class="number">1</span>)
+            <span class="keyword">return</span> <span class="number">1</span>;
+        <span class="keyword">else</span>
+            <span class="keyword">return</span> n * <span class="function">factorial</span>(n - <span class="number">1</span>);
+    }
+
+    <span class="keyword">int</span> <span class="function">main</span>() {
+        <span class="keyword">int</span> number = <span class="number">5</span>; <span class="comment">// You can change the number here</span>
+
+        std::cout << <span class="string">"Factorial of "</span> << number << <span class="string">" is: "</span> << <span class="function">factorial</span>(number) << std::endl;
+
+        <span class="keyword">return</span> <span class="number">0</span>;
+    }
+  </code>
+</pre>
+<pre>
+  <code>
+    <span class="keyword">def</span> <span class="function">factorial</span>(n):
+        <span class="keyword">if</span> n == <span class="number">0</span> <span class="keyword">or</span> n == <span class="number">1</span>:
+            <span class="keyword">return</span> <span class="number">1</span>
+        <span class="keyword">else</span>:
+            <span class="keyword">return</span> n * <span class="function">factorial</span>(n - <span class="number">1</span>)
+
+    <span class="keyword">def</span> <span class="function">main</span>():
+        number = <span class="number">5</span> <span class="comment"># You can change the number here</span>
+
+        <span class="function">print</span>(f"Factorial of {number} is:", <span class="function">factorial</span>(number))
+
+    <span class="function">main</span>()
+  </code>
+</pre>
+        </div>
+    </body>
+</html>

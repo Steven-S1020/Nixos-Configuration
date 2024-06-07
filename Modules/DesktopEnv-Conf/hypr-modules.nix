@@ -5,7 +5,8 @@
 {
   imports = 
     [
-      ./Hypr-Modules/wofi.nix
+      ./Hypr-Modules/waybar.nix
+#      ./Hypr-Modules/rofi-wayland.nix
    ];
 }
 

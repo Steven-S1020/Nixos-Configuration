@@ -14,6 +14,8 @@
     wayland.windowManager.hyprland = {
 
       enable = true;
+      
+      #exec-once = "wofi";
 
       settings = {
 
@@ -31,9 +33,14 @@
           "$mod, Return, exec, alacritty"
           "$mod, Q, killactive"
 	  "$mod, F, fullscreen"
-	  "$mod, exec, wofi"
+	  "$mod, L, exec, rofi -show drun -show-icons"
+
+	  # Workspace's
+
         ];
       };
     };
   };  
+
+#exec-once=bash ./start.sh;
 }
