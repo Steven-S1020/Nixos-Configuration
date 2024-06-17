@@ -6,7 +6,7 @@
   imports = 
     [
       ./Hypr-Modules/waybar.nix
-#      ./Hypr-Modules/rofi-wayland.nix
+      ./Hypr-Modules/rofi.nix
    ];
 }
 

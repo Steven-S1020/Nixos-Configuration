@@ -1,10 +1,10 @@
-# rofi-wayland Configuration
+# rofi Configuration
 
 { config, pkgs, lib, ... }:
 
 {
   home-manager.users.steven = {
-    programs.rofi-wayland = {
+    programs.rofi = {
 
       enable = true;
 

@@ -19,6 +19,8 @@
   environment.systemPackages = with pkgs; [
     alacritty
     base16preview
+    bat
+    btop
     discord
     dunst
     fastfetch
@@ -38,9 +40,7 @@
   programs.git.enable = true;
   programs.hyprland.enable = true;
   programs.hyprlock.enable = true;
-  programs.htop.enable = true;
   programs.neovim.enable = true;
-  programs.starship.enable = true;
   programs.waybar.enable = true;
 
 }
