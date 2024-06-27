@@ -7,10 +7,10 @@
   imports =
     [
       # Program-Conf
-      ./Configs
+      ../Configs
       
       # DesktopEnv-Conf
-      ./DesktopEnv-Conf
+      ../DesktopEnv-Conf
     ];
 
 

@@ -6,5 +6,6 @@
     ./bash.nix
     ./fastfetch.nix
     ./git.nix
+    ./hyprpaper.nix
   ];
 }

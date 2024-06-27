@@ -22,12 +22,13 @@
       shellAliases = {
         cat = "bat";
         ls = "lsd";
-	la = "ls -a";
-	lla = "ls -la";
-	lt = "ls --tree --group-dirs first";
-        create = "sudo python /etc/nixos/Modules/Script/create.py";
-	clean-and-build = "sudo nix-collect-garbage -d; sudo nixos-rebuild switch";
-	build = "sudo nixos-rebuild switch";
+	      la = "ls -a";
+	      lla = "ls -la";
+	      lt = "ls --tree --group-dirs first";
+        create = "python /etc/nixos/Modules/Scripts/create.py";
+	      clean-and-build = "sudo nix-collect-garbage -d; sudo nixos-rebuild switch";
+	      update-and-build = "sudo nix-channel --update; sudo nixos-rebuild switch";
+	      build = "sudo nixos-rebuild switch";
 
       };
     };

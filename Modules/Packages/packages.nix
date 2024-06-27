@@ -25,6 +25,7 @@
     dunst
     fastfetch
     google-chrome
+    hyprpaper
     libgcc
     libreoffice-qt
     lsd
@@ -42,6 +43,7 @@
   programs.hyprlock.enable = true;
   programs.neovim.enable = true;
   programs.waybar.enable = true;
+  programs.steam.enable = true;
 
 }
 

@@ -6,7 +6,7 @@
     ./DesktopEnv-Conf
     ./Packages
     ./VM
-    ./home-manager.nix
-    ./system.nix
+    ./Home-Manager
+    ./System
   ];
 }
