@@ -5,8 +5,8 @@
 {
   imports = 
     [
-      ./Hypr-Modules/waybar.nix
-      ./Hypr-Modules/rofi.nix
+      ./waybar.nix
+      ./rofi.nix
    ];
 }
 

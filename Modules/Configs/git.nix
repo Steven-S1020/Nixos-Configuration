@@ -11,9 +11,9 @@
       userName = "Steven";
       userEmail = "stevenstokes1020@gmail.com";
       extraConfig = {
-      	init.defaultBranch = "main";
+        init.defaultBranch = "main";
         safe.directory = "/etc/nixos";
-      };	
+      };  
     };
   };
 }

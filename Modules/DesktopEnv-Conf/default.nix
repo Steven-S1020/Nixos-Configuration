@@ -2,8 +2,9 @@
 
 {
   imports = [
-    ./Hypr-Modules
-    ./hypr-modules.nix
-    ./hyprland.nix
+    ./Hyprland
+    ./GNOME
   ];
+
+  services.xserver.displayManager.gdm.enable = true;
 }

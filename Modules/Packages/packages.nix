@@ -24,6 +24,7 @@
     discord
     dunst
     fastfetch
+    flavours
     google-chrome
     hyprpaper
     libgcc
@@ -43,7 +44,6 @@
   programs.hyprlock.enable = true;
   programs.neovim.enable = true;
   programs.waybar.enable = true;
-  programs.steam.enable = true;
 
 }
 

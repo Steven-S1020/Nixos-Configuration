@@ -7,5 +7,6 @@
     ./fastfetch.nix
     ./git.nix
     ./hyprpaper.nix
+    ./neovim.nix
   ];
 }
