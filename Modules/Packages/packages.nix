@@ -21,10 +21,11 @@
     base16preview
     bat
     btop
+    colloid-gtk-theme
+    colloid-icon-theme
     discord
     dunst
     fastfetch
-    flavours
     google-chrome
     hyprpaper
     libgcc

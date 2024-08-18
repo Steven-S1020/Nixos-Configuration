@@ -63,9 +63,9 @@
         vim.opt.ignorecase = true
         vim.opt.smartcase = true
 
-        vim.api.nvim_creat_user_command('FF', 'Telescope find_files', {})
+        vim.api.nvim_create_user_command('FF', 'Telescope find_files', {})
         vim.cmd('cnoreabbrev ff FF')
-        vim.api.nvim_creat_user_command('NT', 'Neotree', {})
+        vim.api.nvim_create_user_command('NT', 'Neotree', {})
         vim.cmd('cnoreabbrev nt NT')
 
         vim.api.nvim_create_autocmd("VimEnter", {

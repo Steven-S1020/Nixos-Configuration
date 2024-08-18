@@ -29,19 +29,18 @@
         enable = true;
 
         theme = {
-          name = "catppuccin-mocha-red-standard";
-          package = pkgs.catppuccin-gtk.override {
-            accents = [ "red" ];
-            variant = "mocha";
-            size = "standard";
+          name = "colloid-gtk-theme";
+          package = pkgs.colloid-gtk-theme.override {
+            themeVariants = [ "red" ];
+            colorVariants = [ "dark" ];
+            tweaks = [ "black" ];
           };
         };
 
         iconTheme = {
-          name = "Papirus-Dark";
-          package = pkgs.catppuccin-papirus-folders.override {
-            flavor = "mocha";
-            accent = "red";
+          name = "colloid-icon-theme";
+          package = pkgs.colloid-icon-theme.override {
+            colorVariants = [ "red" ];
           };
         };
       };
