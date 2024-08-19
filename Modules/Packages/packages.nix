@@ -20,7 +20,6 @@
     alacritty
     base16preview
     bat
-    btop
     colloid-gtk-theme
     colloid-icon-theme
     discord
@@ -31,11 +30,11 @@
     libgcc
     libreoffice-qt
     lsd
+    jdk
     nerdfonts
-    networkmanagerapplet
-    python3
+    python312
+    rclone
     rofi-wayland
-    teams-for-linux
     vscode
   ];
   

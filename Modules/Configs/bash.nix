@@ -21,15 +21,15 @@
       # Shell Aliases 
       shellAliases = {
       	home = "cd ~";
-	nix-home = "cd /etc/nixos";
-	clear = "clear; fastfetch";
+        nix-home = "cd /etc/nixos";
+        clear = "clear; fastfetch";
         cat = "bat";
         ls = "lsd";
         la = "ls -a";
         lla = "ls -la";
         lt = "ls --tree --group-dirs first";
         create = "python /etc/nixos/Modules/Scripts/create.py";
-        clean-and-build = "sudo nix-collect-garbage -d; sudo nixos-rebuild switch --flake /etc/nixos";
+        clean-and-build = "sudo -u steven nix-collect-garbage -d; sudo nixos-rebuild switch --flake /etc/nixos";
         build = "sudo nixos-rebuild switch --flake /etc/nixos";
 
       };

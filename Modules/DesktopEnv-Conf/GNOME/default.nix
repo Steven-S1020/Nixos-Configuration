@@ -16,9 +16,13 @@
       geary
       gnome-console
       gnome-connections
+      gnome-tour
+      yelp
     ]) ++ (with pkgs.gnome; [
       gnome-contacts
       gnome-maps
+      gnome-clocks
+      gnome-weather
     ]);
 
     # GNOME Theming
@@ -29,7 +33,7 @@
         enable = true;
 
         theme = {
-          name = "colloid-gtk-theme";
+          name = "Colloid-Red-Dark";
           package = pkgs.colloid-gtk-theme.override {
             themeVariants = [ "red" ];
             colorVariants = [ "dark" ];
@@ -38,7 +42,7 @@
         };
 
         iconTheme = {
-          name = "colloid-icon-theme";
+          name = "Colloid-red-dark";
           package = pkgs.colloid-icon-theme.override {
             colorVariants = [ "red" ];
           };
@@ -56,6 +60,12 @@
           ];
         };
 
+        # Set Shell Theme
+        "org/gnome/shell/extensions/user-theme" = {
+          name = "Colloid-Red-Dark";
+          };
+
+        # Set Wallpaper  
         "org/gnome/desktop/background" = {
           picture-uri = "file:///etc/nixos/Assets/nixos-red.png";
           picture-uri-dark = "file:///etc/nixos/Assets/nixos-red.png";

@@ -11,6 +11,10 @@
 
 # System Specific #
 ###################
+  environment.variables = {
+    USER = "steven";
+  };
+
   networking.hostName = "Azami"; # Define your hostname.
   GNOME.enable = true;
 
