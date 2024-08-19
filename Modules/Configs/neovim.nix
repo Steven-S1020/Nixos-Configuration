@@ -72,6 +72,9 @@
           callback = function()
             vim.cmd("Neotree")
             vim.cmd("wincmd p")
+            if vim.fn.argv(0) == "" then
+              require("telescope.builtin").find_files()
+              end
           end  
         })
       '';
