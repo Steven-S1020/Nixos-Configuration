@@ -18,7 +18,6 @@
   # System Packages
   environment.systemPackages = with pkgs; [
     alacritty
-    base16preview
     bat
     colloid-gtk-theme
     colloid-icon-theme
@@ -28,6 +27,7 @@
     google-chrome
     hyprpaper
     libgcc
+    mkdev
     libreoffice-qt
     lsd
     jdk
@@ -36,6 +36,8 @@
     rclone
     rofi-wayland
     vscode
+    xclip
+    wl-clipboard
   ];
   
   # Enable Packages

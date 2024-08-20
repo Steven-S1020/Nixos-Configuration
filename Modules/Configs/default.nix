@@ -8,6 +8,7 @@
     ./git.nix
     ./hyprpaper.nix
     ./neovim.nix
-#    ./rclone.nix
+    ./kitty.nix
+    ./stylix.nix
   ];
 }

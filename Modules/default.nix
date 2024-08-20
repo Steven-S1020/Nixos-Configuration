@@ -5,7 +5,6 @@
     ./Configs
     ./DesktopEnv-Conf
     ./Packages
-    ./VM
     ./Home-Manager
     ./System
   ];
