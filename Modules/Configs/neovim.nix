@@ -41,6 +41,8 @@
       plugins = with pkgs.vimPlugins; [
         neo-tree-nvim
         telescope-nvim
+        nvim-web-devicons
+        nvim-treesitter
 
         coc-pyright
         coc-clangd
@@ -77,6 +79,16 @@
               end
           end  
         })
+
+        vim.cmd[[
+          let java_highlight_function = 1
+          let java_highlight_all = 1
+          set filetype=java
+          highlight link javaScopeDecl Statement
+          highlight link javaType Type
+          highlight link javaDocTags PreProc
+        ]]
+
       '';
     };
   };
