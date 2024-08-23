@@ -49,11 +49,10 @@
           };
         };
 */
-       };
       };
+    };  
+ /* 
 
-  
-/*
 # dconf Settings for GNOME
       dconf.settings = {
 
@@ -84,8 +83,7 @@
         };
       };
     };
-*/  
-
+*/
   };
 }
 

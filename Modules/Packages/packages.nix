@@ -38,6 +38,7 @@
     vscode
     xclip
     wl-clipboard
+    zulip
   ];
   
   # Enable Packages
@@ -47,5 +48,6 @@
   programs.neovim.enable = true;
   programs.waybar.enable = true;
 
+  services.fwupd.enable = true;
 }
 

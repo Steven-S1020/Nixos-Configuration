@@ -1,0 +1,22 @@
+snippet def "Function" b
+def $1($2) -> $3:
+  ${4:...}
+endsnippet
+
+snippet cls "Class" b
+class $1:
+  def__init__(self, $2):
+    ${3:...}
+endsnippet
+
+snippet [c "List comprehension"
+[$1 for $2 in $3]
+endsnippet
+
+snippet {d "Dict comprehension"
+{$1: #2 for $3 in $4}
+endsnippet
+
+snippet (s "Set comprehension"
+{$1 for $2 in $3}
+endsnippet

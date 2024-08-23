@@ -13,7 +13,7 @@
 # System Specific #
 ###################
   environment.variables = {
-    USER = "steven";
+    username = "steven";
   };
 
   networking.hostName = "Azami"; # Define your hostname.
@@ -23,6 +23,7 @@
 ##########################
   boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
+  boot.kernelParams = [ "acpi=force" "apm=power_off" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
