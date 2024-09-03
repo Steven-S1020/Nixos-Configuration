@@ -17,7 +17,6 @@
   # System Packages
   environment.systemPackages = with pkgs; [
     bat
-    colloid-gtk-theme
     colloid-icon-theme
     discord
     dunst
