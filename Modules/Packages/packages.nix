@@ -1,6 +1,6 @@
 # All User and System Packages Configuration
 
-{ config, pkgs, lib, ... }:
+{ pkgs, ... }:
 
 {
 
@@ -12,12 +12,10 @@
     isNormalUser = true;
     description = "Steven";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
   };
 
   # System Packages
   environment.systemPackages = with pkgs; [
-    alacritty
     bat
     colloid-gtk-theme
     colloid-icon-theme
@@ -25,16 +23,15 @@
     dunst
     fastfetch
     google-chrome
-    hyprpaper
     libgcc
     mkdev
     libreoffice-qt
     lsd
     jdk
+    gnomeExtensions.open-bar
     nerdfonts
     python312
     rclone
-    rofi-wayland
     vscode
     xclip
     wl-clipboard
@@ -43,10 +40,6 @@
   
   # Enable Packages
   programs.git.enable = true;
-  programs.hyprland.enable = true;
-  programs.hyprlock.enable = true;
-  programs.neovim.enable = true;
-  programs.waybar.enable = true;
 
   services.fwupd.enable = true;
 }

@@ -6,7 +6,7 @@
   home-manager.users.steven = {
     services.hyprpaper = {
 
-      enable = true;
+      enable = false;
 
       settings = {
 

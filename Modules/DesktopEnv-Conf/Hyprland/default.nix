@@ -3,13 +3,14 @@
 { config, pkgs, lib, ... }:
 
 {
+  options = {
+    Hyprland.enable = lib.mkEnableOption "";
+  };
+
   imports = [
     ./Hypr-Modules
   ];
 
-  options = {
-    Hyprland.enable = lib.mkEnableOption "";
-  };
 
   config = lib.mkIf config.Hyprland.enable {
     home-manager.users.steven = {pkgs, ... }: {

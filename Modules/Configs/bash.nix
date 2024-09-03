@@ -1,6 +1,6 @@
 # Bash Configuration
 
-{ config, pkgs, lib, user, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   home-manager.users.steven = {
@@ -29,8 +29,8 @@
         lla = "ls -la";
         lt = "ls --tree --group-dirs first";
         create = "python /etc/nixos/Modules/Scripts/create.py";
-        clean-and-build = "sudo -u $(user) nix-collect-garbage -d && sudo nix-collect-garbage -d && sudo nixos-rebuild switch --flake /etc/nixos";
         build = "sudo nixos-rebuild switch --flake /etc/nixos";
+        clean-and-build = "nix-collect-garbage&&sudo nix-collect-garbage -d&&sudo nixos-rebuild switch --flake /etc/nixos";
 
       };
     };

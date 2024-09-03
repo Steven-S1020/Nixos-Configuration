@@ -2,7 +2,7 @@
 
 {
   options = {
-    GNOME.enable = lib.mkEnableOption "fuck";
+    GNOME.enable = lib.mkEnableOption "";
   };
 
   config = lib.mkIf config.GNOME.enable {
@@ -30,6 +30,7 @@
     programs.dconf.enable = true;
 
     home-manager.users.steven = {
+      
       gtk = {
         enable = true;
 
@@ -50,8 +51,8 @@
         };
 */
       };
-    };  
- /* 
+  
+ 
 
 # dconf Settings for GNOME
       dconf.settings = {
@@ -62,10 +63,11 @@
           disable-user-extensions = false;
           disable-extensions = [];
           enable-extensions = [
-            "user-theme@gnome-shell-extensions.gcampx.github.com"
+            "openbar@neuromorph"
+           #"user-theme@gnome-shell-extensions.gcampx.github.com"
           ];
         };
-
+/* 
          Set Shell Theme
         "org/gnome/shell/extensions/user-theme" = {
           name = "Colloid-Red-Dark";
@@ -81,9 +83,9 @@
         "org/gnome/desktop/screensaver" = {
           picture-uri = "file:///etc/nixos/Assets/nixos-red.png";
         };
+*/
       };
     };
-*/
   };
 }
 

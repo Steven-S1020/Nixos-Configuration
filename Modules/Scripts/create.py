@@ -30,7 +30,6 @@ def main():
 
     with open(fileName, 'w') as f:
         f.write('\n'.join(CONTENTS))
-
-
+    
 if __name__ == '__main__':
     main()
