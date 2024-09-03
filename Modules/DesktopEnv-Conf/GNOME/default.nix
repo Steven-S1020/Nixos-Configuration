@@ -18,7 +18,7 @@
       gnome-connections
       gnome-tour
       yelp
-    ]) ++ (with pkgs.gnome; [
+    ]) ++ (with pkgs; [
       gnome-contacts
       gnome-maps
       gnome-clocks
