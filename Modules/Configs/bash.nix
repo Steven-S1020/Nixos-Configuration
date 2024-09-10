@@ -1,6 +1,6 @@
 # Bash Configuration
 
-{ config, pkgs, lib, ... }:
+{ ... }:
 
 {
   home-manager.users.steven = {
@@ -22,8 +22,9 @@
       shellAliases = {
       	home = "cd ~";
         nix-home = "cd /etc/nixos";
-        clear = "clear; fastfetch";
         cat = "bat";
+        ff = "fastfetch";
+        cff = "clear && ff";
         ls = "lsd";
         la = "ls -a";
         lla = "ls -la";
