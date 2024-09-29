@@ -11,7 +11,7 @@
     stylix.url = "github:danth/stylix";
   };
 
-  outputs = { nixpkgs, self, nixos-hardware, ... } @ inputs : {
+  outputs = { nixpkgs, nixos-hardware, ... } @ inputs : {
     nixosConfigurations = {
       Azami = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs; };

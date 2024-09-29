@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ ... }:
 
 {
   imports = [
@@ -7,7 +7,7 @@
     ./fastfetch.nix
     ./git.nix
     ./hyprpaper.nix
-    ./Neovim/neovim.nix
+    ./neovim.nix
     ./kitty.nix
     ./stylix.nix
   ];

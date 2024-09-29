@@ -17,28 +17,33 @@
   # System Packages
   environment.systemPackages = with pkgs; [
     bat
+    bitwarden-desktop
     colloid-icon-theme
     discord
     dunst
     fastfetch
+    gnomeExtensions.open-bar
     google-chrome
+    jdk
     libgcc
-    mkdev
     libreoffice-qt
     lsd
-    jdk
-    gnomeExtensions.open-bar
+    mkdev
+    mysql84
     nerdfonts
     python312
+    qFlipper
     rclone
+    ripgrep
     vscode
-    xclip
     wl-clipboard
+    xclip
     zulip
   ];
   
   # Enable Packages
   programs.git.enable = true;
+  hardware.flipperzero.enable = true;
 
   services.fwupd.enable = true;
 }
