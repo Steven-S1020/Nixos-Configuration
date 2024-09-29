@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./alacritty.nix
     ./bash.nix
     ./fastfetch.nix
     ./git.nix
