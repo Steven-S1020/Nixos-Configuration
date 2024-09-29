@@ -18,7 +18,6 @@
 
   networking.hostName = "Azami"; # Define your hostname.
   GNOME.enable = true;
-  Hyprland.enable = false;
 
 # Hardware Configuration #
 ##########################

@@ -9,6 +9,8 @@
     services.xserver = {
       desktopManager.gnome.enable = true;
     };
+  # Enable Gnome Display Manager
+  services.xserver.displayManager.gdm.enable = true;
 
     # Exclude GNOME bloat
     environment.gnome.excludePackages = (with pkgs; [

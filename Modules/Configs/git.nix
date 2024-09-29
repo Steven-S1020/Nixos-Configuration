@@ -1,6 +1,6 @@
 # git Configuration
 
-{ config, pkgs, lib, ... }:
+{ ... }:
 
 {
   home-manager.users.steven = {
