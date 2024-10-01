@@ -5,7 +5,7 @@
 {
   home-manager.users.steven = {
     programs.bash = {
-      
+
       enable = true;
 
       # Command ran on open of Alacritty
@@ -15,9 +15,9 @@
 
       # Prompt Color
       bashrcExtra = ''
-         PS1="\[\e[38;2;208;132;132m\]┌─[\[\e[38;2;172;66;66m\]\u@\h\[\e[38;2;208;132;132m\]] ❄ \w\n\[\e[38;2;208;132;132m\]└─ ⛩  \[\e[0m\]" 
+         PS1="\[\e[37m\]|\[\e[38;2;172;66;66m\]\u@\h\[\e[37m\]|\e[38;2;172;66;66m\] \w \[\e[37m\]󱎃\n󰇜󰇜 \[\e[0m\]" 
       '';
-  
+
       # Shell Aliases 
       shellAliases = {
       	home = "cd ~";

@@ -3,30 +3,32 @@
 {
   # NixOS Options
   stylix = {
-    
+
     enable = true;
-    
+
     # Set Base16 Scheme
     # base16Scheme = ../../Assets/Base16-Schemes/Red-Flake.yaml;
 
     # Set Wallpaper
-    image = ../../Assets/Wallpapers/Tanjiro-Red.png;
+    image = ../../Assets/Wallpapers/Nasa.png;
 
     # Set Polarity
     polarity = "dark";
 
     # Set grub to use Wallpaper
     targets.grub.useImage = true;
-    
+
     # Set Font
     fonts = {
       monospace = {
         package = pkgs.nerdfonts.override {fonts = ["FiraCode"];};
         name = "FiraCode Nerd Font Mono";
       };
+
+      sizes.terminal = 14;
     };
 
-    # Set Opacity 
+    # Set Opacity
     opacity = {
       terminal = 0.9;
     };
