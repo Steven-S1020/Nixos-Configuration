@@ -52,7 +52,6 @@
         # First Module Group
           "break"
           "break"
-          "break"
           {
             type = "title";
           }

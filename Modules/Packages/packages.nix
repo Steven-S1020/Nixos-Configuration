@@ -19,6 +19,7 @@
     # CLI Utilites
     bat
     fastfetch
+    glow
     lsd
     mkdev
     mysql84
@@ -26,6 +27,7 @@
     ripgrep
 
     # Desktop Applications
+    brave
     bitwarden-desktop
     google-chrome
     libreoffice-qt

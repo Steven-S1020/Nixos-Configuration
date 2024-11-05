@@ -194,6 +194,7 @@
             p.tree-sitter-nix
             p.tree-sitter-python
             p.tree-sitter-rust
+            p.tree-sitter-sql
             p.tree-sitter-vim
           ]));
           config = toLua /*lua*/ ''
