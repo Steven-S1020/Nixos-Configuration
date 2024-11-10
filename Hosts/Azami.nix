@@ -1,10 +1,10 @@
-{ config, lib, pkgs, modulesPath, inputs, ... }:
+{ config, lib, modulesPath, inputs, ... }:
 
 {
   imports =
     [ 
       (modulesPath + "/installer/scan/not-detected.nix")
-      
+
       ../Modules
       inputs.home-manager.nixosModules.default
 
@@ -18,6 +18,13 @@
 
   networking.hostName = "Azami"; # Define your hostname.
   GNOME.enable = true;
+
+# Stylix Specific #
+###################
+stylix =
+  {
+    terminal.size = lib.mkForce 14;
+  };
 
 # Hardware Configuration #
 ##########################

@@ -24,8 +24,6 @@
         package = pkgs.nerdfonts.override {fonts = ["FiraCode"];};
         name = "FiraCode Nerd Font Mono";
       };
-
-      sizes.terminal = 14;
     };
 
     # Set Opacity
