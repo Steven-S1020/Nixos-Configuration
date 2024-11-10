@@ -29,7 +29,7 @@
 ###################
   stylix =
     {
-      terminal.size = lib.mkForce 14;
+      fonts.sizes.terminal = lib.mkForce 14;
     };
 
   # Hardware Configuration #
