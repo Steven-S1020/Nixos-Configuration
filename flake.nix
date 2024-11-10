@@ -17,16 +17,28 @@
         specialArgs = {inherit inputs; };
         
         modules = [
-          # Theming
-          inputs.stylix.nixosModules.stylix
-          
+          # Host
+          ./Hosts/Azami.nix
+
           # Surface Hardware
           nixos-hardware.nixosModules.microsoft-surface-common
 
-          # Host
-          ./Hosts/Azami.nix
+          # Theming
+          inputs.stylix.nixosModules.stylix
         ];
-      };  
+      };
+
+      Deimos = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs; };
+        
+        modules = [
+          # Host
+          ./Hosts/Deimos.nix
+
+          # Theming
+          inputs.stylix.nixosModules.stylix
+        ];
+      };
     };
   };
 }
