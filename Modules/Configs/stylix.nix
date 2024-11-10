@@ -21,11 +21,16 @@
     # Set Font
     fonts = {
       monospace = {
-        package = pkgs.nerdfonts.override {fonts = ["FiraCode"];};
+        package = pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; };
         name = "FiraCode Nerd Font Mono";
       };
 
-      sizes.terminal = 14;
+      sizes = {
+        applications = 10;
+        desktop = 10;
+        popups = 8;
+        terminal = 10;
+      };
     };
 
     # Set Opacity

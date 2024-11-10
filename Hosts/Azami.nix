@@ -1,17 +1,23 @@
-{ config, lib, pkgs, modulesPath, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  modulesPath,
+  inputs,
+  ...
+}:
 
 {
-  imports =
-    [ 
-      (modulesPath + "/installer/scan/not-detected.nix")
-      
-      ../Modules
-      inputs.home-manager.nixosModules.default
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
 
-    ];
+    ../Modules
+    inputs.home-manager.nixosModules.default
 
-# System Specific #
-###################
+  ];
+
+  # System Specific #
+  ###################
   environment.variables = {
     username = "steven";
   };
@@ -19,24 +25,36 @@
   networking.hostName = "Azami"; # Define your hostname.
   GNOME.enable = true;
 
-# Hardware Configuration #
-##########################
-  boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" ];
+  # Hardware Configuration #
+  ##########################
+  boot.initrd.availableKernelModules = [
+    "xhci_pci"
+    "thunderbolt"
+    "nvme"
+    "usb_storage"
+    "sd_mod"
+  ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelParams = [ "acpi=force" "apm=power_off" ];
+  boot.kernelParams = [
+    "acpi=force"
+    "apm=power_off"
+  ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/7809ed61-0de1-48c0-864a-d8a9d97366ea";
-      fsType = "ext4";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/7809ed61-0de1-48c0-864a-d8a9d97366ea";
+    fsType = "ext4";
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/2D7C-36BD";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/2D7C-36BD";
+    fsType = "vfat";
+    options = [
+      "fmask=0022"
+      "dmask=0022"
+    ];
+  };
 
   swapDevices = [ ];
 
