@@ -24,7 +24,7 @@
           preserveAspectRatio = false;
         };
 
-      # Display Settings
+        # Display Settings
         display = {
           size.binaryPrefix = "si";
           color = "red";
@@ -49,7 +49,7 @@
         # Modules
         modules = [
 
-        # First Module Group
+          # First Module Group
           "break"
           "break"
           {
@@ -109,7 +109,7 @@
             key = "├─󰋊";
           }
           {
-            type  = "localip";
+            type = "localip";
             key = "╰─󱦂";
             showIpv4 = true;
             compact = true;

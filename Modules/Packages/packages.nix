@@ -11,7 +11,10 @@
   users.users.steven = {
     isNormalUser = true;
     description = "Steven";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
   };
 
   # System Packages
@@ -20,9 +23,11 @@
     bat
     fastfetch
     glow
+    fd
     lsd
     mkdev
     mysql84
+    nixfmt-rfc-style
     rclone
     ripgrep
 
@@ -32,6 +37,7 @@
     google-chrome
     libreoffice-qt
     qFlipper
+    vesktop
     vscode
 
     # Coding
@@ -48,10 +54,10 @@
     xclip
 
   ];
-  
+
   # Enable Packages
   programs.git.enable = true;
+  programs.steam.enable = true;
   hardware.flipperzero.enable = true;
 
 }
-

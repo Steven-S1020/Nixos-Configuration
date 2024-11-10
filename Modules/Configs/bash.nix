@@ -15,12 +15,12 @@
 
       # Prompt Color
       bashrcExtra = ''
-         PS1="\[\e[37m\]|\[\e[38;2;172;66;66m\]\u@\h\[\e[37m\]|\e[38;2;172;66;66m\] \w\[\e[37m\]\n󱎃 \[\e[0m\]" 
+        PS1="\[\e[37m\]|\[\e[38;2;172;66;66m\]\u@\h\[\e[37m\]|\e[38;2;172;66;66m\] \w \[\e[37m\]󱎃\n󰇜󰇜 \[\e[0m\]" 
       '';
 
       # Shell Aliases 
       shellAliases = {
-      	home = "cd ~";
+        home = "cd ~";
         nix-home = "cd /etc/nixos";
         cat = "bat";
         ff = "fastfetch";
@@ -37,4 +37,3 @@
     };
   };
 }
-

@@ -11,22 +11,40 @@
     stylix.url = "github:danth/stylix";
   };
 
-  outputs = { nixpkgs, nixos-hardware, ... } @ inputs : {
-    nixosConfigurations = {
-      Azami = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs; };
-        
-        modules = [
-          # Theming
-          inputs.stylix.nixosModules.stylix
-          
-          # Surface Hardware
-          nixos-hardware.nixosModules.microsoft-surface-common
+  outputs =
+    { nixpkgs, nixos-hardware, ... }@inputs:
+    {
+      nixosConfigurations = {
+        Azami = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+          };
 
-          # Host
-          ./Hosts/Azami.nix
-        ];
-      };  
+          modules = [
+            # Host
+            ./Hosts/Azami.nix
+
+            # Surface Hardware
+            nixos-hardware.nixosModules.microsoft-surface-common
+
+            # Theming
+            inputs.stylix.nixosModules.stylix
+          ];
+        };
+
+        Deimos = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+          };
+
+          modules = [
+            # Host
+            ./Hosts/Deimos.nix
+
+            # Theming
+            inputs.stylix.nixosModules.stylix
+          ];
+        };
+      };
     };
-  };
 }

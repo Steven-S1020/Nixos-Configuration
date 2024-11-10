@@ -22,44 +22,51 @@
     username = "steven";
   };
 
-  networking.hostName = "Azami"; # Define your hostname.
+  networking.hostName = "Deimos"; # Define your hostname.
   GNOME.enable = true;
-
-# Stylix Specific #
-###################
-  stylix =
-    {
-      terminal.size = lib.mkForce 14;
-    };
 
   # Hardware Configuration #
   ##########################
+  services.xserver.videoDrivers = [ "nvidia" ];
+
+  hardware.graphics.enable = true;
+
+  hardware.nvidia = {
+    modesetting.enable = true;
+
+    powerManagement.enable = false;
+
+    powerManagement.finegrained = false;
+
+    open = false;
+
+    nvidiaSettings = true;
+
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
   boot.initrd.availableKernelModules = [
-    "xhci_pci"
-    "thunderbolt"
     "nvme"
+    "xhci_pci"
+    "ahci"
+    "usbhid"
     "usb_storage"
     "sd_mod"
   ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelParams = [
-    "acpi=force"
-    "apm=power_off"
-  ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/7809ed61-0de1-48c0-864a-d8a9d97366ea";
+    device = "/dev/disk/by-uuid/a3fbfe34-fbe4-4082-a9ba-b972b610951c";
     fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/2D7C-36BD";
+    device = "/dev/disk/by-uuid/6082-3589";
     fsType = "vfat";
     options = [
-      "fmask=0022"
-      "dmask=0022"
+      "fmask=0077"
+      "dmask=0077"
     ];
   };
 
@@ -70,8 +77,9 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlp0s20f3.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp42s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
 }
