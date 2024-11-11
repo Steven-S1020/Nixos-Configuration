@@ -1,1 +1,2 @@
-./Modules/Secrets/rclone.conf
+./Modules/Configs/syncthing.sample.nix
+
