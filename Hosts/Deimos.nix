@@ -24,9 +24,11 @@
   networking.hostName = "Deimos"; # Define your hostname.
   GNOME.enable = true;
 
+  boot.supportedFilesystems = [ "ntfs" ];
+
   # Stylix Specific #
   ###################
-  sizes = {
+  stylix.fonts.sizes = {
         applications = lib.mkForce 10;
         desktop = lib.mkForce 10;
         popups = lib.mkForce 8;
