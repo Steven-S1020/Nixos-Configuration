@@ -25,12 +25,11 @@
   networking.hostName = "Azami"; # Define your hostname.
   GNOME.enable = true;
 
-# Stylix Specific #
-###################
-  stylix =
-    {
-      fonts.sizes.terminal = lib.mkForce 14;
-    };
+  # Stylix Specific #
+  ###################
+  stylix = {
+    fonts.sizes.terminal = lib.mkForce 14;
+  };
 
   # Hardware Configuration #
   ##########################

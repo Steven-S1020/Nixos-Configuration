@@ -10,24 +10,37 @@
     overrideFolders = true;
     settings = {
       devices = {
-        "Azami" =     { id = ""; };
-        "Deimos" = { id = ""; };
+        "Azami" = {
+          id = "";
+        };
+        "Deimos" = {
+          id = "";
+        };
       };
 
       folders = {
         "Documents" = {
           path = "/home/steven/Documents";
-          devices = [ "Azami" "Deimos" ];
+          devices = [
+            "Azami"
+            "Deimos"
+          ];
         };
 
         "Code" = {
           path = "/home/steven/Code";
-          devices = [ "Azami" "Deimos" ];
+          devices = [
+            "Azami"
+            "Deimos"
+          ];
         };
 
         "Pictures" = {
           path = "/home/steven/Pictures";
-          devices = [ "Azami" "Deimos" ];
+          devices = [
+            "Azami"
+            "Deimos"
+          ];
         };
       };
 

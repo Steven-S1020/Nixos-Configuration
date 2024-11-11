@@ -190,50 +190,53 @@
                   callback = function()
                     if vim.fn.argv(0) == "" then
                       require("telescope.builtin").find_files()
-                      end
+                    end
                   end
-              end
-            })
-          '';
-        }
-        {
-          plugin = (nvim-treesitter.withPlugins (p: [
-            p.tree-sitter-bash
-            p.tree-sitter-cpp
-            p.tree-sitter-java
-            p.tree-sitter-json
-            p.tree-sitter-latex
-            p.tree-sitter-lua
-            p.tree-sitter-nix
-            p.tree-sitter-python
-            p.tree-sitter-rust
-            p.tree-sitter-sql
-            p.tree-sitter-vim
-          ]));
-          config = toLua /*lua*/ ''
-            require('nvim-treesitter.configs').setup {
-              ensure_installed = {},
-              auto_install = false,
-              highlight = { enable = true },
-            }
-          '';
-        }
-        {
-          plugin = ultisnips;
-          config = ''
-            let g:UltiSnipsSnippetDirectories=['/etc/nixos/Modules/Configs/Snippets/']
-            let g:UltiSnipsExpandTrigger = '<tab>'
-            let g:UltiSnipsJumpForwardTrigger = '<tab>'
-            let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-          '';
-        }
-        {
-          plugin = vim-visual-increment;
-          config = ''
-            set nrformats=alpha,octal,hex
-          '';
-        }
-      ];
+                })
+              '';
+          }
+          {
+            plugin = (
+              nvim-treesitter.withPlugins (p: [
+                p.tree-sitter-bash
+                p.tree-sitter-cpp
+                p.tree-sitter-java
+                p.tree-sitter-json
+                p.tree-sitter-latex
+                p.tree-sitter-lua
+                p.tree-sitter-nix
+                p.tree-sitter-python
+                p.tree-sitter-rust
+                p.tree-sitter-sql
+                p.tree-sitter-vim
+              ])
+            );
+            config =
+              # lua
+              toLua ''
+                require('nvim-treesitter.configs').setup {
+                  ensure_installed = {},
+                  auto_install = false,
+                  highlight = { enable = true },
+                }
+              '';
+          }
+          {
+            plugin = ultisnips;
+            config = ''
+              let g:UltiSnipsSnippetDirectories=['/etc/nixos/Modules/Configs/Snippets/']
+              let g:UltiSnipsExpandTrigger = '<tab>'
+              let g:UltiSnipsJumpForwardTrigger = '<tab>'
+              let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+            '';
+          }
+          {
+            plugin = vim-visual-increment;
+            config = ''
+              set nrformats=alpha,octal,hex
+            '';
+          }
+        ];
     };
   };
 }

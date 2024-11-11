@@ -29,10 +29,10 @@
   # Stylix Specific #
   ###################
   stylix.fonts.sizes = {
-        applications = lib.mkForce 10;
-        desktop = lib.mkForce 10;
-        popups = lib.mkForce 8;
-        terminal = lib.mkForce 10;
+    applications = lib.mkForce 10;
+    desktop = lib.mkForce 10;
+    popups = lib.mkForce 8;
+    terminal = lib.mkForce 10;
   };
 
   # Hardware Configuration #
