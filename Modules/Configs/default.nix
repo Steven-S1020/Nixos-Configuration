@@ -8,6 +8,5 @@
     ./neovim.nix
     ./kitty.nix
     ./stylix.nix
-    ./syncthing.nix
   ];
 }

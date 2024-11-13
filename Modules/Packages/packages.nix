@@ -57,7 +57,6 @@
 
   # Enable Packages
   programs.git.enable = true;
-  programs.steam.enable = true;
   hardware.flipperzero.enable = true;
 
 }

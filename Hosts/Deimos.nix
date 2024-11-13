@@ -26,14 +26,16 @@
 
   boot.supportedFilesystems = [ "ntfs" ];
 
-  # Stylix Specific #
-  ###################
+  # Stylix
   stylix.fonts.sizes = {
     applications = lib.mkForce 10;
     desktop = lib.mkForce 10;
     popups = lib.mkForce 8;
     terminal = lib.mkForce 10;
   };
+
+  # Programs
+  programs.steam.enable = true;
 
   # Hardware Configuration #
   ##########################
