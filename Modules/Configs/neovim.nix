@@ -179,6 +179,18 @@
             config =
               # lua
               toLua ''
+                require("telescope").setup
+                {
+                  defaults =
+                  {
+                    vimgrep_arguments =
+                    {
+                      'rg',
+                      '--no-ignore',
+                    };
+                  };
+                };
+
                 -- Rebind commands
                 vim.api.nvim_create_user_command('FF', 'Telescope find_files', {})
                 vim.cmd('cnoreabbrev ff FF')
