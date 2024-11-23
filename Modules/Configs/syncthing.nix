@@ -11,7 +11,7 @@
     settings = {
       devices = {
         "Azami" = {
-          id = "";
+          id = "L5BJCJO-NRFMLQ6-2XAZWD5-S55I7YP-FAHSYQY-D5LC2KE-PXPUQD5-AFDULQS";
         };
         "Deimos" = {
           id = "I4Y36TF-F6YTDFP-XS5F2IJ-6FR7UTK-PDCZIML-7OWPOTT-YFOS6KJ-ZMTZXAC";
