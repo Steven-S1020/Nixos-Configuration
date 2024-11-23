@@ -1,6 +1,6 @@
 # All User and System Packages Configuration
 
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
 
@@ -24,7 +24,6 @@
     fastfetch
     fd
     glow
-    inputs.agenix.packages."${system}".default
     lsd
     mkdev
     mysql84
