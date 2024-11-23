@@ -12,7 +12,7 @@
   };
 
   outputs =
-    { nixpkgs, nixos-hardware, ... }@inputs:
+    { nixpkgs, nixos-hardware, stylix, ... }@inputs:
     {
       nixosConfigurations = {
         Azami = nixpkgs.lib.nixosSystem {
@@ -28,7 +28,7 @@
             nixos-hardware.nixosModules.microsoft-surface-common
 
             # Theming
-            inputs.stylix.nixosModules.stylix
+            stylix.nixosModules.stylix
           ];
         };
 
@@ -42,7 +42,7 @@
             ./Hosts/Deimos.nix
 
             # Theming
-            inputs.stylix.nixosModules.stylix
+            stylix.nixosModules.stylix
           ];
         };
       };

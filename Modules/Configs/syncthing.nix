@@ -43,11 +43,6 @@
           ];
         };
       };
-
-      gui = {
-        user = "steven";
-        password = "";
-      };
     };
   };
 }

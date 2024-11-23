@@ -1,6 +1,6 @@
 # All User and System Packages Configuration
 
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
 
@@ -22,8 +22,9 @@
     # CLI Utilites
     bat
     fastfetch
-    glow
     fd
+    glow
+    inputs.agenix.packages."${system}".default
     lsd
     mkdev
     mysql84
