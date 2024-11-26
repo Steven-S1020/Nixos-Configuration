@@ -36,6 +36,7 @@
     bitwarden-desktop
     google-chrome
     libreoffice-qt
+    spotify
     qFlipper
     vesktop
     vscode
