@@ -36,7 +36,7 @@ I wish you the best of luck.
 
 - Nixos Hardware
 
-[nixos-hardware](https://github.com/NixOS/nixos-hardware.git) is a collection of NixOS Modules for covering hardware quirks. Due to me deciding to buy a Microsoft Surface before knowing better, I tend to need many specific drivers for my system. The     main issue that prompted me in finding a fix was the laptop failing to power off fully and the screen flickering randomly. Adding this to my flake inputs and a few lines of Config to my flake modules [here](https://github.com/Steven-S1020/Nixos-Configuration/blob/e0d55644fd67f45364d4b5bd64139e7b2ba4f110/flake.nix#L27-L28) mostly fixed the issue. (I later realized the screen flickering was due to Microsoft not knowing how to make Laptops even though it's kinda their job.
+[nixos-hardware](https://github.com/NixOS/nixos-hardware.git) is a collection of NixOS Modules for covering hardware quirks. Due to me deciding to buy a Microsoft Surface before knowing better, I tend to need many specific drivers for my system. The     main issue that prompted me in finding a fix was the laptop failing to power off fully and the screen flickering randomly. Adding this to my flake inputs and a few lines of Config to my flake modules [here](https://github.com/Steven-S1020/Nixos-Configuration/blob/e0d55644fd67f45364d4b5bd64139e7b2ba4f110/flake.nix#L27-L28) mostly fixed the issue. (I later realized the screen flickering was due to Microsoft not knowing how to make Laptops even though it's kinda their job.)
 
 <br>
 
