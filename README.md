@@ -2,7 +2,7 @@
   My NixOS Configuration Files
 </h1>
 
-<img align="right" width="400" height="400" src="Assets/Other/Nix_Snowflake_Logo.svg">
+<img align="right" width="350" height="350" src="Assets/Other/Nix_Snowflake_Logo.svg">
 
 <br>
 
