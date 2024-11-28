@@ -23,8 +23,6 @@ I wish you the best of luck.
 
 <br>
 
-<br>
-
 ## Hosts
 
 | Hostname | Device Type | Purpose      |
