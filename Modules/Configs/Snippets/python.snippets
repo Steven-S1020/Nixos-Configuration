@@ -20,3 +20,11 @@ endsnippet
 snippet (s "Set comprehension"
 {$1 for $2 in $3}
 endsnippet
+
+snippet main "Main Boilerplate" bA
+def main() -> None:
+    ${0:...}
+
+    if __main__ == '__main__':
+        main()
+endsnippet
