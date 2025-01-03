@@ -44,6 +44,15 @@ I wish you the best of luck.
 
 [stylix](https://github.com/danth/stylix.git) is a system wide theming module for NixOS. My main reason for this was due to my obsession with the color red and that there isn't many good red standardized themes for linux. After adding this input to my flake and modules, all I needed to do was create a new config file [here](https://github.com/Steven-S1020/Nixos-Configuration/blob/e0d55644fd67f45364d4b5bd64139e7b2ba4f110/Modules/Configs/stylix.nix)
 
+## Installation
+
+```
+cd /etc/nixos
+sudo chown -R steven:steven .
+nix-shell -p git --run "git clone git@github.com:Steven-S1020/Nixos-Configuration.git ."
+sudo nixos-rebuild switch --flake #Deimos
+```
+
 
 
 
