@@ -26,6 +26,8 @@
 
   boot.supportedFilesystems = [ "ntfs" ];
 
+  services.hardware.openrgb.enable = true;
+
   # Stylix
   stylix.fonts.sizes = {
     applications = lib.mkForce 10;
@@ -36,6 +38,12 @@
 
   # Programs
   programs.steam.enable = true;
+
+  # File System
+  fileSystems."/home" = {
+    device = "/dev/disk/by-uuid/2f631124-85ac-4a42-8b5d-b691e0d8a563";
+    fsType = "ext4";
+  };
 
   # Hardware Configuration #
   ##########################
@@ -69,12 +77,12 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/a3fbfe34-fbe4-4082-a9ba-b972b610951c";
+    device = "/dev/disk/by-uuid/709e6e62-6585-4766-85e7-3c06599ddf94";
     fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/6082-3589";
+    device = "/dev/disk/by-uuid/798B-035F";
     fsType = "vfat";
     options = [
       "fmask=0077"
