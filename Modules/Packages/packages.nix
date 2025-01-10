@@ -35,6 +35,7 @@
     brave
     bitwarden-desktop
     google-chrome
+    heroic
     libreoffice-qt
     spotify
     qFlipper
