@@ -52,6 +52,8 @@
     colloid-icon-theme
     dunst
     gnomeExtensions.open-bar
+    hunspell
+    hunspellDicts.en_US
     nerdfonts
     wl-clipboard
     xclip
