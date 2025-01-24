@@ -45,6 +45,7 @@
     # Coding
     jdk
     libgcc
+    mars-mips
     python312
 
     # Desktop Environment Utilites
@@ -54,7 +55,6 @@
     nerdfonts
     wl-clipboard
     xclip
-
   ];
 
   # Enable Packages
