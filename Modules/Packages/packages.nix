@@ -1,6 +1,6 @@
 # All User and System Packages Configuration
 
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
 
@@ -25,7 +25,6 @@
     fd
     glow
     lsd
-    mkdev
     mysql84
     nixfmt-rfc-style
     rclone
@@ -45,11 +44,13 @@
     # Coding
     jdk
     libgcc
+    inputs.mkdev.packages.x86_64-linux.mkdev
     mars-mips
     python312
 
     # Desktop Environment Utilites
     colloid-icon-theme
+    corefonts
     dunst
     gnomeExtensions.open-bar
     hunspell
