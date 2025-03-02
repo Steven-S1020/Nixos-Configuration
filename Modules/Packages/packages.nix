@@ -50,7 +50,6 @@
 
     # Desktop Environment Utilites
     colloid-icon-theme
-    corefonts
     dunst
     gnomeExtensions.open-bar
     hunspell
@@ -58,6 +57,11 @@
     nerdfonts
     wl-clipboard
     xclip
+  ];
+
+  # Adding MS Fonts for school
+  fonts.packages = with pkgs; [
+    corefonts
   ];
 
   # Enable Packages
