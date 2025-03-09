@@ -19,7 +19,12 @@
   };
 
   outputs =
-    { nixpkgs, nixos-hardware, stylix, ... }@inputs:
+    {
+      nixpkgs,
+      nixos-hardware,
+      stylix,
+      ...
+    }@inputs:
     {
       nixosConfigurations = {
         Azami = nixpkgs.lib.nixosSystem {

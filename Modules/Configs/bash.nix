@@ -20,18 +20,16 @@
 
       # Shell Aliases 
       shellAliases = {
-        home = "cd ~";
-        nix-home = "cd /etc/nixos";
+        build = "sudo nixos-rebuild switch --flake /etc/nixos";
         cat = "bat";
-        ff = "fastfetch";
         cff = "clear && ff";
-        ls = "lsd";
+        clean-and-build = "nix-collect-garbage&&sudo nix-collect-garbage -d&&sudo nixos-rebuild switch --flake /etc/nixos";
+        ff = "fastfetch";
         la = "ls -a";
         lla = "ls -la";
+        ls = "lsd";
         lt = "ls --tree --group-dirs first";
-        create = "python /etc/nixos/Modules/Scripts/create.py";
-        build = "sudo nixos-rebuild switch --flake /etc/nixos";
-        clean-and-build = "nix-collect-garbage&&sudo nix-collect-garbage -d&&sudo nixos-rebuild switch --flake /etc/nixos";
+        nix-home = "cd /etc/nixos";
 
       };
     };
