@@ -52,17 +52,15 @@
   hardware.graphics.enable = true;
 
   hardware.nvidia = {
+    package = config.boot.kernelPackages.nvidiaPackages.latest;
     modesetting.enable = true;
-
-    powerManagement.enable = false;
-
-    powerManagement.finegrained = false;
+    powerManagement = {
+      enable = false;
+      finegrained = false;
+    };
 
     open = false;
-
     nvidiaSettings = true;
-
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
   boot.initrd.availableKernelModules = [
     "nvme"
