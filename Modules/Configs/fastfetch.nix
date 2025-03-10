@@ -9,7 +9,7 @@
       enable = true;
 
       settings = {
-        # Logo Settings  
+        # Logo Settings
         logo = {
           source = "/etc/nixos/Assets/ASCII-Art/Nasa.txt";
           color = {
