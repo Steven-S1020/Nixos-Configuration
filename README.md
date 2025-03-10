@@ -25,10 +25,10 @@ I wish you the best of luck.
 
 ## Hosts
 
-| Hostname | Device Type | Purpose      |
-|----------|-------------|--------------|
-| Azami    | Laptop      | School       |
-| Deimos   | Desktop     | Gaming       |
+| Hostname | Device Type | Purpose      | CPU            | GPU             | MEM        | DE    |
+|----------|-------------|--------------|----------------|-----------------|------------|-------|
+| Azami    | Laptop      | School       | Ryzen 5 5600X  | Nvidia 3070 LHR | 32 GB DDR4 | GNOME |
+| Deimos   | Desktop     | Gaming       | Intel i7-1255U | Integrated      | 16 GB DDR5 | GNOME |
 
 <br>
 
@@ -44,7 +44,13 @@ I wish you the best of luck.
 
 [stylix](https://github.com/danth/stylix.git) is a system wide theming module for NixOS. My main reason for this was due to my obsession with the color red and that there isn't many good red standardized themes for linux. After adding this input to my flake and modules, all I needed to do was create a new config file [here](https://github.com/Steven-S1020/Nixos-Configuration/blob/e0d55644fd67f45364d4b5bd64139e7b2ba4f110/Modules/Configs/stylix.nix)
 
-## Installation
+- Mkdev
+
+[mkdev](https://github.com/4jamesccraven/mkdev.git) is a command line tool to copy and deploy frequently used scripts and projects. Not only is this made by one of my friends, but I use it daily for quickly creating new projects. This in combination with [ultisnips](https://github.com/SirVer/ultisnips.git) speeds up my coding workflow.
+
+## Personal Notes
+
+### Installation
 
 ```
 cd /etc/nixos
@@ -53,7 +59,15 @@ nix-shell -p git --run "git clone git@github.com:Steven-S1020/Nixos-Configuratio
 sudo nixos-rebuild switch --flake #Deimos
 ```
 
+### Updating
 
-
-
-
+For all inputs:
+```
+cd etc/nixos
+nix flake update
+```
+For specific inputs:
+```
+cd etc/nixos
+nix flake update <InputName>
+```
