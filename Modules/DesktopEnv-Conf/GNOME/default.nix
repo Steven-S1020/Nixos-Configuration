@@ -57,7 +57,7 @@
                     tweaks = [ "black" ];
                   };
                 };
-        */
+                */
       };
 
       # dconf Settings for GNOME
@@ -73,8 +73,8 @@
             #"user-theme@gnome-shell-extensions.gcampx.github.com"
           ];
         };
-        /*
-                 Set Shell Theme
+                /*
+                # Set Shell Theme
                 "org/gnome/shell/extensions/user-theme" = {
                   name = "Colloid-Red-Dark";
                 };
@@ -89,7 +89,7 @@
                 "org/gnome/desktop/screensaver" = {
                   picture-uri = "file:///etc/nixos/Assets/nixos-red.png";
                 };
-        */
+                */
       };
     };
   };

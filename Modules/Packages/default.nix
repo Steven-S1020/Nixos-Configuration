@@ -58,7 +58,7 @@
     gnomeExtensions.open-bar
     hunspell
     hunspellDicts.en_US
-    nerdfonts
+    nerd-fonts.fira-code
     wl-clipboard
     xclip
   ];
