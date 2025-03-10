@@ -42,14 +42,6 @@
             "Deimos"
           ];
         };
-
-        "Mkdev Recipes" = {
-          path = "/home/steven/.local/share/mkdev";
-          devices = [
-            "Azami"
-            "Deimos"
-          ];
-        };
       };
     };
   };
