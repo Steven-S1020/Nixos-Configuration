@@ -63,6 +63,20 @@
       # dconf Settings for GNOME
       dconf.settings = {
 
+        # Setting Certain GNOME Settings
+        "org/gnome/desktop/interface" = {
+          enable-hot-corners = false;
+        };
+        "org/gnome/mutter" = {
+          dynamic-workspaces = true;
+        };
+        # Keybindsings
+        "org/gnome/settings-daemon/plugins/media-keys" = {
+          help = "@as []";
+        };
+        "org/gnome/shell/keybindings" = {
+          show-screen-recording-ui = "@as []";
+        };
         # Force removal of disabled extensions
         # and enable user-theme
         "org/gnome/shell" = {
