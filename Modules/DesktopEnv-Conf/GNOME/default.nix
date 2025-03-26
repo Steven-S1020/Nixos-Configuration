@@ -83,7 +83,7 @@
           disable-user-extensions = false;
           disable-extensions = [ ];
           enable-extensions = [
-            "openbar@neuromorph"
+            "hidetopbar@mathieu.bidon.ca"
             #"user-theme@gnome-shell-extensions.gcampx.github.com"
           ];
         };

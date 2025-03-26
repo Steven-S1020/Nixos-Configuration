@@ -56,7 +56,7 @@
     # Desktop Environment Utilites
     colloid-icon-theme
     dunst
-    gnomeExtensions.open-bar
+    gnomeExtensions.hide-top-bar
     hunspell
     hunspellDicts.en_US
     nerd-fonts.fira-code
