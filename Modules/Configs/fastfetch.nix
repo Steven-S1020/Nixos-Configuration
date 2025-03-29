@@ -11,11 +11,7 @@
       settings = {
         # Logo Settings
         logo = {
-          source = "/etc/nixos/Assets/ASCII-Art/Nasa.txt";
-          color = {
-            "1" = "38;2;172;66;66";
-            "2" = "38;2;58;48;48";
-          };
+          source = "/etc/nixos/Assets/ASCII-Art/Red-Flake.txt";
           padding = {
             top = 1;
             left = 5;
@@ -93,7 +89,7 @@
           {
             type = "gpu";
             key = "├─󰢮";
-            format = "{1}";
+            format = "{1} {2}";
           }
           {
             type = "sound";
@@ -103,10 +99,12 @@
           {
             type = "memory";
             key = "├─";
+            format = "{2} RAM";
           }
           {
             type = "disk";
             key = "├─󰋊";
+            format = "{2} DSK";
           }
           {
             type = "localip";

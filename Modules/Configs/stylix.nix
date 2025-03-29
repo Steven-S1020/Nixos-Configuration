@@ -10,7 +10,7 @@
     enable = true;
 
     # Set Base16 Scheme
-    # base16Scheme = ../../Assets/Base16-Schemes/Red-Flake.yaml;
+    base16Scheme = ../../Assets/Base16-Schemes/Nasa.yaml;
 
     # Set Wallpaper
     image = ../../Assets/Wallpapers/Nasa.png;
@@ -29,9 +29,18 @@
       };
     };
 
+    cursor = {
+      name = "Future-cursors";
+    };
+
     # Set Opacity
     opacity = {
       terminal = 0.9;
+    };
+
+    # Targets to Disable
+    targets = {
+      qt.enable = false;
     };
   };
 

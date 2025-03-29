@@ -2,6 +2,6 @@
 
 {
   imports = [
-    ./Future-Cursors
+    ./derivation.nix
   ];
 }

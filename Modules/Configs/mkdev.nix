@@ -3,11 +3,10 @@
 let
   tomlFormat = pkgs.formats.toml {};
   tomlContent = tomlFormat.generate "mkdev-config.toml" {
-    global = {
-      recipe_dir = "/etc/nixos/Assets/Mkdev-Recipes";
-    };
 
-    substitutions = {
+    recipe_dir = "/etc/nixos/Assets/Mkdev-Recipes";
+
+    subs = {
       day = "date +%d";
       dir = "mk::dir";
       month = "date +%m";
