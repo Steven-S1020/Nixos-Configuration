@@ -50,6 +50,8 @@ I wish you the best of luck.
 
 [mkdev](https://github.com/4jamesccraven/mkdev.git) is a command line tool to copy and deploy frequently used scripts and projects. Not only is this made by one of my friends, but I use it daily for quickly creating new projects. This in combination with [ultisnips](https://github.com/SirVer/ultisnips.git) speeds up my coding workflow.
 
+<br>
+
 - Zen Browser
 
 [zen-browser](https://github.com/youwen5/zen-browser-flake.git) is a new browser that isn't in nixpkgs yet. I've been keeping an eye on it since it launched, but it's taking longer than expected to reach a stable build for nixpkgs.
@@ -58,7 +60,7 @@ I wish you the best of luck.
 
 ## Personal Notes
 
-### Installation
+### Installation :
 
 ```
 cd /etc/nixos
@@ -66,8 +68,9 @@ sudo chown -R steven:steven .
 nix-shell -p git --run "git clone git@github.com:Steven-S1020/Nixos-Configuration.git ."
 sudo nixos-rebuild switch --flake #<FlakeHost>
 ```
+<br>
 
-### Updating
+### Updating :
 
 For all inputs:
 ```
