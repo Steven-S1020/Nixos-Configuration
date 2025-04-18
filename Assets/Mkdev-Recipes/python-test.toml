@@ -1,0 +1,20 @@
+name = "python-test"
+description = ""
+languages = ["\u001B[38;2;53;114;165mPython\u001B[0m"]
+
+[[contents]]
+name = "main.py"
+content = """
+# Path: {{dir}}
+# Created: {{day}}-{{month}}-{{year}}
+# By: {{user}}, {{pc_name}}
+
+# Imports
+
+# Main
+def main() -> None:
+    ...
+
+if __name__ == '__main__':
+    main()
+"""
