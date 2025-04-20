@@ -106,6 +106,20 @@
           map('n', '<C-k>', '<C-w>k')
           map('n', '<C-l>', '<C-w>l')
           map('v', '<C-s>', ':sort<CR>')
+
+          -- Autocmd to hide ~ while in an Alpha Dashboard
+
+          vim.api.nvim_create_autocmd({ "User", "BufUnload" }, {
+            callback = function(event)
+              if event.event == "User" and event.match == "AlphaReady" then
+                -- Hide ~ tildes
+                vim.opt_local.fillchars:append({ eob = " " })
+              elseif event.event == "BufUnload" and vim.bo.filetype == "alpha" then
+                -- Restore ~ tildes
+                vim.opt.fillchars:append({ eob = "~" })
+              end
+            end,
+          })
         '';
 
       ### plugins ###
@@ -189,7 +203,25 @@
           }
           {
             plugin = monokai-pro-nvim;
-            config = "colorscheme monokai-pro";
+            type = "lua";
+            config /*lua*/ = ''
+              require('monokai-pro').setup({
+                transparent_background = true,
+                background_clear = {
+                  "float_win",
+                  "telescope",
+                  "TelescopeNormal",
+                  "TelescopeBorder",
+                  "TelescopePromptNormal",
+                  "TelescopePromptBorder",
+                  "TelescopeResultsNormal",
+                  "TelescopeResultsBorder",
+                  "TelescopePreviewNormal",
+                  "TelescopePreviewBorder",                },
+              })
+
+              vim.cmd('colorscheme monokai-pro')
+              '';
           }
           {
             plugin = indent-blankline-nvim;
@@ -253,6 +285,9 @@
             config /*lua*/ =
               ''
                 require'lualine'.setup {
+                  options = {
+                    theme = 'monokai-pro'
+                  },
                   sections = {
                     lualine_a = { 'mode' },
                     lualine_b = { 'branch', 'diagnostics' },
