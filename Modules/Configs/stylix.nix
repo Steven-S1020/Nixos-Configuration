@@ -10,7 +10,7 @@
     enable = true;
 
     # Set Base16 Scheme
-    base16Scheme = ../../Assets/Base16-Schemes/Nasa.yaml;
+    base16Scheme = ../../Assets/Base16-Schemes/Red-Flake.yaml;
 
     # Set Wallpaper
     image = ../../Assets/Wallpapers/Nasa.png;
@@ -29,9 +29,11 @@
       };
     };
 
+    /*
     cursor = {
-      name = "Future-cursors";
+      name = "Future-cursors-black";
     };
+    */
 
     # Set Opacity
     opacity = {
@@ -48,6 +50,6 @@
   home-manager.users.steven.stylix = {
 
     # Disable Neovim Theming
-    targets.neovim.enable = false;
+    targets.neovim.enable = true;
   };
 }

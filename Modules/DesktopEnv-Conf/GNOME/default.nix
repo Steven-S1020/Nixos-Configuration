@@ -84,19 +84,19 @@
           disable-extensions = [ ];
           enable-extensions = [
             "hidetopbar@mathieu.bidon.ca"
-            #"user-theme@gnome-shell-extensions.gcampx.github.com"
+            "user-theme@gnome-shell-extensions.gcampx.github.com"
           ];
         };
-        /*
+       /* 
           # Set Shell Theme
           "org/gnome/shell/extensions/user-theme" = {
-            name = "Colloid-Red-Dark";
+            name = "catppuccin-mocha-red-standard";
           };
 
           # Set Wallpaper
           "org/gnome/desktop/background" = {
-            picture-uri = "file:///etc/nixos/Assets/nixos-red.png";
-            picture-uri-dark = "file:///etc/nixos/Assets/nixos-red.png";
+            picture-uri = "file:///etc/nixos/Assets/Wallpapers/nixos-red.png";
+            picture-uri-dark = "file:///etc/nixos/Assets/Wallpapers/nixos-red.png";
           };
 
           # Set Greeter Wallpaper

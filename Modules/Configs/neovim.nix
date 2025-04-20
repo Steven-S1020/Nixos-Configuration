@@ -133,6 +133,8 @@
               ''
                 map('n', '<leader>f', require'telescope.builtin'.find_files)
                 map('n', '<leader>g', require'telescope.builtin'.live_grep)
+                vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
+                vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "none" })
               '';
           }
           {
@@ -140,43 +142,151 @@
             type = "lua";
             config /*lua*/ =
               ''
-                --
+                -----
                 local alpha = require'alpha'
                 local dashboard = require'alpha.themes.dashboard'
                 local telescope = require'telescope.builtin'
+                local pickers = require'telescope.pickers'
+                local finders = require'telescope.finders'
+                local actions = require'telescope.actions'
+                local themes = require'telescope.themes'
+                local action_state = require'telescope.actions.state'
+                local conf = require('telescope.config').values
 
+                ----  Utility: open file picker in a specific directory
                 function find_files_in_dir(dir)
-                  telescope.find_files({ cwd = dir })
+                  telescope.find_files({
+                    cwd = dir,
+                    attach_mappings = function(prompt_bufnr, map)
+                      local actions = require("telescope.actions")
+                      local action_state = require("telescope.actions.state")
+
+                      actions.select_default:replace(function()
+                        actions.close(prompt_bufnr)
+                        local selection = action_state.get_selected_entry()
+                        if selection ~= nil then
+                          vim.cmd("edit " .. selection.path)
+                          vim.cmd("cd " .. dir)
+                        end
+                      end)
+
+                      return true
+                    end,
+                  })
                 end
 
-                function show_main_menu()
+                ---- Utility: open Mkdev recipe picker
+                Mkdev_Recipes = function(callback)
+                  pickers.new(themes.get_dropdown({
+                    prompt_title = 'Mkdev Recipes',
+                    finder = finders.new_oneshot_job(
+                      { 'bash', '-c', "mk list | grep '\\w\\s(.*)' | awk '{print $1}' | sed 's/\\x1b\\[[0-1]m//g'" },
+                      {
+                        entry_maker = function(entry)
+                          return {
+                            value = entry,
+                            display = entry,
+                            ordinal = entry,
+                          }
+                        end
+                      }
+                    ),
+                    sorter = conf.generic_sorter({}),
+
+                    previewer = false,
+                    width = 0.5,
+                    winblend = 5,
+
+                    attach_mappings = function(prompt_bufnr)
+                      actions.select_default:replace(function()
+                        actions.close(prompt_bufnr)
+                        local selection = action_state.get_selected_entry()
+                        if selection then
+                          callback(selection.value)
+                        end
+                      end)
+                      return true
+                    end,
+                  })):find()
+                end
+
+                ---- Main Menu
+                function Main_Menu()
                   dashboard.section.buttons.val = {
-                    dashboard.button('p', 'Project', show_project_menu),
-                    dashboard.button('n',' Nix Config', function() find_files_in_dir("/etc/nixos") end),
-                    dashboard.button('f','󰍉 Find Files', function() telescope.find_files() end),
-                    dashboard.button('c',' CLI', function() vim.cmd('qa') end),
+                    dashboard.button('p', 'Project', Project_Menu),
+                    dashboard.button('n', ' Nix Config', function() find_files_in_dir("/etc/nixos") end),
+                    dashboard.button('f', '󰍉 Find Files', function() telescope.find_files() end),
+                    dashboard.button('c', ' CLI', function() vim.cmd('qa') end),
                   }
-                  alpha.setup(dashboard.config)
+                  vim.cmd('AlphaRemap')
                   vim.cmd('AlphaRedraw')
                 end
 
-                function show_project_menu()
+                ---- Project Menu
+                function Project_Menu()
                   dashboard.section.buttons.val = {
                     dashboard.button('o', 'Open Existing Project', function()
                       telescope.find_files({
                         cwd = '~/Code',  -- Set to your directory
                         prompt_title = "Select Project Directory",
-                        find_command = { "fd", "--type", "d", "--exact-depth", "2"},  -- Custom find command for directory depth
+                        find_command = { "fd", "--type", "d", "--exact-depth", "2"},  ---- Custom find command for directory depth
                       })
                     end),
-                    dashboard.button('<BS>', 'Back', show_main_menu),
+                    dashboard.button('n', 'New Project', Create_Project_Menu),
+                    dashboard.button('<BS>', 'Back', Main_Menu),
                   }
-                  alpha.setup(dashboard.config)
                   vim.cmd('AlphaRemap')
                   vim.cmd('AlphaRedraw')
                 end
 
+                ---- Create Project Menu
+                function Create_Project_Menu()
+                  dashboard.section.buttons.val = {
+                    dashboard.button('g', '󰲋 General Project', function()
+                      vim.ui.input({ prompt = "Project name: " }, function(name)
+                        if not name or name == "" then return end
+                        Mkdev_Recipes(function(recipe)
+                          if not recipe or recipe == "" then return end
+                          local full_path = string.format("%s/%s", vim.fn.expand("~/Code/Projects"), name)
+                          vim.fn.mkdir(full_path, "p")
+                          vim.fn.jobstart(string.format("cd '%s' && mk %s", full_path, recipe))
+                          require("telescope.builtin").find_files({ cwd = full_path })
+                        end)
+                      end)
+                    end),
 
+                    dashboard.button('c', '󱔎 Class Project', function()
+                      vim.ui.input({ prompt = "Class Folder: " }, function(class)
+                        if not class or class == "" then return end
+                        vim.ui.input({ prompt = "Project Name: " }, function(name)
+                          if not name or name == "" then return end
+                          Mkdev_Recipes(function(recipe)
+                            if not recipe or recipe == "" then return end
+                            local full_path = string.format("%s/%s/%s", vim.fn.expand("~/Code/School"), class, name)
+                            vim.fn.mkdir(full_path, "p")
+                            vim.fn.jobstart(string.format("cd '%s' && mk %s", full_path, recipe))
+                            require("telescope.builtin").find_files({ cwd = full_path })
+                          end)
+                        end)
+                      end)
+                    end),
+
+                    dashboard.button('d', '󰙯 New Class Dir', function()
+                      vim.ui.input({ prompt = "Class Name: " }, function(class_name)
+                        if not class_name or class_name == "" then return end
+                        local path = string.format("%s/%s", vim.fn.expand("~/Code/School"), class_name)
+                        vim.fn.mkdir(path, "p")
+                        vim.notify("Created Class Folder: " .. path, vim.log.levels.INFO)
+                      end)
+                    end),
+
+                    dashboard.button('<BS>', 'Back', Project_Menu),
+                  }
+                  vim.cmd('AlphaRemap')
+                  vim.cmd('AlphaRedraw')
+                end
+
+                ---- Header
                 dashboard.section.header.val = {
                   [[ __  __               _____   ____       ]],
                   [[/\ \/\ \  __         /\  __`\/\  _`\     ]],
@@ -187,6 +297,10 @@
                   [[    \/_/\/_/\/_/\//\/_/  \/_____/\/_____/]],
                 }
 
+                ---- Layout and Highlights
+                dashboard.section.header.opts.hl = 'Include'
+                dashboard.section.buttons.opts.hl = 'Keyword'
+
                 dashboard.config.layout = {
                   { type = 'padding', val = 10 },
                   dashboard.section.header,
@@ -194,17 +308,18 @@
                   dashboard.section.buttons,
                 }
 
-                dashboard.section.header.opts.hl = 'Include'
-                dashboard.section.buttons.opts.hl = 'Keyword'
-
+                ---- Setup Alpha
                 alpha.setup(dashboard.opts)
-                show_main_menu()
+
+                ---- Launch Main Menu
+                Main_Menu()
               '';
           }
           {
             plugin = monokai-pro-nvim;
             type = "lua";
-            config /*lua*/ = ''
+            config /*lua*/ =
+              ''
               require('monokai-pro').setup({
                 transparent_background = true,
                 background_clear = {
@@ -217,11 +332,12 @@
                   "TelescopeResultsNormal",
                   "TelescopeResultsBorder",
                   "TelescopePreviewNormal",
-                  "TelescopePreviewBorder",                },
+                  "TelescopePreviewBorder",
+                },
               })
 
               vim.cmd('colorscheme monokai-pro')
-              '';
+            '';
           }
           {
             plugin = indent-blankline-nvim;
@@ -260,15 +376,20 @@
                 local cmp = require'cmp'
 
                 cmp.setup({
+                  window = {
+                    border = 'rounded',
+                  },
+                  completion = {
+                    border = 'rounded',
+                  },
                   snippet = {
                     expand = function(args)
                       vim.fn["UltiSnips#Anon"](args.body)
                     end,
                   },
                   mapping = cmp.mapping.preset.insert ({
-                     ['<C-n>'] = cmp.mapping.select_next_item(),
-                     ['<C-p>'] = cmp.mapping.select_prev_item(),
-                     ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+                     ['<Tab>'] = cmp.mapping.select_next_item(),
+                     ['<CR>'] = cmp.mapping.confirm({ select = true }),
                   }),
                   sources = cmp.config.sources ({
                     { name = 'nvim_lsp'},
