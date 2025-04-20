@@ -50,6 +50,6 @@
   home-manager.users.steven.stylix = {
 
     # Disable Neovim Theming
-    targets.neovim.enable = true;
+    targets.neovim.enable = false;
   };
 }
