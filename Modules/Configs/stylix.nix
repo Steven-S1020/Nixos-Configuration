@@ -10,7 +10,7 @@
     enable = true;
 
     # Set Base16 Scheme
-    base16Scheme = ../../Assets/Base16-Schemes/Red-Flake.yaml;
+    base16Scheme = ../../Assets/Base16-Schemes/Nasa.yaml;
 
     # Set Wallpaper
     image = ../../Assets/Wallpapers/Nasa.png;
