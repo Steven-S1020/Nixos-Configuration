@@ -213,9 +213,10 @@
                 ---- Main Menu
                 function Main_Menu()
                   dashboard.section.buttons.val = {
-                    dashboard.button('p', 'Project', Project_Menu),
+                    dashboard.button('p', ' Project', Project_Menu),
                     dashboard.button('n', ' Nix Config', function() find_files_in_dir("/etc/nixos") end),
-                    dashboard.button('f', '󰍉 Find Files', function() telescope.find_files() end),
+                    dashboard.button('f', '󰱼 Find Files', function() telescope.find_files() end),
+                    dashboard.button('r', '󱎸 Ripgrep', function() telescope.live_grep() end),
                     dashboard.button('c', ' CLI', function() vim.cmd('qa') end),
                   }
                   vim.cmd('AlphaRemap')
@@ -232,8 +233,8 @@
                         find_command = { "fd", "--type", "d", "--exact-depth", "2"},  ---- Custom find command for directory depth
                       })
                     end),
-                    dashboard.button('n', 'New Project', Create_Project_Menu),
-                    dashboard.button('<BS>', 'Back', Main_Menu),
+                    dashboard.button('n', ' New Project', Create_Project_Menu),
+                    dashboard.button('<BS>', '󰭜 Back', Main_Menu),
                   }
                   vim.cmd('AlphaRemap')
                   vim.cmd('AlphaRedraw')
@@ -255,7 +256,7 @@
                       end)
                     end),
 
-                    dashboard.button('c', '󱔎 Class Project', function()
+                    dashboard.button('c', ' Class Project', function()
                       vim.ui.input({ prompt = "Class Folder: " }, function(class)
                         if not class or class == "" then return end
                         vim.ui.input({ prompt = "Project Name: " }, function(name)
@@ -271,7 +272,7 @@
                       end)
                     end),
 
-                    dashboard.button('d', '󰙯 New Class Dir', function()
+                    dashboard.button('d', ' New Class Dir', function()
                       vim.ui.input({ prompt = "Class Name: " }, function(class_name)
                         if not class_name or class_name == "" then return end
                         local path = string.format("%s/%s", vim.fn.expand("~/Code/School"), class_name)
@@ -280,7 +281,7 @@
                       end)
                     end),
 
-                    dashboard.button('<BS>', 'Back', Project_Menu),
+                    dashboard.button('<BS>', '󰭜 Back', Project_Menu),
                   }
                   vim.cmd('AlphaRemap')
                   vim.cmd('AlphaRedraw')
