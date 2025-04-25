@@ -180,7 +180,7 @@
                   pickers.new(themes.get_dropdown({
                     prompt_title = 'Mkdev Recipes',
                     finder = finders.new_oneshot_job(
-                      { 'bash', '-c', "mk list | grep '\\w\\s(.*)' | awk '{print $1}' | sed 's/\\x1b\\[[0-1]m//g'" },
+                      { 'bash', '-c', "mk list -t plain" },
                       {
                         entry_maker = function(entry)
                           return {
