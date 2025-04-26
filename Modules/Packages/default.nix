@@ -27,11 +27,7 @@
     bat
     fastfetch
     fd
-    glow
     lsd
-    mysql84
-    nixfmt-rfc-style
-    rclone
     ripgrep
 
     # Desktop Applications
@@ -45,18 +41,16 @@
     spotify
     qFlipper
     vesktop
-    vscode
 
     # Coding
     jdk
     libgcc
     inputs.mkdev.packages.x86_64-linux.mkdev
     mars-mips
-    python312
+    python313
 
     # Desktop Environment Utilites
     colloid-icon-theme
-    dunst
     gnomeExtensions.hide-top-bar
     hunspell
     hunspellDicts.en_US

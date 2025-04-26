@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  tomlFormat = pkgs.formats.toml {};
+  tomlFormat = pkgs.formats.toml { };
   tomlContent = tomlFormat.generate "mkdev-config.toml" {
 
     recipe_dir = "/etc/nixos/Assets/Mkdev-Recipes";

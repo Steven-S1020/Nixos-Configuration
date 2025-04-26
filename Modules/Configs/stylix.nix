@@ -30,9 +30,9 @@
     };
 
     /*
-    cursor = {
-      name = "Future-cursors-black";
-    };
+      cursor = {
+        name = "Future-cursors-black";
+      };
     */
 
     # Set Opacity

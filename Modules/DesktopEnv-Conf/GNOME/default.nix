@@ -87,22 +87,22 @@
             "user-theme@gnome-shell-extensions.gcampx.github.com"
           ];
         };
-       /* 
-          # Set Shell Theme
-          "org/gnome/shell/extensions/user-theme" = {
-            name = "catppuccin-mocha-red-standard";
-          };
+        /*
+           # Set Shell Theme
+           "org/gnome/shell/extensions/user-theme" = {
+             name = "catppuccin-mocha-red-standard";
+           };
 
-          # Set Wallpaper
-          "org/gnome/desktop/background" = {
-            picture-uri = "file:///etc/nixos/Assets/Wallpapers/nixos-red.png";
-            picture-uri-dark = "file:///etc/nixos/Assets/Wallpapers/nixos-red.png";
-          };
+           # Set Wallpaper
+           "org/gnome/desktop/background" = {
+             picture-uri = "file:///etc/nixos/Assets/Wallpapers/nixos-red.png";
+             picture-uri-dark = "file:///etc/nixos/Assets/Wallpapers/nixos-red.png";
+           };
 
-          # Set Greeter Wallpaper
-          "org/gnome/desktop/screensaver" = {
-            picture-uri = "file:///etc/nixos/Assets/nixos-red.png";
-          };
+           # Set Greeter Wallpaper
+           "org/gnome/desktop/screensaver" = {
+             picture-uri = "file:///etc/nixos/Assets/nixos-red.png";
+           };
         */
       };
     };

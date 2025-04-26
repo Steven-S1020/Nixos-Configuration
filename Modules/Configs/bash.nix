@@ -10,6 +10,7 @@
 
       # Command ran on open of Alacritty
       initExtra = ''
+        vi
         fastfetch
       '';
 
