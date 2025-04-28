@@ -1,0 +1,29 @@
+{
+  pkgs,
+  ...
+}:
+
+{
+  home-manager.users.steven.programs.neovim.plugins = with pkgs.vimPlugins; [
+    {
+      plugin = lualine-nvim;
+      type = "lua";
+      config # lua
+        = ''
+          require'lualine'.setup {
+            options = {
+              theme = 'horizon'
+            },
+            sections = {
+              lualine_a = { 'mode' },
+              lualine_b = { 'branch', 'diagnostics' },
+              lualine_c = { 'filename' },
+              lualine_x = { 'filetype' },
+              lualine_y = { 'lsp_status' },
+              lualine_z = { 'selectioncount', 'location' }
+            }
+          }
+        '';
+    }
+  ];
+}

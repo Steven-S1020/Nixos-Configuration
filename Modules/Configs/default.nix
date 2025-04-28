@@ -7,7 +7,7 @@
     ./fastfetch.nix
     ./git.nix
     ./kitty.nix
-    ./neovim.nix
+    ./Neovim
     ./mkdev.nix
     ./stylix.nix
     ./syncthing.nix
