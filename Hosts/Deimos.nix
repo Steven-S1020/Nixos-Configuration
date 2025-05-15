@@ -1,4 +1,5 @@
 {
+  pkgs,
   config,
   lib,
   modulesPath,
@@ -27,6 +28,21 @@
   boot.supportedFilesystems = [ "ntfs" ];
 
   services.hardware.openrgb.enable = true;
+
+  # System Specific Packages
+  environment.systemPackages = with pkgs; [
+  ];
+
+  networking.firewall.allowedTCPPorts = [
+    25565
+    32167
+    32168
+  ];
+  networking.firewall.allowedUDPPorts = [
+    25565
+    32167
+    32168
+  ];
 
   # Stylix
   stylix.fonts.sizes = {

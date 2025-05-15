@@ -96,25 +96,26 @@
         ---- PickFileInDir: Custom File Picker
         ---- @param  dir string The directory path where Telescope search for files
         function PickFileInDir(dir)
-          local telescope = require'telescope.builtin'
-          telescope.find_files({
-            cwd = dir,
-            attach_mappings = function(prompt_bufnr, map)
-              local actions = require("telescope.actions")
-              local action_state = require("telescope.actions.state")
+          require('telescope.builtin').find_files(
+            require('telescope.themes').get_dropdown({
+              cwd = dir,
+              attach_mappings = function(prompt_bufnr, map)
+                local actions = require("telescope.actions")
+                local action_state = require("telescope.actions.state")
 
-              actions.select_default:replace(function()
-                actions.close(prompt_bufnr)
-                local selection = action_state.get_selected_entry()
-                if selection ~= nil then
-                  vim.cmd("edit " .. selection.path)
-                  vim.cmd("cd " .. dir)
-                end
-              end)
+                actions.select_default:replace(function()
+                  actions.close(prompt_bufnr)
+                  local selection = action_state.get_selected_entry()
+                  if selection ~= nil then
+                    vim.cmd("edit " .. selection.path)
+                    vim.cmd("cd " .. dir)
+                  end
+                end)
 
-              return true
-            end,
-          })
+                return true
+              end,
+            })
+          )
         end
       '';
 }

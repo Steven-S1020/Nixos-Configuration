@@ -5,11 +5,11 @@
 {
   imports = [
     ./options.nix
+    ./horizon.nix
     ./autocmds.nix
     ./utils.nix
     ./plugins.nix
     #./monokai-pro.nix
-    ./horizon.nix
     ./ultisnips.nix
     ./telescope.nix
     ./treesitter.nix

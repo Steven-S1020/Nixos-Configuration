@@ -15,7 +15,7 @@ let
   };
 in
 {
-  home-manager.users.steven.programs.neovim.plugins = with pkgs.vimPLugins; [
+  home-manager.users.steven.programs.neovim.plugins = [
     {
       plugin = horizon;
       type = "lua";
@@ -26,6 +26,7 @@ in
 
           -- Transparent background
           vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+          vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
           vim.api.nvim_set_hl(0, "NonText", { bg = "none" })
           vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
           vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "none" })

@@ -63,5 +63,25 @@
           ];
         };
       };
+
+      devShells.x86_64-linux = {
+        research =
+          let
+            pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          in
+          pkgs.mkShell {
+            buildInputs = with pkgs.python313Packages; [
+              pkgs.python313
+              marimo
+              matplotlib
+              numpy
+              pandas
+              pip
+              seaborn
+              scipy
+              sympy
+            ];
+          };
+      };
     };
 }
