@@ -5,7 +5,7 @@
 {
   imports = [
     ./options.nix
-    ./horizon.nix
+    #./horizon.nix
     ./autocmds.nix
     ./utils.nix
     ./plugins.nix
@@ -18,8 +18,10 @@
     ./completion.nix
     ./neo-tree.nix
     ./barbar.nix
-    ./lualine.nix
+    #./lualine.nix
     ./alpha.nix
     ./ibl.nix
+    ./horizon.nix
+    #./lualine.nix
   ];
 }

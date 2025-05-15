@@ -73,10 +73,10 @@
         vim.o.wrap = false
 
         -- Transparent Background
-        vim.cmd.highlight({ "Normal", "guibg=NONE", "ctermbg=NONE" })
-        vim.cmd.highlight({ "NormalFloat", "guibg=NONE", "ctermbg=NONE" })
-        vim.cmd.highlight({ "NonText", "guibg=NONE", "ctermbg=NONE" })
-        vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
+        --vim.cmd.highlight({ "Normal", "guibg=NONE", "ctermbg=NONE" })
+        --vim.cmd.highlight({ "NormalFloat", "guibg=NONE", "ctermbg=NONE" })
+        --vim.cmd.highlight({ "NonText", "guibg=NONE", "ctermbg=NONE" })
+        --vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
 
         -- Remember last place in buffer
         local lastplace = vim.api.nvim_create_augroup("LastPlace", {})
