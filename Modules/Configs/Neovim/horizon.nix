@@ -37,7 +37,8 @@ in
           vim.o.background = "dark"
           vim.cmd.colorscheme'horizon'
 
-          vim.api.nvim_set_hl(0, "LineNr",         { fg = "#d5d8da", bg = "none" })
+          vim.api.nvim_set_hl(0, "LineNr", { fg = "#d5d8da", bg = "none" })
+          vim.api.nvim_set_hl(0, "ToggleTerm1Normal", { bg = "none" })
         '';
     }
   ];

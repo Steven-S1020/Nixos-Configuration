@@ -37,7 +37,7 @@
 
     # Set Opacity
     opacity = {
-      terminal = 0.9;
+      # terminal = 0.9;
     };
 
     # Targets to Disable

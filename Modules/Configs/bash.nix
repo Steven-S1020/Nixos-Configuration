@@ -8,9 +8,8 @@
 
       enable = true;
 
-      # Command ran on open of Alacritty
+      # Command ran on open Shell
       initExtra = ''
-        vi
         fastfetch
       '';
 

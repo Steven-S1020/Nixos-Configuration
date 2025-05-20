@@ -83,117 +83,173 @@
           }):find()
         end
 
-          local Menu = require("nui.menu")
-          local event = require("nui.utils.autocmd").event
+            local Menu = require("nui.menu")
+            local event = require("nui.utils.autocmd").event
 
-          function ShowProjectActions(name, path)
-            local action_menu
+            function ShowProjectActions(name, path)
+              local action_menu
 
-            action_menu = Menu({
-              position = "50%",
-              size = { width = 40, height = 3 },
-              border = {
-                style = "rounded",
-                text = { top = "Project: " .. name, top_align = "center" },
-              },
-              win_options = {
-                winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
-              },
-            }, {
-              lines = {
-                Menu.item("  Open Terminal Here", { action = "shell" }),
-                Menu.item("󰱼  Open with Telescope", { action = "telescope" }),
-              },
-              keymap = {
-                submit = { "<CR>" },
-                close = { "<Esc>", "q" },
-              },
-              on_submit = function(item)
-                action_menu:unmount()
-                if item.action == "shell" then
-                  vim.fn.jobstart({ os.getenv("SHELL") or "bash" }, {
-                    cwd = path,
-                    detach = true,
-                  })
-                  vim.cmd("qa")
-                elseif item.action == "telescope" then
-                  vim.fn.chdir(path)
-                  require("telescope.builtin").find_files({ cwd = path })
-                end
-              end,
-            })
+              action_menu = Menu({
+                position = "50%",
+                size = { width = 40, height = 3 },
+                border = {
+                  style = "rounded",
+                  text = { top = "Project: " .. name, top_align = "center" },
+                },
 
-            action_menu:mount()
-
-            action_menu:on(event.BufLeave, function()
-              action_menu:unmount()
-            end)
-          end
-          ---- CreatePicker: Custom Telescope Picker
-          ---- @param opts table Options for the picker (cmd, prompt_title, width, previewer, callback)
-          CreatePicker = function(opts)
-            local picker = require('telescope.pickers').new(
-              require('telescope.themes').get_dropdown({
-                prompt_title = opts.prompt_title or "Pick an option",
-                width = opts.width or 0.5,
-                previewer = opts.previewer or false,
-              }),
+                win_options = {
+                  winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
+                },
+              },
               {
-                finder = require('telescope.finders').new_oneshot_job(
-                  opts.cmd,
-                  {
-                    entry_maker = function(entry)
-                      return {
-                        value = entry,
-                        display = entry,
-                        ordinal = entry,
-                      }
-                    end
-                  }
-                ),
-                sorter = require('telescope.config').values.generic_sorter({}),
-                attach_mappings = function(prompt_bufnr)
-                  local actions = require('telescope.actions')
-                  local action_state = require('telescope.actions.state')
+                lines = {
+                  Menu.item("  Open Terminal Here", { action = "shell" }),
+                  Menu.item("󰱼  Open with Telescope", { action = "telescope" }),
+                },
+                keymap = {
+                  submit = { "<CR>" },
+                  close = { "<Esc>", "q" },
+                },
+                on_submit = function(item)
+                  action_menu:unmount()
+                  if item.action == "shell" then
+                    vim.fn.chdir(path)
+                    local flake_exists = vim.fn.filereadable(path .. '/flake.nix') == 1
+                    local shell_cmd = flake_exists and 'nix develop' or (os.getenv('SHELL'))
 
-                  actions.select_default:replace(function()
-                    actions.close(prompt_bufnr)
-                    local selection = action_state.get_selected_entry()
-                    if selection and opts.callback then
-                      opts.callback(selection.value)
-                    end
-                  end)
-                  return true
-                end,
-              }
-            )
+                    require'toggleterm.terminal'.Terminal:new({
+                      cmd = shell_cmd,
+                      direction = 'tab',
+                      close_on_exit = true,
+                      }):toggle()
 
-            picker:find()
-          end
-
-          ---- PickFileInDir: Custom File Picker
-          ---- @param  dir string The directory path where Telescope search for files
-          function PickFileInDir(dir)
-            require('telescope.builtin').find_files(
-              require('telescope.themes').get_dropdown({
-                cwd = dir,
-                attach_mappings = function(prompt_bufnr, map)
-                  local actions = require("telescope.actions")
-                  local action_state = require("telescope.actions.state")
-
-                  actions.select_default:replace(function()
-                    actions.close(prompt_bufnr)
-                    local selection = action_state.get_selected_entry()
-                    if selection ~= nil then
-                      vim.cmd("edit " .. selection.path)
-                      vim.cmd("cd " .. dir)
-                    end
-                  end)
-
-                  return true
+                  elseif item.action == "telescope" then
+                    vim.fn.chdir(path)
+                    require'telescope.builtin'.find_files()
+                  end
                 end,
               })
-            )
-          end
+
+              action_menu:mount()
+
+              action_menu:on(event.BufLeave, function()
+                action_menu:unmount()
+              end)
+            end
+
+            function NixConfigOptions()
+              local action_menu
+              local path = '/etc/nixos'
+
+              action_menu = Menu({
+                position = "50%",
+                size = { width = 40, height = 3 },
+                border = {
+                  style = "rounded",
+                },
+                win_options = {
+                  winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
+                },
+              }, {
+                lines = {
+                  Menu.item("  Open Terminal Here", { action = "shell" }),
+                  Menu.item("󰱼  Open with Telescope", { action = "telescope" }),
+                },
+                keymap = {
+                  submit = { "<CR>" },
+                  close = { "<Esc>", "q" },
+                },
+                on_submit = function(item)
+                  action_menu:unmount()
+                  if item.action == "shell" then
+                    vim.fn.chdir(path)
+                    require'toggleterm.terminal'.Terminal:new({
+                      cmd = (os.getenv('SHELL')),
+                      direction = 'tab',
+                      close_on_exit = true,
+                      }):toggle()
+
+                  elseif item.action == "telescope" then
+                    vim.fn.chdir(path)
+                    require'telescope.builtin'.find_files()
+                  end
+                end,
+              })
+
+              action_menu:mount()
+
+              action_menu:on(event.BufLeave, function()
+                action_menu:unmount()
+              end)
+            end
+
+
+
+            ---- CreatePicker: Custom Telescope Picker
+            ---- @param opts table Options for the picker (cmd, prompt_title, width, previewer, callback)
+            CreatePicker = function(opts)
+              local picker = require('telescope.pickers').new(
+                require('telescope.themes').get_dropdown({
+                  prompt_title = opts.prompt_title or "Pick an option",
+                  width = opts.width or 0.5,
+                  previewer = opts.previewer or false,
+                }),
+                {
+                  finder = require('telescope.finders').new_oneshot_job(
+                    opts.cmd,
+                    {
+                      entry_maker = function(entry)
+                        return {
+                          value = entry,
+                          display = entry,
+                          ordinal = entry,
+                        }
+                      end
+                    }
+                  ),
+                  sorter = require('telescope.config').values.generic_sorter({}),
+                  attach_mappings = function(prompt_bufnr)
+                    local actions = require('telescope.actions')
+                    local action_state = require('telescope.actions.state')
+
+                    actions.select_default:replace(function()
+                      actions.close(prompt_bufnr)
+                      local selection = action_state.get_selected_entry()
+                      if selection and opts.callback then
+                        opts.callback(selection.value)
+                      end
+                    end)
+                    return true
+                  end,
+                }
+              )
+
+              picker:find()
+            end
+
+            ---- PickFileInDir: Custom File Picker
+            ---- @param  dir string The directory path where Telescope search for files
+            function PickFileInDir(dir)
+              require('telescope.builtin').find_files(
+                require('telescope.themes').get_dropdown({
+                  cwd = dir,
+                  attach_mappings = function(prompt_bufnr, map)
+                    local actions = require("telescope.actions")
+                    local action_state = require("telescope.actions.state")
+
+                    actions.select_default:replace(function()
+                      actions.close(prompt_bufnr)
+                      local selection = action_state.get_selected_entry()
+                      if selection ~= nil then
+                        vim.cmd("edit " .. selection.path)
+                        vim.cmd("cd " .. dir)
+                      end
+                    end)
+
+                    return true
+                  end,
+                })
+              )
+            end
       '';
 }

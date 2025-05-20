@@ -19,6 +19,7 @@
     ./lualine.nix
     ./alpha.nix
     ./ibl.nix
+    ./toggle-term.nix
     ./horizon.nix
   ];
 }

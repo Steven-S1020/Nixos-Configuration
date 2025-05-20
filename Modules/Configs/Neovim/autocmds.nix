@@ -50,7 +50,7 @@
           end,
         })
 
-        -- Python: autopep8 on save
+        --Python: autopep8 on save
         local autopep_group = vim.api.nvim_create_augroup("Autopep8", { clear = true })
 
         vim.api.nvim_create_autocmd("BufWritePost", {

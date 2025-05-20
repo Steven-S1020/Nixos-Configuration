@@ -24,7 +24,7 @@
           function Main_Menu()
             dashboard.section.buttons.val = {
               dashboard.button('p', '󰈮 Project', Project_Menu),
-              dashboard.button('n', ' Nix Config', function() PickFileInDir("/etc/nixos") end),
+              dashboard.button('n', ' Nix Config', NixConfigOptions),
               dashboard.button('f', '󰱼 Find Files', function() telescope.find_files() end),
               dashboard.button('r', '󱎸 Ripgrep', function() telescope.live_grep() end),
               dashboard.button('c', ' CLI', function() vim.cmd('qa') end),
@@ -37,12 +37,6 @@
           function Project_Menu()
             dashboard.section.buttons.val = {
               dashboard.button('o', ' Open Existing Project', PickProjectWithTelescope), --function()
-                --telescope.find_files({
-                --  cwd = '~/Code',  -- Set to your directory
-                --  prompt_title = "Select Project Directory",
-                --  find_command = { "fd", "--type", "d", "--exact-depth", "2"},  ---- Custom find command for directory depth
-                --})
-              --end),
               dashboard.button('n', ' New Project', Create_Project_Menu),
               dashboard.button('<BS>', '󰭜 Back', Main_Menu),
             }
