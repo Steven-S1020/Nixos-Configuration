@@ -27,8 +27,8 @@ I wish you the best of luck.
 
 | Hostname | Device Type | Purpose      | CPU            | GPU             | MEM        | DE    |
 |----------|-------------|--------------|----------------|-----------------|------------|-------|
-| Azami    | Laptop      | School       | Ryzen 5 5600X  | Nvidia 3070 LHR | 32 GB DDR4 | GNOME |
-| Deimos   | Desktop     | Gaming       | Intel i7-1255U | Integrated      | 16 GB DDR5 | GNOME |
+| Azami    | Laptop      | School       | Intel i7-1255U | Integrated      | 16 GB DDR5 | GNOME |
+| Deimos   | Desktop     | Gaming       | Ryzen 5 5600X  | Nvidia 3070 LHR | 32 GB DDR4 | GNOME |
 
 <br>
 
