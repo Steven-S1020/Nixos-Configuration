@@ -12,7 +12,6 @@
 
     # Visuals
     indent-blankline-nvim
-    monokai-pro-nvim
 
     # LSP Support
     nvim-lspconfig

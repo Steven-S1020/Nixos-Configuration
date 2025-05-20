@@ -36,13 +36,13 @@
           ---- Project Menu
           function Project_Menu()
             dashboard.section.buttons.val = {
-              dashboard.button('o', ' Open Existing Project', function()
-                telescope.find_files({
-                  cwd = '~/Code',  -- Set to your directory
-                  prompt_title = "Select Project Directory",
-                  find_command = { "fd", "--type", "d", "--exact-depth", "2"},  ---- Custom find command for directory depth
-                })
-              end),
+              dashboard.button('o', ' Open Existing Project', PickProjectWithTelescope), --function()
+                --telescope.find_files({
+                --  cwd = '~/Code',  -- Set to your directory
+                --  prompt_title = "Select Project Directory",
+                --  find_command = { "fd", "--type", "d", "--exact-depth", "2"},  ---- Custom find command for directory depth
+                --})
+              --end),
               dashboard.button('n', ' New Project', Create_Project_Menu),
               dashboard.button('<BS>', '󰭜 Back', Main_Menu),
             }

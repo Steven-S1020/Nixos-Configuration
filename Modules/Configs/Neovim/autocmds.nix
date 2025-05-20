@@ -9,33 +9,38 @@
       ''
         ----[ Auto Commands ]----
 
-        ---- Autocmd: Manage tildes in Alpha dashboard
+        -- Alpha dashboard related behavior (hide/show tildes)
+        local alpha_group = vim.api.nvim_create_augroup("AlphaDashboard", { clear = true })
+
         vim.api.nvim_create_autocmd({ "User", "BufEnter", "WinEnter" }, {
+          group = alpha_group,
           callback = function(event)
             if (event.event == "User" and event.match == "AlphaReady") or vim.bo.filetype == "alpha" then
-              -- When Alpha is ready or we re-enter Alpha, hide ~ tildes
               vim.opt_local.fillchars:append({ eob = " " })
             end
           end,
         })
 
         vim.api.nvim_create_autocmd("BufUnload", {
+          group = alpha_group,
           pattern = "*",
           callback = function()
             if vim.bo.filetype == "alpha" then
-              -- When Alpha buffer actually unloads (quitting dashboard), restore ~ tildes
               vim.opt.fillchars:append({ eob = "~" })
             end
           end,
         })
 
-        ---- Autocmd: Auto-Format on save if LSP supports it
-        vim.api.nvim_create_autocmd('LspAttach', {
+        -- LSP: format on save if supported
+        local lsp_format_group = vim.api.nvim_create_augroup("LspAutoFormat", { clear = true })
+
+        vim.api.nvim_create_autocmd("LspAttach", {
+          group = lsp_format_group,
           callback = function(args)
             local client = vim.lsp.get_client_by_id(args.data.client_id)
-            -- Format on save if supported
-            if client.supports_method('textDocument/formatting') then
-              vim.api.nvim_create_autocmd('BufWritePre', {
+            if client and client.supports_method("textDocument/formatting") then
+              vim.api.nvim_create_autocmd("BufWritePre", {
+                group = lsp_format_group,
                 buffer = args.buf,
                 callback = function()
                   vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
@@ -45,8 +50,11 @@
           end,
         })
 
-        ---- Autocmd: Auto-Run autopep8 after saving *.py
+        -- Python: autopep8 on save
+        local autopep_group = vim.api.nvim_create_augroup("Autopep8", { clear = true })
+
         vim.api.nvim_create_autocmd("BufWritePost", {
+          group = autopep_group,
           pattern = "*.py",
           callback = function()
             local filepath = vim.api.nvim_buf_get_name(0)

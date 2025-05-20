@@ -10,6 +10,7 @@
       type = "lua";
       config # lua
         = ''
+          ---[ Indent Blankline ]---
           require'ibl'.setup {
             scope = { enabled = false }
           }

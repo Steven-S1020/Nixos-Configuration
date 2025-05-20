@@ -10,9 +10,11 @@
       type = "lua";
       config # lua
         = ''
+          ---[ Lualine ]---
           require'lualine'.setup {
             options = {
-              theme = 'horizon'
+              theme = 'horizon',
+              globalstatus = 'true'
             },
             sections = {
               lualine_a = { 'mode' },
