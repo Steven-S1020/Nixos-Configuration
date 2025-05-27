@@ -24,7 +24,15 @@
           function Main_Menu()
             dashboard.section.buttons.val = {
               dashboard.button('p', '󰈮 Project', Project_Menu),
-              dashboard.button('n', ' Nix Config', NixConfigOptions),
+              dashboard.button('n', ' Nix Telescope', function()
+                local path = '/etc/nixos'
+                vim.fn.chdir(path)
+                require'telescope.builtin'.find_files({ cwd = path })
+                end),
+              dashboard.button('N', ' Nix Cli', function()
+                vim.fn.chdir('/etc/nixos')
+                vim.cmd('TermNew')
+              end),
               dashboard.button('f', '󰱼 Find Files', function() telescope.find_files() end),
               dashboard.button('r', '󱎸 Ripgrep', function() telescope.live_grep() end),
               dashboard.button('c', ' CLI', function() vim.cmd('qa') end),
@@ -36,7 +44,32 @@
           ---- Project Menu
           function Project_Menu()
             dashboard.section.buttons.val = {
-              dashboard.button('o', ' Open Existing Project', PickProjectWithTelescope), --function()
+              dashboard.button('o', ' Open Telescope', PickProjectWithTelescope), --function()
+              dashboard.button("O", " Open Cli", function()
+                pickers.new(themes.get_dropdown({
+                  prompt_title = "Select a Project",
+                }), {
+                  finder = finders.new_oneshot_job(
+                    { "fd", "--type", "d", "--exact-depth", "2", "." },
+                    { cwd = vim.fn.expand("~/Code") }
+                  ),
+                  sorter = conf.generic_sorter({}),
+                  attach_mappings = function(prompt_bufnr)
+                    actions.select_default:replace(function()
+                      actions.close(prompt_bufnr)
+
+                      local selection = action_state.get_selected_entry()
+                      if selection and selection.value then
+                        local full_path = vim.fn.expand("~/Code/" .. selection.value)
+
+                        vim.cmd("cd " .. vim.fn.fnameescape(full_path))
+                        vim.cmd("TermNew")
+                      end
+                    end)
+                    return true
+                  end,
+                }):find()
+              end),
               dashboard.button('n', ' New Project', Create_Project_Menu),
               dashboard.button('<BS>', '󰭜 Back', Main_Menu),
             }

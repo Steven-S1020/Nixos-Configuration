@@ -77,6 +77,7 @@
               numpy
               pandas
               pip
+              python-lsp-server
               seaborn
               scipy
               sympy

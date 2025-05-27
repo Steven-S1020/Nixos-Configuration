@@ -14,7 +14,7 @@
           require('telescope').setup({
             defaults = {
               winblend = 10,
-            }
+            },
           })
 
           map('n', '<leader>f', require'telescope.builtin'.find_files)
