@@ -139,6 +139,8 @@
           end
 
           ---- Header
+          --local logo = dotfile('/etc/nixos/Assets/ASCII-Art/logo.lua')
+          --dashboard.sections.header = logo
           dashboard.section.header.val = {
             [[ __  __               _____   ____       ]],
             [[/\ \/\ \  __         /\  __`\/\  _`\     ]],
