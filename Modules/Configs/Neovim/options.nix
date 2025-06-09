@@ -13,6 +13,7 @@
       jdt-language-server
       nixd
       pyright
+      rust-analyzer
       sqls
 
       # Formatters
