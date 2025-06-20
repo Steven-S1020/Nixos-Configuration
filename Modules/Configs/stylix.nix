@@ -51,5 +51,6 @@
 
     # Disable Neovim Theming
     targets.neovim.enable = false;
+    targets.zathura.enable = false;
   };
 }

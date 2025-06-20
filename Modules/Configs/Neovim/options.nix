@@ -16,6 +16,10 @@
       rust-analyzer
       sqls
 
+      texlive.combined.scheme-full
+      zathura
+      sioyek
+
       # Formatters
       python313Packages.autopep8
       nixfmt-rfc-style
@@ -51,6 +55,23 @@
         vim.opt.shiftwidth = 4
         vim.opt.expandtab = true
         vim.opt.list = true
+
+
+        -- Vimtex Options
+        vim.g.vimtex_view_method = "sioyek"
+        vim.g.vimtex_compiler_method = "latexmk"
+        vim.g.vimtes_quickfix_mode = 2
+        vim.g.vimtex_compiler_latexmk = {
+          build_dir = "build",
+          options = {
+            "-shell-escape",
+            "-verbose",
+            "-file-line-error",
+            "-synctex=1",
+            "-interaction=nonstopmode",
+            "-output-directory=build",
+          },
+        }
 
         -- Line Numbers
         vim.opt.number = true

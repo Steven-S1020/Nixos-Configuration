@@ -11,5 +11,6 @@
     ./mkdev.nix
     ./stylix.nix
     ./syncthing.nix
+    ./zathura.nix
   ];
 }

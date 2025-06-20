@@ -16,6 +16,8 @@
     # LSP Support
     nvim-lspconfig
 
+    vimtex
+
     # Completion Engine
     nvim-cmp
     cmp-nvim-lsp
