@@ -18,8 +18,6 @@
 
       texlive.combined.scheme-full
       zathura
-      sioyek
-
       # Formatters
       python313Packages.autopep8
       nixfmt-rfc-style
@@ -58,7 +56,7 @@
 
 
         -- Vimtex Options
-        vim.g.vimtex_view_method = "sioyek"
+        vim.g.vimtex_view_method = "zathura"
         vim.g.vimtex_compiler_method = "latexmk"
         vim.g.vimtes_quickfix_mode = 2
         vim.g.vimtex_compiler_latexmk = {
