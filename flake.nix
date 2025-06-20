@@ -74,7 +74,6 @@
               pkgs.python313
               marimo
               matplotlib
-              jinja2
               numpy
               pandas
               pip
