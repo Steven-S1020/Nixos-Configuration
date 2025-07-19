@@ -69,6 +69,7 @@
         };
         "org/gnome/mutter" = {
           dynamic-workspaces = true;
+          check-alive-timeout = 30000; # milliseconds
         };
         # Keybindsings
         "org/gnome/settings-daemon/plugins/media-keys" = {

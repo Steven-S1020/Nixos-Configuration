@@ -15,6 +15,8 @@
       pyright
       rust-analyzer
       sqls
+      superhtml
+      vscode-langservers-extracted
 
       texlive.combined.scheme-full
       zathura

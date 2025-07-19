@@ -24,6 +24,8 @@
           vim.lsp.enable('pyright')
           vim.lsp.enable('rust_analyzer')
           vim.lsp.enable('sqls')
+          vim.lsp.enable('cssls')
+          vim.lsp.enable('superhtml')
 
           -- Keybind for diagnostic window
           map('n', '<leader>d', function()
