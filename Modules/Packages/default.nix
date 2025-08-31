@@ -25,28 +25,30 @@
   environment.systemPackages = with pkgs; [
     # CLI Utilites
     bat
+    du-dust
     fastfetch
     fd
     just
     lsd
     ripgrep
+    tokei
 
     # Desktop Applications
-    brave
     bitwarden-desktop
+    brave
     google-chrome
     heroic
     inputs.zen-browser.packages.x86_64-linux.default
     libreoffice-qt
     prismlauncher
-    spotify
     qFlipper
+    spotify
     vesktop
 
     # Coding
+    inputs.mkdev.packages.x86_64-linux.mkdev
     jdk
     libgcc
-    inputs.mkdev.packages.x86_64-linux.mkdev
     mars-mips
     python313
 
@@ -66,8 +68,8 @@
   ];
 
   # Enable Packages
+  hardware.flipperzero.enable = true;
   programs.git.enable = true;
   programs.nh.enable = true;
-  hardware.flipperzero.enable = true;
 
 }
