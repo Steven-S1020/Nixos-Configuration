@@ -33,17 +33,6 @@
   environment.systemPackages = with pkgs; [
   ];
 
-  networking.firewall.allowedTCPPorts = [
-    25565
-    32167
-    32168
-  ];
-  networking.firewall.allowedUDPPorts = [
-    25565
-    32167
-    32168
-  ];
-
   # Stylix
   stylix.fonts.sizes = {
     applications = lib.mkForce 10;
@@ -53,7 +42,30 @@
   };
 
   # Programs
-  programs.steam.enable = true;
+  programs = {
+    steam = {
+      enable = true;
+      gamescopeSession.enable = true;
+      package = pkgs.steam.override {
+        extraLibraries = pkgs: [ pkgs.xorg.libxcb ];
+        extraPkgs =
+          pkgs: with pkgs; [
+            xorg.libXcursor
+            xorg.libXi
+            xorg.libXinerama
+            xorg.libXScrnSaver
+            libpng
+            libpulseaudio
+            libvorbis
+            stdenv.cc.cc.lib
+            libkrb5
+            keyutils
+            gamemode
+          ];
+      };
+      extraCompatPackages = [ pkgs.proton-ge-bin ];
+    };
+  };
 
   # File System
   fileSystems."/home" = {
