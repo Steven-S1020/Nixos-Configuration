@@ -11,11 +11,11 @@
   };
 
   config = lib.mkIf config.GNOME.enable {
-    services.xserver = {
+    services = {
       desktopManager.gnome.enable = true;
     };
     # Enable Gnome Display Manager
-    services.xserver.displayManager.gdm.enable = true;
+    services.displayManager.gdm.enable = true;
 
     # Exclude GNOME bloat
     environment.gnome.excludePackages =
