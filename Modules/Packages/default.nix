@@ -66,6 +66,7 @@
 
   # Enable Packages
   programs.git.enable = true;
+  programs.nh.enable = true;
   hardware.flipperzero.enable = true;
 
 }
