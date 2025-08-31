@@ -30,7 +30,7 @@
         ls = "lsd";
         lt = "ls --tree --group-dirs first";
         nix-home = "cd /etc/nixos";
-
+        just = "just --justfile /etc/nixos/justfile";
       };
     };
   };

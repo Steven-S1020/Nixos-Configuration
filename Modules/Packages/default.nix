@@ -27,6 +27,7 @@
     bat
     fastfetch
     fd
+    just
     lsd
     ripgrep
 
