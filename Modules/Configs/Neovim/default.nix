@@ -20,6 +20,6 @@
     ./alpha.nix
     ./ibl.nix
     ./toggle-term.nix
-    ./horizon.nix
+    ./xeno.nix
   ];
 }

@@ -54,9 +54,7 @@
           }
 
           ---- Layout and Highlights
-          dashboard.section.header.opts.hl = 'Include'
-          dashboard.section.buttons.opts.hl = 'Keyword'
-
+          dashboard.section.header.opts.hl = 'Label'
           dashboard.config.layout = {
             { type = 'padding', val = 10 },
             dashboard.section.header,
