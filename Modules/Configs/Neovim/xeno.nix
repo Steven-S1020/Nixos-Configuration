@@ -40,6 +40,7 @@ in
             highlights = {
               editor = {
                 FloatBorder = { bg = '#0D1013' },
+                PmenuSel = { bg = '@base.600' },
               },
 
               syntax = {
@@ -56,8 +57,7 @@ in
                 ['nvim-telescope/telescope.nvim'] = {
                   TelescopeNormal = { bg = '#0D1013' },
                   TelescopePromptNormal = { bg = '#0D1013' },
-                  TelescopeSelection = { bg = '@base.700' },
-                  TelescopeSelectionCaret = { bg = '@base.700' },
+                  TelescopeSelectionCaret = { fg = '@base.200', bg = '@base.600' },
                 },
               },
             },
