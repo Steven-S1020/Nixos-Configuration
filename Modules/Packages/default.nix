@@ -40,7 +40,7 @@
     heroic
     inputs.zen-browser.packages.x86_64-linux.default
     libreoffice-qt
-    mathematica
+    # mathematica
     prismlauncher
     qFlipper
     spotify

@@ -52,6 +52,14 @@ in
                 Float = { fg = '#EE5858' },
                 ['@float'] = { fg = '#EE5858' },
               },
+              plugins = {
+                ['nvim-telescope/telescope.nvim'] = {
+                  TelescopeNormal = { bg = '#0D1013' },
+                  TelescopePromptNormal = { bg = '#0D1013' },
+                  TelescopeSelection = { bg = '@base.700' },
+                  TelescopeSelectionCaret = { bg = '@base.700' },
+                },
+              },
             },
           })
 
