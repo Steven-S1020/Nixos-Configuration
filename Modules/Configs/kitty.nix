@@ -10,6 +10,7 @@
 
         tab_bar_edge = "top";
         tab_bar_style = "powerline";
+        hide_window_decorations = "yes";
       };
     };
   };

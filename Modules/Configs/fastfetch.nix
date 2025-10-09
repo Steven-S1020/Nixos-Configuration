@@ -35,7 +35,7 @@
           };
 
           bar = {
-            charElapsed = "";
+            char.elapsed = "";
             charTotal = " ";
           };
 

@@ -19,7 +19,7 @@
     polarity = "dark";
 
     # Set grub to use Wallpaper
-    targets.grub.useImage = true;
+    targets.grub.useWallpaper = true;
 
     # Set Font
     fonts = {
