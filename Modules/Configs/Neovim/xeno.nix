@@ -1,9 +1,12 @@
 {
   pkgs,
+  config,
   ...
 }:
 
 let
+  c = config.colors;
+
   xeno = pkgs.vimUtils.buildVimPlugin {
     name = "xeno.nvim";
     src = pkgs.fetchFromGitHub {
@@ -22,8 +25,8 @@ in
       config # lua
         = ''
           require('xeno').new_theme('red-theme', {
-            base = '#272c33',
-            accent = '#ac4242',
+            base = '#${c.base.hex}',
+            accent = '#${c.red.hex}',
             contrast = -0.3,
             variation = 0.7,
 
@@ -39,24 +42,24 @@ in
 
             highlights = {
               editor = {
-                FloatBorder = { bg = '#0D1013' },
+                FloatBorder = { bg = '#${c.black.hex}' },
                 PmenuSel = { bg = '@base.600' },
               },
 
               syntax = {
-                Boolean = { fg = '#A997DF' },
-                ['@boolean'] = { fg = '#A997DF' },
-                Function = { fg = '#B3F6C0' },
-                ['@function'] = { fg = '#B3F6C0' },
+                Boolean = { fg = '#${c.purple.hex}' },
+                ['@boolean'] = { fg = '#${c.purple.hex}'},
+                Function = { fg = '#${c.lightgreen.hex}' },
+                ['@function'] = { fg = '#${c.lightgreen.hex}' },
                 Type = { fg = '#F9C784' },
                 ['@type'] = { fg = '#F9C784' },
-                Float = { fg = '#EE5858' },
-                ['@float'] = { fg = '#EE5858' },
+                Float = { fg = '#${c.darkred.hex}' },
+                ['@float'] = { fg = '#${c.darkred.hex}' },
               },
               plugins = {
                 ['nvim-telescope/telescope.nvim'] = {
-                  TelescopeNormal = { bg = '#0D1013' },
-                  TelescopePromptNormal = { bg = '#0D1013' },
+                  TelescopeNormal = { bg = '#${c.black.hex}' },
+                  TelescopePromptNormal = { bg = '#${c.black.hex}' },
                   TelescopeSelectionCaret = { fg = '@base.200', bg = '@base.600' },
                 },
               },

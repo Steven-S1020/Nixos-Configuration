@@ -9,5 +9,6 @@
     ./Packages
     ./Home-Manager
     ./System
+    ./Variables
   ];
 }
