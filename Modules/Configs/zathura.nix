@@ -8,11 +8,11 @@
 
       enable = true;
 
-      options = {
-        highlight-color = lib.mkForce "#ffffff";
-        highlight-active-color = lib.mkForce "#ffffff";
-        highlight-transparency = lib.mkForce 1;
-      };
+      # options = {
+      #   highlight-color = lib.mkForce "#ffffff";
+      #   highlight-active-color = lib.mkForce "#ffffff";
+      #   highlight-transparency = lib.mkForce 1;
+      # };
     };
   };
 }

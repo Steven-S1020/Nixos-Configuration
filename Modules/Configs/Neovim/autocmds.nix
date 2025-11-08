@@ -31,6 +31,16 @@
           end,
         })
 
+        -- Highlight on Yank, cred: smnatale
+        vim.api.nvim_create_autocmd("TextYankPost", {
+          group = vim.api.nvim_create_augroup("highlight_yank", { clear = true }),
+          pattern = "*",
+          desc = "highlight selection on yank",
+          callback = function()
+            vim.highlight.on_yank({ timeout = 200, visual = true })
+          end,
+        })
+
         -- LSP: format on save if supported
         local lsp_format_group = vim.api.nvim_create_augroup("LspAutoFormat", { clear = true })
 
@@ -51,10 +61,8 @@
         })
 
         --Python: autopep8 on save
-        local autopep_group = vim.api.nvim_create_augroup("Autopep8", { clear = true })
-
         vim.api.nvim_create_autocmd("BufWritePost", {
-          group = autopep_group,
+          group = vim.api.nvim_create_augroup("Autopep8", { clear = true })
           pattern = "*.py",
           callback = function()
             local filepath = vim.api.nvim_buf_get_name(0)
