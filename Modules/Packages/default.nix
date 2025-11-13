@@ -25,7 +25,6 @@
   environment.systemPackages = with pkgs; [
     # CLI Utilites
     bat
-    du-dust
     fastfetch
     fd
     just
