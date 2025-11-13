@@ -62,7 +62,7 @@
 
         --Python: autopep8 on save
         vim.api.nvim_create_autocmd("BufWritePost", {
-          group = vim.api.nvim_create_augroup("Autopep8", { clear = true })
+          group = vim.api.nvim_create_augroup("Autopep8", { clear = true }),
           pattern = "*.py",
           callback = function()
             local filepath = vim.api.nvim_buf_get_name(0)
