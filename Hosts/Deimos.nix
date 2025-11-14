@@ -13,7 +13,7 @@
 
     ../Modules
     inputs.home-manager.nixosModules.default
-    ../Modules/System/NVFanControl.nix
+    # ../Modules/System/NVFanControl.nix
 
   ];
 
