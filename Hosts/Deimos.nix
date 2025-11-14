@@ -13,6 +13,7 @@
 
     ../Modules
     inputs.home-manager.nixosModules.default
+    ../Modules/System/NVFanControl.nix
 
   ];
 
@@ -24,6 +25,10 @@
 
   networking.hostName = "Deimos"; # Define your hostname.
   GNOME.enable = true;
+  hyprland.enable = true;
+  home-manager.users.steven = {
+    ##
+  };
 
   boot.supportedFilesystems = [ "ntfs" ];
 
