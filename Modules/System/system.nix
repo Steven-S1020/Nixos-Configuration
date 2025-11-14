@@ -9,6 +9,9 @@
     "flakes"
   ];
 
+  services.upower.enable = true;
+  services.tuned.enable = true;
+
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
