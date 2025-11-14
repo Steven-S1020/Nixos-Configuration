@@ -8,9 +8,12 @@
 
       enable = true;
 
-      userName = "Steven";
-      userEmail = "stevenstokes1020@gmail.com";
-      extraConfig = {
+      settings = {
+        user = {
+          name = "Steven";
+          email = "stevenstokes1020@gmail.com";
+        };
+
         init.defaultBranch = "main";
         safe.directory = "/etc/nixos";
       };
