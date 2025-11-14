@@ -5,6 +5,11 @@
 }:
 
 {
+  imports = [
+    ./binds.nix
+    ./noctalia.nix
+  ];
+
   options = {
     hyprland.enable = lib.mkEnableOption "Enable Hyprland";
   };
@@ -17,7 +22,31 @@
         enable = true;
 
         settings = {
-          ##
+          env = [
+            "GDK_SCALE, 2"
+            "XCURSOR_SIZE, 22"
+          ];
+          xwayland.force_zero_scaling = true;
+
+          ### Input and Keybinds ###
+          input = {
+            kb_layout = "us,es";
+            natural_scroll = false;
+            numlock_by_default = true;
+
+            touchpad = {
+              natural_scroll = false;
+            };
+          };
+
+          misc = {
+            disable_hyprland_logo = true;
+          };
+
+          ecosystem = {
+            no_update_news = true;
+            no_donation_nag = true;
+          };
         };
       };
     };
