@@ -24,6 +24,7 @@
 
   networking.hostName = "Azami"; # Define your hostname.
   GNOME.enable = true;
+  hyprland.enable = true;
   programs.steam.enable = true;
 
   # Stylix Specific #
