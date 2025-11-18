@@ -4,6 +4,7 @@
   pkgs,
   modulesPath,
   inputs,
+
   ...
 }:
 
@@ -25,7 +26,14 @@
   networking.hostName = "Azami"; # Define your hostname.
   GNOME.enable = true;
   hyprland.enable = true;
+
   programs.steam.enable = true;
+  hardware.microsoft-surface.kernelVersion = "stable";
+
+  # System Specific Packages
+  environment.systemPackages = with pkgs; [
+    surface-control
+  ];
 
   # Stylix Specific #
   ###################

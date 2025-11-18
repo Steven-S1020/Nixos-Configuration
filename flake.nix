@@ -8,7 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     stylix = {
       url = "github:danth/stylix";
@@ -55,7 +55,7 @@
             ./Hosts/Azami.nix
 
             # Surface Hardware
-            # nixos-hardware.nixosModules.microsoft-surface-common
+            nixos-hardware.nixosModules.microsoft-surface-common
 
             # Theming
             stylix.nixosModules.stylix

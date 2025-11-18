@@ -36,6 +36,8 @@
 
   # System Specific Packages
   environment.systemPackages = with pkgs; [
+    prismlauncher
+    heroic
   ];
 
   # Stylix

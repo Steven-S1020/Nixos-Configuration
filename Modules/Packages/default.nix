@@ -36,11 +36,8 @@
     bitwarden-desktop
     brave
     google-chrome
-    heroic
     inputs.zen-browser.packages.x86_64-linux.default
     libreoffice-qt
-    # mathematica
-    prismlauncher
     qFlipper
     spotify
     vesktop
@@ -70,7 +67,6 @@
 
   # Enable Packages
   hardware.flipperzero.enable = true;
-  programs.git.enable = true;
   programs.nh.enable = true;
 
 }

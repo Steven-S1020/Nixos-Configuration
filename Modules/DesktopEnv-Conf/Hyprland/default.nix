@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  inputs,
   ...
 }:
 
@@ -23,7 +24,7 @@
 
         settings = {
           env = [
-            "GDK_SCALE, 2"
+            "GDK_SCALE, 1"
             "XCURSOR_SIZE, 22"
           ];
           xwayland.force_zero_scaling = true;

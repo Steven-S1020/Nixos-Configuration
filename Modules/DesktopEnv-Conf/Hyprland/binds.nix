@@ -33,7 +33,7 @@
             # General
             "$mod, Q, killactive"
             "$mod, E, exec, nautilus"
-            "$mod, ENTER, exec, kitty"
+            "$mod, Return, exec, kitty"
             "Alt_L, Space, exec, ${noctalia "launcher toggle"}"
             "Control_L+Shift, Escape, exec, kitty btop"
 
@@ -54,9 +54,8 @@
             "$mod, Z, togglespecialworkspace, mincontainer"
 
             # System Power
-            "$mod, L, exec, hyprlock"
-            "$mod, V, exec, hyprctl dispatch exit"
-            "$mod+Shift, V, exec, shutdown now"
+            "$mod, L, exec, ${noctalia "sessionMenu lockAndSuspend"}"
+            "$mod, V, exec, ${noctalia "sessionMenu toggle"}"
 
             # Window Focus
             "Alt_L, H, movefocus, l"
