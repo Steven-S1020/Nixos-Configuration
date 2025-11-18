@@ -36,6 +36,7 @@
             "$mod, Return, exec, kitty"
             "Alt_L, Space, exec, ${noctalia "launcher toggle"}"
             "Control_L+Shift, Escape, exec, kitty btop"
+            "$mod, C, exec, ${noctalia "launcher calculator"}"
 
             # Fullscreen control
             "$mod, M, fullscreen, 1"
@@ -54,7 +55,7 @@
             "$mod, Z, togglespecialworkspace, mincontainer"
 
             # System Power
-            "$mod, L, exec, ${noctalia "sessionMenu lockAndSuspend"}"
+            "$mod, L, exec, ${noctalia "lockScreen lock"}"
             "$mod, V, exec, ${noctalia "sessionMenu toggle"}"
 
             # Window Focus
