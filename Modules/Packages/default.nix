@@ -54,7 +54,7 @@
     gnomeExtensions.hide-top-bar
     hunspell
     hunspellDicts.en_US
-    inputs.noctalia.packages.${system}.default
+    inputs.noctalia.packages.x86_64-linux.default
     nerd-fonts.fira-code
     wl-clipboard
     xclip

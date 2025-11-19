@@ -14,6 +14,11 @@ in
   ];
 
   home-manager.users.steven = {
+    # Allow HM to Clobber Noctalia Config File
+    xdg.configFile."noctalia/settings.json" = {
+      force = true;
+    };
+
     imports = [
       inputs.noctalia.homeModules.default
     ];
@@ -435,8 +440,6 @@ in
       };
       force = true;
     };
-    xdg.configFile."noctalia/settings.json" = {
-      force = true;
-    };
+
   };
 }

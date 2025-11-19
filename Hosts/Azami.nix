@@ -24,6 +24,8 @@
   };
 
   networking.hostName = "Azami"; # Define your hostname.
+
+  # Enable DE Configurations:
   GNOME.enable = true;
   hyprland.enable = true;
 
@@ -38,7 +40,7 @@
   # Stylix Specific #
   ###################
   stylix = {
-    fonts.sizes.terminal = lib.mkForce 14;
+    fonts.sizes.terminal = lib.mkForce 10;
   };
 
   # Hardware Configuration #
