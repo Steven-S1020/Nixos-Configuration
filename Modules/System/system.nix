@@ -1,6 +1,10 @@
 # All System Configuraton Settings
 
-{ config, pkgs, ... }:
+{
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   # Enable Flakes
@@ -11,6 +15,7 @@
 
   services.upower.enable = true;
   services.tuned.enable = true;
+  systemd.user.services.orca.wantedBy = lib.mkForce [ ];
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;

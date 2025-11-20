@@ -35,7 +35,10 @@
               "$mod, Q, killactive"
               "$mod, E, exec, nautilus"
               "$mod, Return, exec, kitty"
+              "$mod+Shift, Return, exec, [workspace emptyn;] kitty"
               "Alt_L, Space, exec, ${noctalia "launcher toggle"}"
+              "Alt_L+Shift, Space, exec, ${noctalia "launcher toggle"}"
+              "Alt_L+Shift, Space, workspace, emptyn"
               "Control_L+Shift, Escape, exec, kitty btop"
               "$mod, C, exec, ${noctalia "launcher calculator"}"
 
