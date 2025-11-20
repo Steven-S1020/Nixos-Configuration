@@ -40,7 +40,12 @@
   # Stylix Specific #
   ###################
   stylix = {
-    fonts.sizes.terminal = lib.mkForce 10;
+    fonts.sizes = {
+      applications = 8;
+      desktop = 10;
+      popups = 10;
+      terminal = 8;
+    };
   };
 
   # Hardware Configuration #

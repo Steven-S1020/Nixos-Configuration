@@ -35,11 +35,6 @@
       };
     */
 
-    # Set Opacity
-    opacity = {
-      # terminal = 0.9;
-    };
-
     # Targets to Disable
     targets = {
       qt.enable = false;
