@@ -29,11 +29,11 @@
       };
     };
 
-    /*
-      cursor = {
-        name = "Future-cursors-black";
-      };
-    */
+    cursor = {
+      package = pkgs.rose-pine-hyprcursor;
+      name = "rose-pine-hyprcursor";
+      size = 22;
+    };
 
     # Targets to Disable
     targets = {

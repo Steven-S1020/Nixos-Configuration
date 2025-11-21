@@ -15,8 +15,8 @@
 
   services.upower.enable = true;
   services.tuned.enable = true;
-  systemd.user.services.orca.wantedBy = lib.mkForce [ ];
 
+  systemd.user.services.orca.wantedBy = lib.mkForce [ ];
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
