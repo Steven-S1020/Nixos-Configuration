@@ -21,5 +21,8 @@
     ./ibl.nix
     ./toggle-term.nix
     ./xeno.nix
+    ./autopairs.nix
+    ./surround.nix
+    ./colorizer-lua.nix
   ];
 }

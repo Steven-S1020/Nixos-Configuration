@@ -1,15 +1,16 @@
 {
-  pkgs,
   inputs,
   config,
+  lib,
   ...
 }:
 let
   c = config.colors;
+  hostname = config.networking.hostName;
 in
 {
   # Install Package
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = [
     inputs.noctalia.packages.x86_64-linux.default
   ];
 
@@ -91,7 +92,7 @@ in
                 labelMode = "index";
               }
             ];
-            right = [
+            right = lib.filter (w: w != null) [
               {
                 id = "Tray";
                 blacklist = [ ];
@@ -104,19 +105,29 @@ in
                 hideWhenZero = true;
                 showUnreadBadge = true;
               }
-              {
-                id = "Battery";
-                displayMode = "alwaysShow";
-                warningThreshold = 20;
-              }
+              (
+                if hostname == "Azami" then
+                  {
+                    id = "Battery";
+                    displayMode = "alwaysShow";
+                    warningThreshold = 20;
+                  }
+                else
+                  null
+              )
               {
                 id = "Volume";
                 displayMode = "alwaysShow";
               }
-              {
-                id = "Brightness";
-                displayMode = "alwaysShow";
-              }
+              (
+                if hostname == "Azami" then
+                  {
+                    id = "Brightness";
+                    displayMode = "alwaysShow";
+                  }
+                else
+                  null
+              )
               {
                 id = "Clock";
                 customFont = "";

@@ -8,11 +8,10 @@
     {
       plugin = barbar-nvim;
       type = "lua";
-      config = # lua
-        ''
-          map('n', '<S-Tab>', ':BufferNext<CR>')
-          map('n', '<S-w>', ':BufferClose<CR>')
-        '';
+      config = /* lua */ ''
+        map('n', '<S-Tab>', ':BufferNext<CR>')
+        map('n', '<S-w>', ':BufferClose<CR>')
+      '';
     }
   ];
 }
