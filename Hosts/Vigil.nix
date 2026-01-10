@@ -42,6 +42,15 @@
     raspberrypifw
   ];
 
+  users.users.steven = {
+    isNormalUser = true;
+    description = "Steven";
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
+  };
+
   # Hardware Configuration #
   ##########################
   hardware = {
