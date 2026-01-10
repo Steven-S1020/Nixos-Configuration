@@ -77,12 +77,12 @@
         };
       };
 
-      devShells.x86_64-linux = {
-        dsci =
-          let
-            pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          in
-          pkgs.mkShell {
+      devShells.x86_64-linux =
+        let
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        in
+        {
+          dsci = pkgs.mkShell {
             buildInputs = with pkgs.python313Packages; [
               pkgs.python313
               marimo
@@ -96,6 +96,36 @@
               sympy
             ];
           };
-      };
+          csci296 = pkgs.mkShell {
+            buildInputs =
+              with pkgs;
+              [
+                R
+                python313
+                (julia-bin.withPackages [
+                  "DataFrames"
+                  "Plots"
+                  "SciML"
+                  "JuliaStats"
+                ])
+                (rstudioWrapper.override {
+                  packages = with pkgs.rPackages; [
+                    RColorBrewer
+                    dplyr
+                    ggplot2
+                    reshape2
+                  ];
+                })
+              ]
+              ++ (with python313Packages; [
+                numpy
+                pandas
+                scikit-learn
+                scipy
+                sklearn
+                tensorflow
+              ]);
+          };
+        };
     };
 }

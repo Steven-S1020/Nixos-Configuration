@@ -16,8 +16,8 @@
             RRGGBB = true,
             RRGGBBAA = true,
             names = false,
-            rgb_fn = true,
-            hsl_fn = true,
+            -- rgb_fn = true,
+            -- hsl_fn = true,
           })
         '';
     }

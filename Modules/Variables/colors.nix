@@ -54,14 +54,14 @@ in
   config.colors =
     let
       colors = {
-        base = "272c33";
-        black = "0d1013";
-        darkred = "ee5858";
-        lightgreen = "b3f6c0";
-        purple = "a997df";
-        red = "ac4242";
-        text = "a0b0c5";
-        yellow = "f9c784";
+        base = "#272c33";
+        black = "#0d1013";
+        darkred = "#ee5858";
+        lightgreen = "#b3f6c0";
+        purple = "#a997df";
+        red = "#ac4242";
+        text = "#a0b0c5";
+        yellow = "#f9c784";
       };
     in
     builtins.mapAttrs (_: parseColor) colors;
