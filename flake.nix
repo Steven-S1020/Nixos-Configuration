@@ -78,6 +78,7 @@
 
         Vigil = nixpkgs.lib.nixosSystem {
           specialArgs = {
+            inherit inputs;
           };
 
           modules = [
