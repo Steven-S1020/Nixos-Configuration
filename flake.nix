@@ -75,6 +75,18 @@
             stylix.nixosModules.stylix
           ];
         };
+
+        Vigil = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+          };
+
+          modules = [
+            # Host
+            ./Hosts/Vigil.nix
+
+          ];
+        };
       };
 
       devShells.x86_64-linux =
