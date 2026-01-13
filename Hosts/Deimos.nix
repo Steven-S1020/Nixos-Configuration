@@ -38,6 +38,7 @@
   environment.systemPackages = with pkgs; [
     prismlauncher
     heroic
+    satisfactorymodmanager
   ];
 
   # Stylix
