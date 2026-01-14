@@ -27,7 +27,7 @@ in
     programs.noctalia-shell = {
       systemd.enable = true;
       enable = true;
-      settings = {
+      settings = lib.mkForce {
         settingsVersion = 23;
         setupCompleted = true;
         bar = {

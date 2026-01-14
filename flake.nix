@@ -116,8 +116,8 @@
                 (julia-bin.withPackages [
                   "DataFrames"
                   "Plots"
-                  "SciML"
-                  "JuliaStats"
+                  "SciMLBase"
+                  "StatsBase"
                 ])
                 (rstudioWrapper.override {
                   packages = with pkgs.rPackages; [
