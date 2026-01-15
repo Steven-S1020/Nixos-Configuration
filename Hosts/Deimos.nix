@@ -24,10 +24,27 @@
   };
 
   networking.hostName = "Deimos"; # Define your hostname.
-  GNOME.enable = true;
+  GNOME.enable = false;
   hyprland.enable = true;
   home-manager.users.steven = {
     ##
+  };
+
+  services.displayManager.ly = {
+    enable = true;
+    settings = {
+      animation = "gameoflife";
+      bg = "0x00${config.colors.red.hex}";
+      bigclock = "en";
+      bigclock_12hr = true;
+      border_fg = "0x00${config.colors.purple.hex}";
+      default_input = "password";
+      fg = "0x00${config.colors.text.hex}";
+      gameoflife_fg = "0x00${config.colors.lightgreen.hex}";
+      vi_default_mode = "insert";
+      vi_mode = true;
+      xinitrc = "null";
+    };
   };
 
   boot.supportedFilesystems = [ "ntfs" ];

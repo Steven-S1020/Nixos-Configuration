@@ -77,7 +77,7 @@
 
         Vigil = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs;
+            inherit (inputs) nixpkgs home-manager nixos-hardware;
           };
 
           modules = [
