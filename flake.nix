@@ -91,9 +91,36 @@
       devShells.x86_64-linux =
         let
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          lib = pkgs.lib;
+
+          # Helper function to create a shell with a custom prompt
+          mkShellWithPrompt =
+            name: rgb: attrs:
+            pkgs.mkShell (
+              attrs
+              // {
+                shellHook = ''
+                  export PS1="\[\e[37m\]|\[\e[${rgb}m\]\u@\h\[\e[37m\]|\[\e[${rgb}m\] ${name} \[\e[37m\]|\[\e[${rgb}m\] \w \[\e[37m\]󱎃\n󰇜󰇜 \[\e[0m\]"
+                  echo ""
+                  echo "Development shell: ${name}"
+                  echo "Available packages:"
+                  ${
+                    lib.concatMapStringsSep "\n" (
+                      pkg:
+                      ''command -v ${pkg.pname or pkg.name or "unknown"} >/dev/null && echo "  - ${
+                        pkg.pname or pkg.name or "unknown"
+                      }: $(${
+                        pkg.pname or pkg.name or "unknown"
+                      } --version 2>&1 | head -n1 | sed 's/ from.*//' || echo 'version unknown')"''
+                    ) (attrs.buildInputs or [ ])
+                  }                  echo ""
+                  ${attrs.shellHook or ""}
+                '';
+              }
+            );
         in
         {
-          dsci = pkgs.mkShell {
+          dsci-Python = mkShellWithPrompt "DSCI-Python" "38;2;169;151;223" {
             buildInputs = with pkgs.python313Packages; [
               pkgs.python313
               marimo
@@ -107,7 +134,7 @@
               sympy
             ];
           };
-          csci296 = pkgs.mkShell {
+          dsci-PyRJul = mkShellWithPrompt "DSCI-PyRJul" "38;2;179;246;192" {
             buildInputs =
               with pkgs;
               [
@@ -133,7 +160,6 @@
                 pandas
                 scikit-learn
                 scipy
-                sklearn
                 tensorflow
               ]);
           };

@@ -10,6 +10,7 @@
 
       # Command ran on open Shell
       initExtra = ''
+        clear
         fastfetch
       '';
 

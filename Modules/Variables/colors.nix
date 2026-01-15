@@ -36,8 +36,8 @@ let
 
       # Create the TOML document, parse it, and coerce the values from ints to strings.
       toml = lib.concatLines (lib.mapAttrsToList defineAsTOML channels);
-      rgbVals = builtins.fromTOML toml;
-      rgb = builtins.mapAttrs (_: builtins.toString) rgbVals;
+      rgbVals = fromTOML toml;
+      rgb = builtins.mapAttrs (_: toString) rgbVals;
     in
     {
       hex = hexNoPrefix;
