@@ -30,17 +30,67 @@
     ##
   };
 
+  # Disable HDMI before Ly starts, set resolution
+  # systemd.services.ly-display-setup = {
+  #   description = "Setup display for Ly greeter";
+  #   before = [ "display-manager.service" ];
+  #   serviceConfig = {
+  #     Type = "oneshot";
+  #     RemainAfterExit = true;
+  #     User = "root";
+  #     ExecStart = pkgs.writeShellScript "ly-setup" ''
+  #       echo off > /sys/class/drm/card1-HDMI-A-1/status || true
+  #       ${pkgs.fbset}/bin/fbset -xres 2560 -yres 1440 || true
+  #     '';
+  #   };
+  # };
+
+  # Enable HDMI after login
+  # systemd.services.enable-hdmi-login = {
+  #   description = "Enable HDMI after login";
+  #   wantedBy = [ "openrgb.service" ];
+  #   serviceConfig = {
+  #     Type = "oneshot";
+  #     User = "root";
+  #     ExecStart = pkgs.writeShellScript "hdmi-enable" ''
+  #       echo on > /sys/class/drm/card1-HDMI-A-1/status || true
+  #     '';
+  #   };
+  # };
+  security.sudo.extraRules = [
+    {
+      users = [ "steven" ];
+      commands = [
+        {
+          command = "${pkgs.coreutils}/bin/tee";
+          options = [
+            "SETENV"
+            "NOPASSWD"
+          ];
+        }
+      ];
+    }
+  ];
+
   services.displayManager.ly = {
     enable = true;
     settings = {
-      animation = "gameoflife";
-      bg = "0x00${config.colors.red.hex}";
+      animation = "matrix";
+      bg = "0x00${config.colors.base.hex}";
       bigclock = "en";
       bigclock_12hr = true;
       border_fg = "0x00${config.colors.purple.hex}";
+      box_title = "NixOS";
+      brightness_down_key = "null";
+      brightness_up_key = "null";
+      cmatrix_fg = "0x00${config.colors.red.hex}";
+      cmatrix_head_col = "0x01${config.colors.darkred.hex}";
       default_input = "password";
       fg = "0x00${config.colors.text.hex}";
-      gameoflife_fg = "0x00${config.colors.lightgreen.hex}";
+      hide_version_string = true;
+      # login_cmd = "echo on | sudo tee /sys/class/drm/card1-HDMI-A-1/status";
+      # start_cmd = "echo off > /sys/class/drm/card1-HDMI-A-1/status || true && ${pkgs.fbset}/bin/fbset -xres 2560 -yres 1440 || true";
+      text_in_center = true;
       vi_default_mode = "insert";
       vi_mode = true;
       xinitrc = "null";

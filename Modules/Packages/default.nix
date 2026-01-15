@@ -26,6 +26,7 @@
     # CLI Utilites
     bat
     fastfetch
+    fbset
     fd
     just
     lsd
