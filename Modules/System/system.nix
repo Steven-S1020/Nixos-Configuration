@@ -14,7 +14,7 @@
   ];
 
   services.upower.enable = true;
-  services.tuned.enable = true;
+  # services.tuned.enable = true;
 
   systemd.user.services.orca.wantedBy = lib.mkForce [ ];
   # Bootloader
