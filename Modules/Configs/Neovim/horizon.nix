@@ -19,27 +19,26 @@ in
     {
       plugin = horizon;
       type = "lua";
-      config # lua
-        = ''
-          require'horizon'.setup{
-            overrides = {
-              colors = {
-                CursorLine = { bg = "#1e1e1e", fg = "#ffffff", underline = true },
-                LineNr = { fg = "#d5d8da", bg = "none" },
-                CursorLineNr = { fg = "#f1f2f3", bold = true, bg = "none" },
-                Normal = { bg = "none" },
-                NormalFloat = { bg = "none" },
-                NonText = { bg = "none" },
-              }
+      config = /* lua */ ''
+        require'horizon'.setup{
+          overrides = {
+            colors = {
+              CursorLine = { bg = "#1e1e1e", fg = "#ffffff", underline = true },
+              LineNr = { fg = "#d5d8da", bg = "none" },
+              CursorLineNr = { fg = "#f1f2f3", bold = true, bg = "none" },
+              Normal = { bg = "none" },
+              NormalFloat = { bg = "none" },
+              NonText = { bg = "none" },
             }
           }
-          ---[ Set Theme & Overrides ]---
-          vim.o.background = "dark"
-          vim.cmd.colorscheme'horizon'
+        }
+        ---[ Set Theme & Overrides ]---
+        vim.o.background = "dark"
+        vim.cmd.colorscheme'horizon'
 
-          vim.api.nvim_set_hl(0, "LineNr", { fg = "#d5d8da", bg = "none" })
-          vim.api.nvim_set_hl(0, "ToggleTerm1Normal", { bg = "none" })
-        '';
+        vim.api.nvim_set_hl(0, "LineNr", { fg = "#d5d8da", bg = "none" })
+        vim.api.nvim_set_hl(0, "ToggleTerm1Normal", { bg = "none" })
+      '';
     }
   ];
 }

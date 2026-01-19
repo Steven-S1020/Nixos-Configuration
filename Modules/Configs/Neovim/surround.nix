@@ -8,13 +8,12 @@
     {
       plugin = nvim-surround;
       type = "lua";
-      config # lua
-        = ''
-            ---[ Surround ]---
-          local surround = require'nvim-surround'
+      config = /* lua */ ''
+          ---[ Surround ]---
+        local surround = require'nvim-surround'
 
-          surround.setup()
-        '';
+        surround.setup()
+      '';
     }
   ];
 }

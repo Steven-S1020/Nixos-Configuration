@@ -8,11 +8,10 @@
     {
       plugin = nvim-autopairs;
       type = "lua";
-      config # lua
-        = ''
-          ---[ Autopairs ]---
-          require'nvim-autopairs'.setup()
-        '';
+      config = /* lua */ ''
+        ---[ Autopairs ]---
+        require'nvim-autopairs'.setup()
+      '';
     }
   ];
 }

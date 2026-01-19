@@ -8,16 +8,15 @@
     {
       plugin = neo-tree-nvim;
       type = "lua";
-      config # lua
-        = ''
-          vim.api.nvim_create_user_command('NT', 'Neotree toggle', {})
-          vim.cmd('cnoreabbrev nt NT')
+      config = /* lua */ ''
+        vim.api.nvim_create_user_command('NT', 'Neotree toggle', {})
+        vim.cmd('cnoreabbrev nt NT')
 
-          -- close if last open
-          require'neo-tree'.setup({
-            close_if_last_window = true,
-          })
-        '';
+        -- close if last open
+        require'neo-tree'.setup({
+          close_if_last_window = true,
+        })
+      '';
     }
   ];
 }

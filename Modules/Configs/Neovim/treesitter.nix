@@ -6,30 +6,27 @@
 {
   home-manager.users.steven.programs.neovim.plugins = with pkgs.vimPlugins; [
     {
-      plugin = (
-        nvim-treesitter.withPlugins (p: [
-          p.tree-sitter-bash
-          p.tree-sitter-cpp
-          p.tree-sitter-java
-          p.tree-sitter-json
-          p.tree-sitter-latex
-          p.tree-sitter-lua
-          p.tree-sitter-nix
-          p.tree-sitter-python
-          p.tree-sitter-rust
-          p.tree-sitter-sql
-          p.tree-sitter-vim
-        ])
-      );
+      plugin = nvim-treesitter.withAllGrammars;
       type = "lua";
-      config # lua
-        = ''
-          require('nvim-treesitter.config').setup {
-            ensure_installed = {},
-            auto_install = false,
-            highlight = { enable = true },
-          }
-        '';
+      config = /* lua */ ''
+        vim.api.nvim_create_autocmd("FileType", {
+          pattern = "*",
+            callback = function(event)
+              local bufnr = event.buf
+              local lang = vim.treesitter.language.get_lang(vim.bo[bufnr].filetype)
+
+              if not lang then
+                  return -- no parser for this filetype
+              end
+
+              local ok = pcall(vim.treesitter.get_parser, bufnr, lang)
+
+              if ok then
+                  vim.treesitter.start(bufnr, lang)
+              end
+            end,
+        })
+      '';
     }
   ];
 }

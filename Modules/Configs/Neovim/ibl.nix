@@ -8,13 +8,12 @@
     {
       plugin = indent-blankline-nvim;
       type = "lua";
-      config # lua
-        = ''
-          ---[ Indent Blankline ]---
-          require'ibl'.setup {
-            scope = { enabled = false }
-          }
-        '';
+      config = /* lua */ ''
+        ---[ Indent Blankline ]---
+        require'ibl'.setup {
+          scope = { enabled = false }
+        }
+      '';
     }
   ];
 }
