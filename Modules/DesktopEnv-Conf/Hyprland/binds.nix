@@ -16,6 +16,19 @@
       wayland.windowManager.hyprland = {
         settings =
           let
+            screenie = pkgs.writeShellScriptBin "screenie" ''
+              mode=''${1:-region}
+              time=$(date +%F_%H%M%S)
+
+              ${pkgs.hyprshot}/bin/hyprshot -m "$mode" -zs --raw \
+              | ${pkgs.satty}/bin/satty --filename - \
+                --output-filename "/home/steven/Pictures/Screenshots/screenshot_$time.png" \
+                --copy-command wl-copy \
+                --init-tool brush \
+                --actions-on-escape exit \
+                --early-exit
+            '';
+
             noctalia =
               cmd:
               lib.concatStringsSep " " (
@@ -99,6 +112,9 @@
               "$mod+Shift, 9, movetoworkspace, 9"
               "$mod+Shift, 0, movetoworkspace, 10"
 
+              # Screenshots
+              ", Print, exec, ${screenie}/bin/screenie output"
+              "Shift_L, Print, exec, ${screenie}/bin/screenie"
             ];
 
             bindel = [

@@ -100,7 +100,8 @@
               attrs
               // {
                 shellHook = ''
-                  export PS1="\[\e[37m\]|\[\e[${rgb}m\]\u@\h\[\e[37m\]|\[\e[${rgb}m\] ${name} \[\e[37m\]|\[\e[${rgb}m\] \w \[\e[37m\]󱎃\n󰇜󰇜 \[\e[0m\]"
+                  alias rs="rstudio > /dev/null 2>&1 &"
+                  export PS1="\[\e[37m\]|\[\e[${rgb}m\]\u@\h\[\e[37m\]|\[\e[${rgb}m\] ${name} \[\e[37m\]|\[\e[${rgb}m\] \w \[\e[37m\]󱎃\n󰇜󰇜 \[\e[0m\]"
                   echo ""
                   echo "Development shell: ${name}"
                   echo "Available packages:"
@@ -148,10 +149,12 @@
                 ])
                 (rstudioWrapper.override {
                   packages = with pkgs.rPackages; [
+                    ISLR2
                     RColorBrewer
                     dplyr
                     ggplot2
                     reshape2
+                    rmarkdown
                   ];
                 })
               ]

@@ -32,6 +32,7 @@
     lsd
     ripgrep
     tokei
+    unzip
 
     # Desktop Applications
     bitwarden-desktop
