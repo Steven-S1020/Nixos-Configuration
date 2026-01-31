@@ -26,6 +26,15 @@
         vim.lsp.enable('cssls')
         vim.lsp.enable('superhtml')
 
+        -- React/JavaScript/TypeScript
+        vim.lsp.enable('ts_ls')  -- or 'tsserver' depending on your nvim-lspconfig version
+
+        -- Tailwind CSS
+        vim.lsp.enable('tailwindcss')
+
+        -- Optional: ESLint for linting
+        vim.lsp.enable('eslint')
+
         -- Keybind for diagnostic window
         map('n', '<leader>d', function()
           vim.diagnostic.open_float(nil, { focusable = false })

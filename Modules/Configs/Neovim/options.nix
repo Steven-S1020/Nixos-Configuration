@@ -19,6 +19,8 @@
       vscode-langservers-extracted
 
       texlive.combined.scheme-full
+      nodejs
+      live-server
       zathura
       # Formatters
       python313Packages.autopep8
@@ -36,9 +38,8 @@
     defaultEditor = true;
 
     # ExtraLuaConfig: for general options that don't rely on plugins
-    extraLuaconfig = /* lua */ ''
+    extraLuaConfig = /* lua */ ''
 
-      -- Test Comment
       -- Leader Key
       vim.g.mapleader = ' '
 
@@ -100,9 +101,10 @@
 
       -- Set tabsize for *.nix
       vim.cmd([[
-        augroup NixTabSettings
+        augroup TwoTabSettings
           autocmd!
           autocmd FileType nix setlocal tabstop=2 shiftwidth=2 expandtab
+          autocmd FileType js setlocal tabstop=2 shiftwidth=2 expandtab
         augroup END
       ]])
 
@@ -120,6 +122,8 @@
       map('n', '<C-k>', '<C-w>k')
       map('n', '<C-l>', '<C-w>l')
       map('v', '<C-s>', ':sort<CR>')
+
+      require('live-server').setup({})
     '';
   };
 }

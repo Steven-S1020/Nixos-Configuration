@@ -4,7 +4,7 @@
 
 {
 
-  home-manager.users.steven.programs.neovim.extraLuaconfig = /* lua */ ''
+  home-manager.users.steven.programs.neovim.extraLuaConfig = /* lua */ ''
     ----[ Auto Commands ]----
 
     -- Alpha dashboard related behavior (hide/show tildes)

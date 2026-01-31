@@ -9,6 +9,11 @@
       plugin = nvim-treesitter.withAllGrammars;
       type = "lua";
       config = /* lua */ ''
+        -- Ensure JSX/TSX files use the correct treesitter parsers
+        vim.treesitter.language.register("javascript", "javascriptreact")
+        vim.treesitter.language.register("typescript", "typescriptreact")
+
+
         vim.api.nvim_create_autocmd("FileType", {
           pattern = "*",
             callback = function(event)

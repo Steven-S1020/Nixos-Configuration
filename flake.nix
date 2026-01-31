@@ -51,7 +51,7 @@
 
           modules = [
             # Host
-            ./Hosts/Azami.nix
+            ./Hosts/Azami/Azami.nix
 
             # Surface Hardware
             nixos-hardware.nixosModules.microsoft-surface-common
@@ -68,7 +68,7 @@
 
           modules = [
             # Host
-            ./Hosts/Deimos.nix
+            ./Hosts/Deimos/Deimos.nix
 
             # Theming
             stylix.nixosModules.stylix
@@ -82,7 +82,7 @@
 
           modules = [
             # Host
-            ./Hosts/Vigil.nix
+            ./Hosts/Vigil/Vigil.nix
 
           ];
         };
@@ -121,48 +121,48 @@
             );
         in
         {
-          dsci-Python = mkShellWithPrompt "DSCI-Python" "38;2;169;151;223" {
-            buildInputs = with pkgs.python313Packages; [
-              pkgs.python313
-              marimo
-              matplotlib
-              numpy
-              pandas
-              pip
-              python-lsp-server
-              seaborn
-              scipy
-              sympy
-            ];
-          };
           dsci-PyRJul = mkShellWithPrompt "DSCI-PyRJul" "38;2;179;246;192" {
             buildInputs =
               with pkgs;
+              let
+                myRPackages = with rPackages; [
+                  ISLR2
+                  RColorBrewer
+                  dplyr
+                  ggplot2
+                  reshape2
+                  rmarkdown
+                ];
+                myR = rWrapper.override { packages = myRPackages; };
+                myRStudio = rstudioWrapper.override { packages = myRPackges; };
+              in
               [
-                R
+                myR
+                myRStudio
                 python313
                 (julia-bin.withPackages [
+                  "CSV"
                   "DataFrames"
                   "Plots"
                   "SciMLBase"
                   "StatsBase"
                 ])
-                (rstudioWrapper.override {
-                  packages = with pkgs.rPackages; [
-                    ISLR2
-                    RColorBrewer
-                    dplyr
-                    ggplot2
-                    reshape2
-                    rmarkdown
-                  ];
-                })
               ]
               ++ (with python313Packages; [
+                marimo
+                matplotlib
+                numpy
                 numpy
                 pandas
+                pandas
+                pip
+                python-lsp-server
+                requests
                 scikit-learn
                 scipy
+                scipy
+                seaborn
+                sympy
                 tensorflow
               ]);
           };

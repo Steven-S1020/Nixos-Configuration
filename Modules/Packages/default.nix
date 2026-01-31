@@ -38,6 +38,8 @@
     bitwarden-desktop
     brave
     google-chrome
+    cbonsai
+    live-server
     inputs.zen-browser.packages.x86_64-linux.default
     libreoffice-qt
     qFlipper
