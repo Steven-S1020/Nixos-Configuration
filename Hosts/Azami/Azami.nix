@@ -43,7 +43,7 @@
       applications = 8;
       desktop = 10;
       popups = 10;
-      terminal = 8;
+      terminal = 10;
     };
   };
 

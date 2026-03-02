@@ -38,6 +38,7 @@
     # Targets to Disable
     targets = {
       qt.enable = false;
+      nvf.enable = false;
     };
   };
 
@@ -46,7 +47,9 @@
 
     # Disable Neovim Theming
     targets.neovim.enable = false;
+    targets.nvf.enable = false;
     targets.zathura.enable = false;
     targets.hyprland.enable = false;
+    targets.starship.enable = false;
   };
 }

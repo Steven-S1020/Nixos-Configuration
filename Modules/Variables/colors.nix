@@ -55,13 +55,17 @@ in
     let
       colors = {
         base = "#272c33";
+        red2 = "#f6a2a2";
+        red1 = "#f27d7d";
         black = "#0d1013";
-        darkred = "#ee5858";
+        red = "#ee5858";
         lightgreen = "#b3f6c0";
         purple = "#a997df";
-        red = "#ac4242";
+        darkred = "#ac4242";
+        blue = "#2c82b5";
         text = "#a0b0c5";
         yellow = "#f9c784";
+        white = "#ffffff";
       };
     in
     builtins.mapAttrs (_: parseColor) colors;

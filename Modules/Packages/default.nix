@@ -49,6 +49,7 @@
     # Coding
     inputs.mkdev.packages.x86_64-linux.mkdev
     jdk
+    julia-bin
     libgcc
     mars-mips
     python313
@@ -73,5 +74,6 @@
   # Enable Packages
   hardware.flipperzero.enable = true;
   programs.nh.enable = true;
+  programs.zsh.enable = true;
 
 }
