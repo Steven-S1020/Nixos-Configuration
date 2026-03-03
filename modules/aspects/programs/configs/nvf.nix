@@ -1,7 +1,10 @@
 { inputs, ... }:
 {
   den.aspects.programs._.nvf.homeManager =
-    { pkgs, ... }:
+    { pkgs, lib, ... }:
+    let
+      nvimPkg = pkgs.vimPlugins.nvim-treesitter.withAllGrammars;
+    in
     {
       # nvf provides its own HM module — import it here rather than globally
       imports = [ inputs.nvf.homeManagerModules.default ];
@@ -18,11 +21,10 @@
 
           treesitter = {
             enable = true;
-            context.enable = true;
             autotagHtml = true;
           };
 
-          pluginOverrides.nvim-treesitter = pkgs.vimPlugins.nvim-treesitter.withAllGrammars;
+          pluginOverrides.nvim-treesitter = nvimPkg;
 
           options = {
             mouse = "a";
@@ -40,12 +42,6 @@
           clipboard = {
             enable = true;
             providers.wl-copy.enable = true;
-            providers.xclip.enable = true;
-          };
-
-          spellcheck = {
-            enable = true;
-            languages = [ "en" ];
           };
 
           lsp = {
@@ -83,11 +79,37 @@
             };
           };
 
-          theme = {
-            enable = true;
-            name = "oxocarbon";
-            style = "dark";
-          };
+          augroups = [ { name = "UserSetup"; } ];
+          autocmds = [
+            {
+              event = [ "BufReadPost" ];
+              pattern = [ "*" ];
+              group = "UserSetup";
+              desc = "remember last cursor place";
+              callback = lib.generators.mkLuaInline ''
+                function()
+                  local mark = vim.api.nvim_buf_get_mark(0, '"')
+                  local lcount = vim.api.nvim_buf_line_count(0)
+                  if mark[1] > 0 and mark[1] <= lcount then
+                    pcall(vim.api.nvim_win_set_cursor, 0, mark)
+                  end
+                end
+              '';
+            }
+            {
+              event = [ "FileType" ];
+              pattern = [ "markdown" ];
+              group = "UserSetup";
+              desc = "Set spellcheck for Markdown";
+              command = "setlocal spell";
+            }
+          ];
+
+          # theme = {
+          #   enable = true;
+          #   name = "rose-pine";
+          #   style = "main";
+          # };
 
           ui = {
             noice.enable = true;
@@ -122,6 +144,7 @@
 
           mini = {
             icons.enable = true;
+            indentscope.enable = true;
             tabline = {
               enable = true;
               setupOpts.show_icons = true;
@@ -153,25 +176,25 @@
                   };
                   glyphs = {
                     default = "󰈚";
-                    symlink = "";
+                    symlink = "";
                     folder = {
-                      default = "";
-                      empty = "";
-                      empty_open = "";
-                      open = "";
-                      symlink = "";
-                      symlink_open = "";
-                      arrow_open = "";
-                      arrow_closed = "";
+                      default = "";
+                      empty = "";
+                      empty_open = "";
+                      open = "";
+                      symlink = "";
+                      symlink_open = "";
+                      arrow_open = "";
+                      arrow_closed = "";
                     };
                     git = {
-                      untracked = "";
-                      staged = "";
-                      deleted = "";
+                      untracked = "";
+                      staged = "";
+                      deleted = "";
                       unstaged = "󰜀";
-                      renamed = "";
+                      renamed = "";
                       ignored = "◌";
-                      unmerged = "";
+                      unmerged = "";
                     };
                   };
                 };

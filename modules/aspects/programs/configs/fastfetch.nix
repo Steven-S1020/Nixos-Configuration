@@ -36,7 +36,7 @@
             }
             {
               type = "datetime";
-              key = "╭─";
+              key = "╭─";
               format = "{14}:{17}:{20}";
             }
             {
@@ -51,12 +51,12 @@
             "break"
             {
               type = "os";
-              key = "╭─";
+              key = "╭─";
               format = "{3} ({12})";
             }
             {
               type = "cpu";
-              key = "├─";
+              key = "├─";
               freqNdigits = 1;
             }
             {
@@ -75,7 +75,7 @@
             }
             {
               type = "memory";
-              key = "├─";
+              key = "├─";
               format = "{2} RAM";
             }
             {

@@ -7,9 +7,6 @@
         {
           homeManager =
             { lib, ... }:
-            let
-              c = host.colors;
-            in
             {
               programs.starship = {
                 enable = true;
@@ -17,24 +14,24 @@
                 settings = {
                   add_newline = false;
                   format = lib.concatStrings [
-                    "[░▒▓](fg:#${c.darkred.hex})"
-                    "[  ](bg:#${c.darkred.hex} fg:#${c.white.hex})"
-                    "[](bg:#${c.red.hex} fg:#${c.darkred.hex})"
+                    "[░▒▓](fg:#e74b77)"
+                    "[  ](bg:#e74b77 fg:#e0def4)"
+                    "[](bg:#eb6f92 fg:#e74b77)"
                     "$directory"
-                    "[](bg:#${c.red1.hex} fg:#${c.red.hex})"
+                    "[](bg:#f093ae fg:#eb6f92)"
                     "$nix_shell"
-                    "[](bg:#${c.red2.hex} fg:#${c.red1.hex})"
+                    "[](bg:#f5b7c9 fg:#f093ae)"
                     "$python"
                     "$c"
                     "$julia"
                     "$nodejs"
                     "$rlang"
-                    "[](fg:#${c.red2.hex})"
+                    "[](fg:#f5b7c9)"
                     "\n$character"
                   ];
 
                   directory = {
-                    style = "fg:#${c.white.hex} bg:#${c.red.hex}";
+                    style = "fg:#e0def4 bg:#eb6f92";
                     format = "[ $path ]($style)";
                     truncation_length = 3;
                     truncation_symbol = "…/";
@@ -48,33 +45,33 @@
 
                   nix_shell = {
                     symbol = "";
-                    format = "[ $symbol $name ](fg:#${c.white.hex} bg:#${c.red1.hex})";
+                    format = "[ $symbol $name ](fg:#e0def4 bg:#f093ae})";
                     heuristic = false;
                   };
 
                   python = {
                     symbol = "󰌠";
-                    format = "[ $symbol ($version) ](fg:#${c.black.hex} bg:#${c.red2.hex})";
+                    format = "[ $symbol ($version) ](fg:#191724 bg:#f5b7c9)";
                   };
 
                   nodejs = {
                     symbol = "󰎙";
-                    format = "[ $symbol ($version) ](fg:#${c.black.hex} bg:#${c.red2.hex})";
+                    format = "[ $symbol ($version) ](fg:#191724 bg:#f5b7c9)";
                   };
 
                   rlang = {
                     symbol = "󰟔";
-                    format = "[ $symbol ($version) ](fg:#${c.black.hex} bg:#${c.red2.hex})";
+                    format = "[ $symbol ($version) ](fg:#191724 bg:#f5b7c9)";
                   };
 
                   julia = {
                     symbol = "";
-                    format = "[ $symbol ($version) ](fg:#${c.black.hex} bg:#${c.red2.hex})";
+                    format = "[ $symbol ($version) ](fg:#191724 bg:#f5b7c9)";
                   };
 
                   c = {
                     symbol = "";
-                    format = "[ $symbol ($version) ](fg:#${c.black.hex} bg:#${c.red2.hex})";
+                    format = "[ $symbol ($version) ](fg:#191724 bg:#f5b7c9)";
                   };
                 };
               };

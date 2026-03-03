@@ -1,5 +1,4 @@
 {
-  inputs,
   den,
   ...
 }:
@@ -27,9 +26,6 @@
       (den.lib.take.exactly (
         { host, user }:
         let
-          c = host.colors;
-          hostname = host.hostName;
-
           noctalia =
             lib: cmd:
             lib.concatStringsSep " " (
@@ -81,8 +77,6 @@
                     border_size = 3;
                     gaps_in = 5;
                     gaps_out = 10;
-                    "col.active_border" = "rgb(${c.red.hex})";
-                    "col.inactive_border" = "rgb(${c.base.hex})";
                     resize_on_border = true;
                   };
 
@@ -97,7 +91,6 @@
                     mouse_move_enables_dpms = true;
                     key_press_enables_dpms = true;
                     animate_manual_resizes = true;
-                    background_color = "rgb(${c.darkred.hex})";
                   };
 
                   ecosystem = {

@@ -11,12 +11,15 @@
 
         stylix = {
           enable = true;
-          base16Scheme = ../../../assets/Base16-Schemes/Nasa.yaml;
-          image = ../../../assets/Wallpapers/Nasa.png;
+          image = ../../../assets/Wallpapers/Tanjiro-Red.png;
+          base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
+          override = {
+            base08 = "c4a7e7";
+            base0D = "eb6f92";
+          };
+
           polarity = "dark";
           targets.grub.useWallpaper = true;
-          targets.qt.enable = false;
-          targets.nvf.enable = false;
 
           fonts.monospace = {
             package = pkgs.nerd-fonts.fira-code;
@@ -36,11 +39,6 @@
           # Opt-out stylix auto-theming for things we control manually
           homeManager = {
             stylix.targets = {
-              neovim.enable = false;
-              nvf.enable = false;
-              zathura.enable = false;
-              hyprland.enable = false;
-              starship.enable = false;
             };
           };
         }

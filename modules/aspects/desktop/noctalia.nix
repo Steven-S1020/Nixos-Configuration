@@ -105,22 +105,6 @@
                           textColor = "none";
                           useFixedWidth = false;
                         }
-                        {
-                          compactMode = false;
-                          hideMode = "hidden";
-                          hideWhenIdle = false;
-                          id = "MediaMini";
-                          maxWidth = 145;
-                          panelShowAlbumArt = true;
-                          scrollingMode = "hover";
-                          showAlbumArt = true;
-                          showArtistFirst = false;
-                          showProgressRing = true;
-                          showVisualizer = true;
-                          textColor = "none";
-                          useFixedWidth = false;
-                          visualizerType = "wave";
-                        }
                       ];
                       center = [
                         {
@@ -205,11 +189,11 @@
                     screenOverrides = [ ];
                   };
                   general = {
-                    avatarImage = "/etc/nixos/Assets/Profile-Pictures/PFP.JPG";
+                    avatarImage = "/etc/nixos/assets/Profile-Pictures/PFP.JPG";
                     dimmerOpacity = 0.8;
                     showScreenCorners = true;
                     forceBlackScreenCorners = true;
-                    scaleRatio = 0.8500000000000001;
+                    scaleRatio = 0.85;
                     radiusRatio = 0.55;
                     iRadiusRatio = 0.55;
                     boxRadiusRatio = 1;
@@ -299,7 +283,7 @@
                   wallpaper = {
                     enabled = true;
                     overviewEnabled = false;
-                    directory = "/home/steven/Pictures/Wallpapers";
+                    directory = "/etc/nixos/assets/Wallpapers";
                     monitorDirectories = [ ];
                     enableMultiMonitorDirectories = false;
                     showHiddenFiles = false;
@@ -317,30 +301,12 @@
                     skipStartupTransition = true;
                     transitionEdgeSmoothness = 0.05;
                     panelPosition = "follow_bar";
-                    hideWallpaperFilenames = false;
-                    overviewBlur = 0.4;
-                    overviewTint = 0.6;
-                    useWallhaven = false;
-                    wallhavenQuery = "";
-                    wallhavenSorting = "relevance";
-                    wallhavenOrder = "desc";
-                    wallhavenCategories = "111";
-                    wallhavenPurity = "100";
-                    wallhavenRatios = "";
-                    wallhavenApiKey = "";
-                    wallhavenResolutionMode = "atleast";
-                    wallhavenResolutionWidth = "";
-                    wallhavenResolutionHeight = "";
-                    sortOrder = "name";
-                    favorites = [ ];
                   };
                   appLauncher = {
                     enableClipboardHistory = false;
                     autoPasteClipboard = false;
                     enableClipPreview = true;
                     clipboardWrapText = true;
-                    clipboardWatchTextCommand = "wl-paste --type text --watch cliphist store";
-                    clipboardWatchImageCommand = "wl-paste --type image --watch cliphist store";
                     position = "center";
                     pinnedApps = [ ];
                     useApp2Unit = false;
@@ -410,29 +376,6 @@
                         id = "media-sysmon-card";
                       }
                     ];
-                  };
-                  systemMonitor = {
-                    cpuWarningThreshold = 80;
-                    cpuCriticalThreshold = 90;
-                    tempWarningThreshold = 80;
-                    tempCriticalThreshold = 90;
-                    gpuWarningThreshold = 80;
-                    gpuCriticalThreshold = 90;
-                    memWarningThreshold = 80;
-                    memCriticalThreshold = 90;
-                    swapWarningThreshold = 80;
-                    swapCriticalThreshold = 90;
-                    diskWarningThreshold = 80;
-                    diskCriticalThreshold = 90;
-                    diskAvailWarningThreshold = 20;
-                    diskAvailCriticalThreshold = 10;
-                    batteryWarningThreshold = 20;
-                    batteryCriticalThreshold = 5;
-                    enableDgpuMonitoring = false;
-                    useCustomColors = false;
-                    warningColor = "";
-                    criticalColor = "";
-                    externalMonitor = "resources || missioncenter || jdsystemmonitor || corestats || system-monitoring-center || gnome-system-monitor || plasma-systemmonitor || mate-system-monitor || ukui-system-monitor || deepin-system-monitor || pantheon-system-monitor";
                   };
                   dock = {
                     enabled = false;
@@ -597,7 +540,6 @@
                   };
                   colorSchemes = {
                     useWallpaperColors = false;
-                    predefinedScheme = "Tokyo Night";
                     darkMode = true;
                     schedulingMode = "off";
                     manualSunrise = "06:30";
@@ -607,7 +549,6 @@
                   };
                   templates = {
                     activeTemplates = [ ];
-                    enableUserTheming = false;
                   };
                   nightLight = {
                     enabled = false;
@@ -699,27 +640,27 @@
               };
 
               xdg.configFile."noctalia/settings.json".force = true;
-              xdg.configFile."noctalia/colors.json" = {
-                force = true;
-                text = builtins.toJSON {
-                  mError = "#${c.yellow.hex}";
-                  mHover = "#${c.lightgreen.hex}";
-                  mOnError = "#${c.black.hex}";
-                  mOnHover = "#${c.black.hex}";
-                  mOnPrimary = "#${c.text.hex}";
-                  mOnSecondary = "#${c.text.hex}";
-                  mOnSurface = "#${c.text.hex}";
-                  mOnSurfaceVariant = "#${c.text.hex}";
-                  mOnTertiary = "#${c.text.hex}";
-                  mOutline = "#${c.red.hex}";
-                  mPrimary = "#${c.red.hex}";
-                  mSecondary = "#${c.purple.hex}";
-                  mShadow = "#${c.black.hex}";
-                  mSurface = "#${c.base.hex}";
-                  mSurfaceVariant = "#${c.black.hex}";
-                  mTertiary = "#${c.darkred.hex}";
-                };
-              };
+              # xdg.configFile."noctalia/colors.json" = {
+              #   force = true;
+              #   text = builtins.toJSON {
+              #     mError = "#${c.yellow.hex}";
+              #     mHover = "#${c.lightgreen.hex}";
+              #     mOnError = "#${c.black.hex}";
+              #     mOnHover = "#${c.black.hex}";
+              #     mOnPrimary = "#${c.text.hex}";
+              #     mOnSecondary = "#${c.text.hex}";
+              #     mOnSurface = "#${c.text.hex}";
+              #     mOnSurfaceVariant = "#${c.text.hex}";
+              #     mOnTertiary = "#${c.text.hex}";
+              #     mOutline = "#${c.red.hex}";
+              #     mPrimary = "#${c.red.hex}";
+              #     mSecondary = "#${c.purple.hex}";
+              #     mShadow = "#${c.black.hex}";
+              #     mSurface = "#${c.base.hex}";
+              #     mSurfaceVariant = "#${c.black.hex}";
+              #     mTertiary = "#${c.darkred.hex}";
+              #   };
+              # };
             };
         }
       ))
