@@ -1,8 +1,0 @@
-{ ... }:
-
-{
-  imports = [
-    ./GNOME
-    ./Hyprland
-  ];
-}

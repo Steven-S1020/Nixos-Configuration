@@ -14,11 +14,9 @@
 
     # Den
     den.url = "github:vic/den";
-    flake-aspects.url = "github:vic/flake-aspects";
-    flake-file.url = "github:vic/flake-file";
     flake-parts.url = "github:hercules-ci/flake-parts";
+    flake-aspects.url = "github:vic/flake-aspects";
     import-tree.url = "github:vic/import-tree";
-    systems.url = "github:nix-systems/default";
 
     # Software
     stylix = {

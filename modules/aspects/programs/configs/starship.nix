@@ -45,8 +45,8 @@
 
                   nix_shell = {
                     symbol = "";
-                    format = "[ $symbol $name ](fg:#e0def4 bg:#f093ae})";
-                    heuristic = false;
+                    format = "[ $symbol $name ](fg:#e0def4 bg:#f093ae)";
+                    # heuristic = false;
                   };
 
                   python = {
