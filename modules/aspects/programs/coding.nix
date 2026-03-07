@@ -7,6 +7,7 @@
 {
   den.aspects.programs._.coding = den.lib.parametric {
     includes = [
+      <programs/nix-direnv>
       <programs/mkdev>
       (den.lib.take.atLeast (
         { host, ... }:

@@ -13,9 +13,9 @@ build pull="no": validate
 # Clean unused store paths
 [group('System State')]
 clean no-optimise="no": validate
-    @nh clean all
-    @just build -f
-    @if [ "{{ no-optimise }}" != "--no-optimise" ]; then nix store optimise; fi
+    @nh clean all --keep-since 14d --no-gc
+    @if [ "{{ no-optimise }}" != "--no-optimise" ]; then nh clean all --no-gcroots --optimise; else nh clean all --no-gcroots; fi
+    @just build
 
 # Synchronise the system with Origin
 [group('System State')]
