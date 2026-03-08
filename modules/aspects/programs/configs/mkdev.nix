@@ -2,6 +2,12 @@
 {
   den.aspects.programs._.mkdev.homeManager =
     { ... }:
+    let
+      envrc = {
+        name = ".envrc";
+        content = "use flake";
+      };
+    in
     {
       imports = [ inputs.mkdev.homeManagerModule ];
 
@@ -20,28 +26,217 @@
         };
         recipes = [
           {
-            name = "DSCI";
+            name = "R-Flake";
             description = "";
-            languages = [ "\u001b[38;2;126;126;255mNix\u001b[0m" ];
+            languages = [
+              {
+                name = "Nix";
+                colour = [
+                  156
+                  207
+                  216
+                ];
+              }
+            ];
             contents = [
+              envrc
               {
                 name = "flake.nix";
-                content = ''
+                content = /* nix */ ''
                   {
-                    description = "Flake for {{name}} Project";
-                    inputs.system-flake.url = "path:/etc/nixos";
-                    inputs.nixpkgs.follows = "system-flake/nixpkgs";
-                    outputs = { system-flake, nixpkgs, ... }:
+                    description = "Basic R Flake";
+                    inputs = {
+                      system-flake.url = "path:/etc/nixos";
+                      nixpkgs.follows = "system-flake/nixpkgs";
+                    };
+
+                    outputs =
+                      { nixpkgs, ... }:
                       let
                         system = "x86_64-linux";
-                        pkgs = import nixpkgs { inherit system; };
-                        base = system-flake.devShells.''${system}.dsci;
-                      in {
+                        pkgs = import nixpkgs { 
+                            inherit system;
+                            config.allowUnfree = true;
+                          };
+                        myRPackages = with pkgs.rPackages; [
+                          ISLR2
+                          RColorBrewer
+                          dplyr
+                          ggplot2
+                          lmtest
+                          reshape2
+                          rmarkdown
+                          nortest
+                          writexl
+                        ];
+                        myR = pkgs.rWrapper.override { packages = myRPackages; };
+                        myRStudio = pkgs.rstudioWrapper.override { packages = myRPackages; };
+                      in
+                      {
                         devShells.''${system}.default = pkgs.mkShell {
-                          buildInputs = base.buildInputs ++ [ ];
+                          name = "R Flake";
+
+                          buildInputs = [
+                            myR
+                            myRStudio
+                          ];
+
+                          shellHook = '''
+                            alias rs="rstudio > /dev/null 2>&1 &"
+                          ''';
                         };
                       };
                   }
+
+                '';
+              }
+            ];
+          }
+          {
+            name = "WebDev-Flake";
+            description = "";
+            languages = [
+              {
+                name = "Nix";
+                colour = [
+                  156
+                  207
+                  216
+                ];
+              }
+            ];
+            contents = [
+              envrc
+              {
+                name = "flake.nix";
+                content = /* nix */ ''
+                  {
+                    description = "Basic Webdev (MERN) Flake";
+                    inputs = {
+                      system-flake.url = "path:/etc/nixos";
+                      nixpkgs.follows = "system-flake/nixpkgs";
+                    };
+
+                    outputs =
+                      { nixpkgs, ... }:
+                      let
+                        system = "x86_64-linux";
+                        pkgs = import nixpkgs { 
+                            inherit system;
+                            config.allowUnfree = true;
+                          };
+                      in
+                      {
+                        devShells.''${system}.default = pkgs.mkShell {
+                          name = "Webdev Flake";
+                          
+                          buildInputs = [
+                            live-server
+                            nodejs_22
+                            nodePackages.npm
+                            mongodb-ce
+                            mongosh
+                            postman
+                          ];
+
+                          shellHook = '''
+                          ''';
+                        };
+                      };
+                  }
+
+                '';
+              }
+            ];
+          }
+          {
+            name = "RPyJul-Flake";
+            description = "";
+            languages = [
+              {
+                name = "Nix";
+                colour = [
+                  156
+                  207
+                  216
+                ];
+              }
+            ];
+            contents = [
+              envrc
+              {
+                name = "flake.nix";
+                content = /* nix */ ''
+                  {
+                    description = "Basic R, Python, and Julia Flake";
+                    inputs = {
+                      system-flake.url = "path:/etc/nixos";
+                      nixpkgs.follows = "system-flake/nixpkgs";
+                    };
+
+                    outputs =
+                    { nixpkgs, ... }:
+                      let
+                        system = "x86_64-linux";
+                        pkgs = import nixpkgs { 
+                            inherit system;
+                            config.allowUnfree = true;
+                          };
+                        myRPackages = with pkgs.rPackages; [
+                          ISLR2
+                          RColorBrewer
+                          dplyr
+                          ggplot2
+                          lmtest
+                          reshape2
+                          rmarkdown
+                          nortest
+                          writexl
+                        ];
+                        myR = pkgs.rWrapper.override { packages = myRPackages; };
+                        myRStudio = pkgs.rstudioWrapper.override { packages = myRPackages; };
+                      in
+                      {
+                        devShells.''${system}.default = pkgs.mkShell {
+                          name = "RPyJul Flake";
+
+                          buildInputs = [
+                            myR
+                            myRStudio
+                            python313
+                            (julia-bin.withPackages [
+                              "CSV"
+                              "DataFrames"
+                              "HTTP"
+                              "Plots"
+                              "SciMLBase"
+                              "StatsBase"
+                              "XLSX"
+                            ])
+                          ]
+                          ++ (with python313Packages; [
+                            marimo
+                            matplotlib
+                            numpy
+                            openpyxl
+                            pandas
+                            pip
+                            python-lsp-server
+                            requests
+                            scikit-learn
+                            scipy
+                            seaborn
+                            sympy
+                            tensorflow
+                          ]);
+
+                          shellHook = '''
+                            alias rs="rstudio > /dev/null 2>&1 &"
+                          ''';
+                        };
+                      };
+                  }
+
                 '';
               }
             ];

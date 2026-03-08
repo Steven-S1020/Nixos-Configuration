@@ -18,7 +18,6 @@
               environment.systemPackages = with pkgs; [
                 # CLI Utils
                 tokei
-                live-server
                 inputs.mkdev.packages.${host.system}.mkdev
               ];
             };
