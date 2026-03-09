@@ -60,23 +60,23 @@
                 settings = lib.mkForce {
                   settingsVersion = 54;
                   bar = {
-                    barType = "floating";
+                    barType = "framed";
                     position = "top";
-                    monitors = [ ];
+                    monitors = [ "eDP-1" ];
                     density = "default";
-                    showOutline = true;
+                    showOutline = false;
                     showCapsule = false;
                     capsuleOpacity = 1;
                     capsuleColorKey = "none";
                     widgetSpacing = 8;
-                    contentPadding = 2;
+                    contentPadding = 0;
                     fontScale = 1;
                     backgroundOpacity = 0;
                     useSeparateOpacity = false;
-                    floating = true;
+                    floating = false;
                     marginVertical = 2;
                     marginHorizontal = 2;
-                    frameThickness = 8;
+                    frameThickness = 4;
                     frameRadius = 12;
                     outerCorners = false;
                     hideOnOverview = false;
@@ -179,7 +179,13 @@
                             null
                         )
                         {
-                          id = "plugin:hyprland-steam-overlay";
+                          clockColor = "none";
+                          customFont = "none";
+                          formatHorizontal = "MMM dd";
+                          formatVertical = "";
+                          id = "Clock";
+                          tooltipFormat = "";
+                          useCustomFont = false;
                         }
                       ];
                     };
@@ -190,9 +196,9 @@
                   };
                   general = {
                     avatarImage = "/etc/nixos/assets/Profile-Pictures/PFP.JPG";
-                    dimmerOpacity = 0.8;
-                    showScreenCorners = true;
-                    forceBlackScreenCorners = true;
+                    dimmerOpacity = 0;
+                    showScreenCorners = false;
+                    forceBlackScreenCorners = false;
                     scaleRatio = 0.85;
                     radiusRatio = 0.55;
                     iRadiusRatio = 0.55;
@@ -221,7 +227,7 @@
                     clockStyle = "analog";
                     clockFormat = "hh\\nmm";
                     passwordChars = true;
-                    lockScreenMonitors = [ ];
+                    lockScreenMonitors = [ "eDP-1" ];
                     lockScreenBlur = 0.25;
                     lockScreenTint = 0.5;
                     keybinds = {
@@ -245,9 +251,9 @@
                     fontFixedScale = 1;
                     tooltipsEnabled = false;
                     boxBorderEnabled = true;
-                    panelBackgroundOpacity = 0;
+                    panelBackgroundOpacity = 0.85;
                     panelsAttachedToBar = true;
-                    settingsPanelMode = "centered";
+                    settingsPanelMode = "attached";
                     settingsPanelSideBarCardStyle = true;
                   };
                   location = {
@@ -296,9 +302,9 @@
                     automationEnabled = false;
                     wallpaperChangeMode = "random";
                     randomIntervalSec = 300;
-                    transitionDuration = 1500;
+                    transitionDuration = 500;
                     transitionType = "random";
-                    skipStartupTransition = true;
+                    skipStartupTransition = false;
                     transitionEdgeSmoothness = 0.05;
                     panelPosition = "follow_bar";
                   };
@@ -307,7 +313,7 @@
                     autoPasteClipboard = false;
                     enableClipPreview = true;
                     clipboardWrapText = true;
-                    position = "center";
+                    position = "bottom_center";
                     pinnedApps = [ ];
                     useApp2Unit = false;
                     sortByMostUsed = true;
@@ -484,11 +490,11 @@
                     monitors = [ ];
                     location = "top_right";
                     overlayLayer = true;
-                    backgroundOpacity = 1;
+                    backgroundOpacity = 0.85;
                     respectExpireTimeout = false;
                     lowUrgencyDuration = 3;
-                    normalUrgencyDuration = 8;
-                    criticalUrgencyDuration = 15;
+                    normalUrgencyDuration = 5;
+                    criticalUrgencyDuration = 8;
                     clearDismissed = true;
                     saveToHistory = {
                       low = true;
@@ -513,7 +519,7 @@
                     location = "top_right";
                     autoHideMs = 2000;
                     overlayLayer = true;
-                    backgroundOpacity = 1;
+                    backgroundOpacity = 0.85;
                     enabledTypes = [
                       0
                       1
@@ -576,9 +582,9 @@
                   idle = {
                     enabled = true;
                     screenOffTimeout = 0;
-                    lockTimeout = 300;
+                    lockTimeout = 500;
                     suspendTimeout = 1800;
-                    fadeDuration = 5;
+                    fadeDuration = 7;
                     screenOffCommand = "";
                     lockCommand = "";
                     suspendCommand = "";
@@ -609,17 +615,6 @@
                             y = 40;
                           }
                           {
-                            diskPath = "/";
-                            id = "SystemStat";
-                            layout = "bottom";
-                            roundedCorners = true;
-                            scale = 0.7825094220678565;
-                            showBackground = false;
-                            statType = "CPU";
-                            x = 40;
-                            y = 20;
-                          }
-                          {
                             hideMode = "hidden";
                             id = "MediaPlayer";
                             roundedCorners = false;
@@ -638,29 +633,6 @@
                   };
                 };
               };
-
-              xdg.configFile."noctalia/settings.json".force = true;
-              # xdg.configFile."noctalia/colors.json" = {
-              #   force = true;
-              #   text = builtins.toJSON {
-              #     mError = "#${c.yellow.hex}";
-              #     mHover = "#${c.lightgreen.hex}";
-              #     mOnError = "#${c.black.hex}";
-              #     mOnHover = "#${c.black.hex}";
-              #     mOnPrimary = "#${c.text.hex}";
-              #     mOnSecondary = "#${c.text.hex}";
-              #     mOnSurface = "#${c.text.hex}";
-              #     mOnSurfaceVariant = "#${c.text.hex}";
-              #     mOnTertiary = "#${c.text.hex}";
-              #     mOutline = "#${c.red.hex}";
-              #     mPrimary = "#${c.red.hex}";
-              #     mSecondary = "#${c.purple.hex}";
-              #     mShadow = "#${c.black.hex}";
-              #     mSurface = "#${c.base.hex}";
-              #     mSurfaceVariant = "#${c.black.hex}";
-              #     mTertiary = "#${c.darkred.hex}";
-              #   };
-              # };
             };
         }
       ))

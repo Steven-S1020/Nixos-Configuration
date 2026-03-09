@@ -26,6 +26,50 @@
         };
         recipes = [
           {
+            name = "Empty-Flake";
+            description = "";
+            languages = [
+              {
+                name = "Nix";
+                colour = [
+                  156
+                  207
+                  216
+                ];
+              }
+            ];
+            contents = [
+              envrc
+              {
+                name = "flake.nix";
+                content = /* nix */ ''
+                  {
+                    description = "Empty Flake";
+                    inputs = {
+                      system-flake.url = "path:/etc/nixos";
+                      nixpkgs.follows = "system-flake/nixpkgs";
+                    };
+
+                    outputs =
+                      { nixpkgs, ... }:
+                      {
+                        devShells.''${system}.default = pkgs.mkShell {
+                          name = "Empty Flake";
+
+                          buildInputs = [
+                          ];
+
+                          shellHook = '''
+                          ''';
+                        };
+                      };
+                  }
+
+                '';
+              }
+            ];
+          }
+          {
             name = "R-Flake";
             description = "";
             languages = [
