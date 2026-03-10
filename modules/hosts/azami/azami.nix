@@ -1,7 +1,5 @@
 {
   __findFile,
-  den,
-  inputs,
   ...
 }:
 {
@@ -19,13 +17,15 @@
       <desktop/noctalia>
 
       # System Aspects
+      <system/audio>
+      <system/bluetooth>
       <system/boot>
       <system/dm>
       <system/locale>
       <system/networking>
-      <system/audio>
-      <system/bluetooth>
+      <system/printing>
       <system/stylix>
+      <system/syncthing>
     ];
 
     nixos =
