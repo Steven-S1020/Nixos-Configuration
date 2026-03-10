@@ -53,10 +53,10 @@
                     outputs =
                       { nixpkgs, ... }:
                       {
-                        devShells.''${system}.default = pkgs.mkShell {
+                        devShells.''${system}.default = pkgs.mkShellNoCC {
                           name = "Empty Flake";
 
-                          buildInputs = [
+                          buildInputs = with pkgs; [
                           ];
 
                           shellHook = '''
@@ -117,7 +117,7 @@
                         myRStudio = pkgs.rstudioWrapper.override { packages = myRPackages; };
                       in
                       {
-                        devShells.''${system}.default = pkgs.mkShell {
+                        devShells.''${system}.default = pkgs.mkShellNoCC {
                           name = "R Flake";
 
                           buildInputs = [
@@ -171,10 +171,10 @@
                           };
                       in
                       {
-                        devShells.''${system}.default = pkgs.mkShell {
+                        devShells.''${system}.default = pkgs.mkShellNoCC {
                           name = "Webdev Flake";
                           
-                          buildInputs = [
+                          buildInputs = with pkgs; [
                             live-server
                             nodejs_22
                             nodePackages.npm
@@ -241,7 +241,7 @@
                         myRStudio = pkgs.rstudioWrapper.override { packages = myRPackages; };
                       in
                       {
-                        devShells.''${system}.default = pkgs.mkShell {
+                        devShells.''${system}.default = pkgs.mkShellNoCC {
                           name = "RPyJul Flake";
 
                           buildInputs = [
