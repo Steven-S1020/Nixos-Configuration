@@ -18,23 +18,5 @@
         xinitrc = "null";
       };
     };
-
-    includes = [
-      (den.lib.take.exactly (
-        { host }:
-        let
-          c = host.colors;
-        in
-        {
-          nixos.services.displayManager.ly.settings = {
-            fg = "0x00${c.text.hex}";
-            bg = "0x00${c.base.hex}";
-            border_fg = "0x00${c.purple.hex}";
-            cmatrix_fg = "0x00${c.red.hex}";
-            cmatrix_head_col = "0x00${c.darkred.hex}";
-          };
-        }
-      ))
-    ];
   };
 }

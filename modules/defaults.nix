@@ -1,4 +1,4 @@
-{ den, __findFile, ... }:
+{ den, lib, __findFile, ... }:
 {
   den.default = {
     nixos.system.stateVersion = "24.11";
@@ -16,14 +16,11 @@
 
     includes = [
       <den/define-user>
-      (den.lib.take.exactly (
-        { host }:
-        {
-          ${host.class}.networking.hostName = host.hostName;
-        }
-      ))
+      <den/hostname>   
     ];
   };
+
+  den.schema.user.classes = lib.mkDefault [ "homeManager" ];
 
   den.ctx.hm-host.nixos.home-manager = {
     useGlobalPkgs = true;
