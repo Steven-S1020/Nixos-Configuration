@@ -16,7 +16,6 @@
             {
               environment.systemPackages = with pkgs; [
                 # Desktop Apps
-                bitwarden-desktop
                 inputs.zen-browser.packages.${host.system}.default
                 nautilus
                 spotify

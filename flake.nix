@@ -11,7 +11,6 @@
     };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
     # Den
     den.url = "github:vic/den";
     flake-parts.url = "github:hercules-ci/flake-parts";

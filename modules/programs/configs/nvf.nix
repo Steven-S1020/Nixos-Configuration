@@ -37,10 +37,12 @@
             expandtab = true;
             smartindent = true;
             updatetime = 50;
+            wrap = false;
           };
 
           clipboard = {
             enable = true;
+            registers = "unnamedplus";
             providers.wl-copy.enable = true;
           };
 

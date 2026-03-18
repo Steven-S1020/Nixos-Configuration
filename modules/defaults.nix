@@ -1,4 +1,9 @@
-{ den, lib, __findFile, ... }:
+{
+  den,
+  lib,
+  __findFile,
+  ...
+}:
 {
   den.default = {
     nixos.system.stateVersion = "24.11";
@@ -16,7 +21,8 @@
 
     includes = [
       <den/define-user>
-      <den/hostname>   
+      <den/hostname>
+      den._.inputs'
     ];
   };
 

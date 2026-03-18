@@ -11,7 +11,7 @@
 
         stylix = {
           enable = true;
-          image = ../../../assets/Wallpapers/Tanjiro-Red.png;
+          image = ../../assets/Wallpapers/Tanjiro-Red.png;
           base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
           override = {
             base08 = "c4a7e7";

@@ -7,6 +7,7 @@
       <programs/fastfetch>
       <programs/fzf>
       <programs/git>
+      <programs/mayhem>
       <programs/nvf>
       <programs/starship>
       <programs/zsh>
@@ -23,11 +24,12 @@
           just
           lsd
           ripgrep
+          nix-tree
+          nvd
           unzip
           cbonsai
         ];
 
-        # programs.zsh.enable = true;
         programs.nh.enable = true;
       };
   };

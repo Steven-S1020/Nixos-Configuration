@@ -9,7 +9,7 @@
       };
     in
     {
-      imports = [ inputs.mkdev.homeManagerModule ];
+      imports = [ inputs.mkdev.homeManagerModules.default ];
 
       programs.mkdev = {
         enable = true;
