@@ -120,7 +120,7 @@
                         devShells.''${system}.default = pkgs.mkShellNoCC {
                           name = "R Flake";
 
-                          buildInputs = [
+                          buildInputs = with pkgs; [
                             myR
                             myRStudio
                           ];
@@ -244,7 +244,7 @@
                         devShells.''${system}.default = pkgs.mkShellNoCC {
                           name = "RPyJul Flake";
 
-                          buildInputs = [
+                          buildInputs = with pkgs; [
                             myR
                             myRStudio
                             python313
