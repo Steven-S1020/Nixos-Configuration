@@ -70,11 +70,11 @@
     },
     "den": {
       "locked": {
-        "lastModified": 1773707736,
-        "narHash": "sha256-HlI1kc3gcq0xHQyZtMt6pIMV3yxUN3odaIILpN9wHVw=",
+        "lastModified": 1774843778,
+        "narHash": "sha256-o8mzc+4fzC1wdx16E6+Xon+IIjysu9jtaVDExs7h9/Y=",
         "owner": "vic",
         "repo": "den",
-        "rev": "e867b82541f5d6a7a3668d5177a4e4b20402c898",
+        "rev": "a28272a6c108e8be03da7f720c8e33263f981810",
         "type": "github"
       },
       "original": {
@@ -96,21 +96,6 @@
       "original": {
         "owner": "rafaelmardojai",
         "repo": "firefox-gnome-theme",
-        "type": "github"
-      }
-    },
-    "flake-aspects": {
-      "locked": {
-        "lastModified": 1773552804,
-        "narHash": "sha256-a0kjpCZGnD5lt7yW6C3hzPhSf5KjnTyvX6XZ2NuhGs4=",
-        "owner": "vic",
-        "repo": "flake-aspects",
-        "rev": "56fa8d4d4772d58eb7f9d66c28c1cd2762b60423",
-        "type": "github"
-      },
-      "original": {
-        "owner": "vic",
-        "repo": "flake-aspects",
         "type": "github"
       }
     },
@@ -478,7 +463,6 @@
     "root": {
       "inputs": {
         "den": "den",
-        "flake-aspects": "flake-aspects",
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
         "import-tree": "import-tree",

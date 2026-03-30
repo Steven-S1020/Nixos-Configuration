@@ -26,7 +26,11 @@
     ];
   };
 
-  den.schema.user.classes = lib.mkDefault [ "homeManager" ];
+  den.schema.user =
+    { lib, ... }:
+    {
+      config.classes = lib.mkDefault [ "homeManager" ];
+    };
 
   den.ctx.hm-host.nixos.home-manager = {
     useGlobalPkgs = true;

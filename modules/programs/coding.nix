@@ -5,7 +5,7 @@
   ...
 }:
 {
-  den.aspects.programs._.coding = den.lib.parametric {
+  den.aspects.programs._.coding = {
     includes = [
       <programs/nix-direnv>
       <programs/mkdev>

@@ -8,13 +8,6 @@
   den.aspects.Azami = {
 
     includes = [
-      # Program Aspects
-      <programs/coding>
-      <programs/graphical>
-
-      # Desktop Aspects
-      <desktop/hyprland>
-      <desktop/noctalia>
 
       # System Aspects
       <system/audio>

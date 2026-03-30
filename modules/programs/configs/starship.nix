@@ -1,6 +1,6 @@
 { den, ... }:
 {
-  den.aspects.programs._.starship = den.lib.parametric {
+  den.aspects.programs._.starship = {
     includes = [
       (den.lib.take.atLeast (
         { host, ... }:
