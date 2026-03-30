@@ -6,9 +6,17 @@
   den.hosts.x86_64-linux.Azami.users.steven = { };
 
   den.aspects.Azami = {
+    provides.to-users.includes = [
+      # Program Aspects
+      <programs/coding>
+      <programs/graphical>
+
+      # Desktop Aspects
+      <desktop/hyprland>
+      <desktop/noctalia>
+    ];
 
     includes = [
-
       # System Aspects
       <system/audio>
       <system/bluetooth>
