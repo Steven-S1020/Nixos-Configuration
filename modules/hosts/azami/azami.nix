@@ -25,12 +25,13 @@
       <system/locale>
       <system/networking>
       <system/printing>
+      <system/services>
       <system/stylix>
       <system/syncthing>
     ];
 
     nixos =
-      { lib, ... }:
+      { lib, pkgs, ... }:
       {
         programs.steam.enable = true;
         services.upower.enable = true;
@@ -40,6 +41,12 @@
           popups = 10;
           terminal = 10;
         };
+        environment.systemPackages = with pkgs; [
+          surface-control
+          s-tui
+        ];
+        # services.flatpak.enable = true;
+        # hardware.graphics.enable = true;
       };
   };
 }

@@ -39,7 +39,7 @@
           la = "ls -a";
           lla = "ls -la";
           lt = "ls --tree --group-dirs first";
-          just = "just --justfile /etc/nixos/justfile";
+          j = "just --justfile /etc/nixos/justfile";
         };
       };
     };

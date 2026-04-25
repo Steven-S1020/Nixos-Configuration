@@ -6,8 +6,7 @@
   den.hosts.x86_64-linux.Deimos.users.steven = { };
 
   den.aspects.Deimos = {
-
-    includes = [
+    provides.to-users.includes = [
       # Program Aspects
       <programs/coding>
       <programs/graphical>
@@ -15,7 +14,9 @@
       # Desktop Aspects
       <desktop/hyprland>
       <desktop/noctalia>
+    ];
 
+    includes = [
       # System Aspects
       <system/boot>
       <system/dm>
@@ -25,6 +26,7 @@
       <system/bluetooth>
       <system/stylix>
     ];
+
     nixos =
       { pkgs, lib, ... }:
       {

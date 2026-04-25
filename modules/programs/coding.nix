@@ -1,7 +1,5 @@
 {
   __findFile,
-  inputs,
-  den,
   ...
 }:
 {
@@ -9,20 +7,16 @@
     includes = [
       <programs/nix-direnv>
       <programs/mkdev>
-      (den.lib.take.atLeast (
-        { host, ... }:
-        {
-          nixos =
-            { pkgs, ... }:
-            {
-              environment.systemPackages = with pkgs; [
-                # CLI Utils
-                tokei
-                inputs.mkdev.packages.${host.system}.mkdev
-              ];
-            };
-        }
-      ))
     ];
+
+    nixos =
+      { pkgs, inputs', ... }:
+      {
+        environment.systemPackages = with pkgs; [
+          # CLI Utils
+          tokei
+          inputs'.mkdev.packages.mkdev
+        ];
+      };
   };
 }

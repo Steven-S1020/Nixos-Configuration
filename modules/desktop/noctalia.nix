@@ -21,7 +21,7 @@
     includes = [ <desktop/noctalia-hm> ];
   };
 
-  den.aspects.desktop._.noctalia-hm = den.lib.take.exactly (
+  den.aspects.desktop._.noctalia-hm = den.lib.perUser (
     { host, user }:
     let
       hostname = host.hostName;

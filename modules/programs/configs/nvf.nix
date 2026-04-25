@@ -9,6 +9,10 @@
       # nvf provides its own HM module — import it here rather than globally
       imports = [ inputs.nvf.homeManagerModules.default ];
 
+      home.packages = with pkgs; [
+        texlive.combined.scheme-full
+      ];
+
       programs.nvf = {
         enable = true;
         defaultEditor = true;
@@ -25,6 +29,17 @@
           };
 
           pluginOverrides.nvim-treesitter = nvimPkg;
+
+          extraPlugins = with pkgs.vimPlugins; {
+            vimtex = {
+              package = vimtex;
+              setup = /* lau */ ''
+                vim.g.vimtex_view_method = "zathura"
+                vim.g.vimtex_compiler_method = "latexmk"
+                vim.g.vimtex_quickfix_mode = 2
+              '';
+            };
+          };
 
           options = {
             mouse = "a";

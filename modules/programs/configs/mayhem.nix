@@ -12,7 +12,7 @@
           stripRoot = false;
         };
 
-        nativeBuildInouts = [ pkgs.autoPatchelfHook ];
+        nativeBuildInputs = [ pkgs.autoPatchelfHook ];
         buildInputs = [ pkgs.stdenv.cc.cc.lib ];
 
         phases = [ "installPhase" ];

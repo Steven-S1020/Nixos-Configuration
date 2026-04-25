@@ -1,6 +1,5 @@
-{ den, ... }:
 {
-  den.aspects.system._.dm = den.lib.parametric {
+  den.aspects.system._.dm = {
     nixos.services.displayManager.ly = {
       enable = true;
       settings = {

@@ -1,6 +1,6 @@
-{ inputs, den, ... }:
+{ inputs, ... }:
 {
-  den.aspects.system._.stylix = den.lib.parametric {
+  den.aspects.system._.stylix = {
     nixos =
       { pkgs, ... }:
       {
@@ -32,17 +32,5 @@
           };
         };
       };
-    includes = [
-      (den.lib.take.exactly (
-        { host, user }:
-        {
-          # Opt-out stylix auto-theming for things we control manually
-          homeManager = {
-            stylix.targets = {
-            };
-          };
-        }
-      ))
-    ];
   };
 }
