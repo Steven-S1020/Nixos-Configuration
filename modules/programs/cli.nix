@@ -1,6 +1,6 @@
-{ __findFile, den, ... }:
+{ __findFile, ... }:
 {
-  den.aspects.programs._.cli = den.lib.parametric {
+  den.aspects.programs._.cli = {
     includes = [
       <programs/bash>
       <programs/btop>
@@ -8,7 +8,7 @@
       <programs/fzf>
       <programs/git>
       <programs/mayhem>
-      <programs/nvf>
+      <programs/neovim>
       <programs/starship>
       <programs/zsh>
     ];

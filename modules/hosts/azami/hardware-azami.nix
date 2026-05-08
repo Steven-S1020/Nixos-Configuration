@@ -109,8 +109,8 @@
           serviceConfig = {
             Type = "oneshot";
             ExecStart = pkgs.writeShellScript "rapl-cap" ''
-              echo 20000000 > /sys/class/powercap/intel-rapl/intel-rapl:0/constraint_0_power_limit_uw
-              echo 35000000 > /sys/class/powercap/intel-rapl/intel-rapl:0/constraint_1_power_limit_uw
+              echo 25000000 > /sys/class/powercap/intel-rapl/intel-rapl:0/constraint_0_power_limit_uw
+              echo 40000000 > /sys/class/powercap/intel-rapl/intel-rapl:0/constraint_1_power_limit_uw
             '';
           };
         };

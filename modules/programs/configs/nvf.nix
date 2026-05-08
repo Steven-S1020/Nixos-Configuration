@@ -84,15 +84,14 @@
               enable = true;
               format.type = [ "nixfmt" ];
             };
-            ts = {
+            typescript = {
               enable = true;
-              lsp.servers = [ "ts_ls" ];
+              lsp.servers = [ "typescript-language-server" ];
               format.type = [ "prettier" ];
               extraDiagnostics.types = [ "eslint_d" ];
             };
             julia.lsp = {
               enable = true;
-              servers = pkgs.julia-bin;
             };
           };
 
