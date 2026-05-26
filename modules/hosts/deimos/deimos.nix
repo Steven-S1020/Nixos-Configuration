@@ -48,7 +48,7 @@
         programs.steam = {
           enable = true;
           gamescopeSession.enable = true;
-          packages = pkgs.steam.override {
+          package = pkgs.steam.override {
             extraLibraries = pkgs: [ pkgs.libxcb ];
             extraPkgs =
               pkgs: with pkgs; [
