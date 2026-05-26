@@ -14,6 +14,9 @@
       # Desktop Aspects
       <desktop/hyprland>
       <desktop/noctalia>
+
+      # System  Aspects
+      <system/stylix>
     ];
 
     includes = [
@@ -24,7 +27,6 @@
       <system/networking>
       <system/audio>
       <system/bluetooth>
-      <system/stylix>
     ];
 
     nixos =

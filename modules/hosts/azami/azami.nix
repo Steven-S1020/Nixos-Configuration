@@ -14,6 +14,9 @@
       # Desktop Aspects
       <desktop/hyprland>
       <desktop/noctalia>
+
+      # System Aspects
+      <system/stylix>
     ];
 
     includes = [
@@ -26,7 +29,6 @@
       <system/networking>
       <system/printing>
       <system/services>
-      <system/stylix>
       <system/syncthing>
     ];
 
