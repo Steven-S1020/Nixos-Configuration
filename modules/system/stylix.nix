@@ -21,6 +21,8 @@
           polarity = "dark";
           targets.grub.useWallpaper = true;
 
+          targets.neovim.enable = false;
+
           fonts.monospace = {
             package = pkgs.nerd-fonts.fira-code;
             name = "FiraCode Nerd Font Mono";

@@ -3,6 +3,15 @@
     nixos =
       { pkgs, ... }:
       {
+        programs.neovim = {
+          enable = true;
+          viAlias = true;
+          vimAlias = true;
+          defaultEditor = true;
+          withPython3 = true;
+          withRuby = false;
+        };
+
         environment = {
           sessionVariables.EDITOR = "nvim";
           systemPackages = with pkgs; [
@@ -18,9 +27,10 @@
             sqls # SQL
             superhtml # HTML
             typescript-language-server # TypeScript/JavaScript
-            vscode-css-language-serve # CSS
+            vscode-css-languageserver # CSS
 
             ## Other
+            gcc
             tree-sitter
           ];
         };
@@ -29,14 +39,6 @@
     homeManager =
       { config, ... }:
       {
-        programs.neovim = {
-          enable = true;
-          viAlias = true;
-          vimAlias = true;
-          defaultEditor = true;
-          withPython3 = true;
-        };
-
         xdg.configFile."nvim".source =
           config.lib.file.mkOutOfStoreSymlink "/etc/nixos/modules/programs/configs/_neovim";
       };

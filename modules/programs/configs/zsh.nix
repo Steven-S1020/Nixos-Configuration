@@ -9,6 +9,7 @@
           cd = "$HOME/Code";
           dw = "$HOME/Downloads";
           nix = "/etc/nixos";
+          nv = "/etc/nixos/modules/programs/configs/_neovim";
         };
         syntaxHighlighting = {
           enable = true;
