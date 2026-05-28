@@ -7,6 +7,7 @@
     includes = [
       <programs/nix-direnv>
       <programs/mkdev>
+      <programs/julia>
     ];
 
     nixos =
