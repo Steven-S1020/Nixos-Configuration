@@ -1,19 +1,18 @@
 {
   den,
-  lib,
   __findFile,
   ...
 }:
 {
   den.default = {
-    nixos.system.stateVersion = "24.11";
+    nixos.system.stateVersion = "26.05";
     nixos.nix.settings.experimental-features = [
       "nix-command"
       "flakes"
     ];
     nixos.nixpkgs.config.allowUnfree = true;
 
-    homeManager.home.stateVersion = "24.11";
+    homeManager.home.stateVersion = "26.05";
     homeManager.nix.settings.experimental-features = [
       "nix-command"
       "flakes"
