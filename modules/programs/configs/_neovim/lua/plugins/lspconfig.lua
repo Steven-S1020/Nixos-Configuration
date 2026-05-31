@@ -20,6 +20,16 @@ return {
                 },
             },
             jdtls = true,
+            julials = {
+                settings = {
+                    julia = {
+                        symbolCacheDownload = true,
+                        lint = {
+                            run = true,
+                        },
+                    },
+                },
+            },
             lua_ls = {
                 settings = {
                     Lua = {

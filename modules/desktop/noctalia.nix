@@ -73,7 +73,7 @@
               bar = {
                 barType = "framed";
                 position = "top";
-                monitors = [ "DP-1" ];
+                monitors = [ "DP-1" "eDP-1" ];
                 density = "default";
                 showOutline = false;
                 showCapsule = false;
