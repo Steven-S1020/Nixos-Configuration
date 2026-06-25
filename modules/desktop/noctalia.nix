@@ -11,7 +11,6 @@
       {
         environment.systemPackages = [
           inputs'.noctalia.packages.default
-          inputs'.noctalia-qs.packages.default
         ];
       };
     homeManager = {
