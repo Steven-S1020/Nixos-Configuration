@@ -32,6 +32,7 @@
             ## Other
             gcc
             tree-sitter
+            texlive.combined.scheme-full
           ];
         };
       };

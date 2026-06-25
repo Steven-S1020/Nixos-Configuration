@@ -26,8 +26,11 @@ return {
                         symbolCacheDownload = true,
                         lint = {
                             run = true,
+                            call = false,
+                            missingrefs = "none"
                         },
                     },
+                    useRevise = true,
                 },
             },
             lua_ls = {

@@ -4,6 +4,7 @@ return {
     config = function()
         local iron = require("iron.core")
         local view = require("iron.view")
+        local common = require 'iron.fts.common'
 
         iron.setup({
             config = {
@@ -11,7 +12,8 @@ return {
 
                 repl_definition = {
                     julia = {
-                        command = { "julia" },
+                        command = { "julia-env" },
+                        format = common.bracketed_paste,
                     },
                 },
 
@@ -28,7 +30,8 @@ return {
                 send_paragraph = "<leader>sp",
                 send_file = "<leader>sf",
 
-                interrupt = "<leader>si",
+                interrupt = "<leader>ri",
+                exit = "<space>rq",
             },
 
             ignore_blank_lines = true,

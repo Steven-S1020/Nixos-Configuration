@@ -35,3 +35,27 @@ vim.api.nvim_create_autocmd('TextYankPost', {
         }
     end,
 })
+
+-- Create an autocommand group to prevent duplicate autocmds
+local cursor_line_group = vim.api.nvim_create_augroup("CursorLineControl", { clear = true })
+
+-- Enable cursorline in the active window
+vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter", "InsertLeave" }, {
+    group = cursor_line_group,
+    pattern = "*",
+    callback = function()
+        -- Skip special or prompt buffers if needed
+        if vim.bo.buftype == "" then
+            vim.wo.cursorline = true
+        end
+    end,
+})
+
+-- Disable cursorline in inactive windows
+vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave", "InsertEnter" }, {
+    group = cursor_line_group,
+    pattern = "*",
+    callback = function()
+        vim.wo.cursorline = false
+    end,
+})
