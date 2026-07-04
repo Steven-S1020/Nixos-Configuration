@@ -14,23 +14,24 @@
         services.pipewire.enable = lib.mkForce false;
         security.rtkit.enable = lib.mkForce false;
 
-        # Override stylix (pulled in by defaults) to disable graphical targets
-        stylix.targets.gtk.enable = lib.mkForce false;
-        stylix.targets.gnome.enable = lib.mkForce false;
-
         environment.systemPackages = with pkgs; [
           libraspberrypi
           raspberrypi-eeprom
           raspberrypifw
         ];
+
+        fileSystems."/" = {
+          # fix when on RP4
+          device = "/dev/disk/by-uuid/7809ed61-0de1-48c0-864a-d8a9d97366ea";
+          fsType = "ext4";
+        };
+
       };
-    provides.to-user.includes = [
-      <programs/cli>
-    ];
 
     includes = [
       <system/locale>
       <system/networking>
+      <system/boot>
     ];
   };
 }

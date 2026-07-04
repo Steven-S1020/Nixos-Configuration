@@ -17,7 +17,7 @@
         ];
 
         # maybe installing gnome fixes hyprland screensharing
-services.desktopManager.gnome.enable = true;
+    services.desktopManager.gnome.enable = true;
     # Exclude unnecessary packages (i.e., bloat)
     environment.gnome.excludePackages = with pkgs; [
       decibels
@@ -90,7 +90,7 @@ services.desktopManager.gnome.enable = true;
               position = '2560x0',
               scale = '1.0',
           }
-      '' else null;
+      '' else "";
       };
   });
 }

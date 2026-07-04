@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, lib, ... }:
 {
   den.aspects.system._.stylix = {
     nixos =
@@ -20,6 +20,11 @@
 
           polarity = "dark";
           targets.grub.useWallpaper = true;
+
+          targets.qt = {
+            enable = true;
+            platform = lib.mkForce "qtct";
+          };
 
           fonts.monospace = {
             package = pkgs.nerd-fonts.fira-code;

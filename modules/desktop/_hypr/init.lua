@@ -3,11 +3,6 @@
 
 hl.on("hyprland.start", function()
     hl.exec_cmd 'systemctl --user start hyprland-session.target'
-    hl.exec_cmd 'noctalia-shell'
-end)
-
-hl.on("config.reloaded", function()
-    hl.exec_cmd("noctalia-shell")
 end)
 
 hl.on("hyprland.shutdown", function()
@@ -15,10 +10,11 @@ hl.on("hyprland.shutdown", function()
 end)
 
 require 'generated.local'
+require 'generated.noctalia'
 
 local mod = "SUPER"
-hl.bind(mod .. " + Q", hl.dsp.window.close())
 hl.bind(mod .. " + E", hl.dsp.exec_cmd("nautilus"))
+hl.bind(mod .. " + Q", hl.dsp.window.close())
 hl.bind(mod .. " + Return", hl.dsp.exec_cmd("kitty"))
 hl.bind(mod .. " + SHIFT + Return", hl.dsp.exec_cmd("[workspace emptyn;] kitty"))
 hl.bind("ALT + SHIFT + Space", hl.dsp.focus({ workspace = "emptyn" }))
@@ -46,7 +42,6 @@ hl.bind("ALT + H", hl.dsp.focus({ direction = "left" }))
 hl.bind("ALT + J", hl.dsp.focus({ direction = "down" }))
 hl.bind("ALT + K", hl.dsp.focus({ direction = "up" }))
 hl.bind("ALT + L", hl.dsp.focus({ direction = "right" }))
-hl.bind("ALT + TAB", hl.dsp.window.cycle_next({ next = true } --[[ cyclenext: unrecognized arg(s) "visible" ]]))
 hl.bind(mod .. " + SHIFT + H", hl.dsp.window.move({ direction = "l" }))
 hl.bind(mod .. " + SHIFT + J", hl.dsp.window.move({ direction = "d" }))
 hl.bind(mod .. " + SHIFT + K", hl.dsp.window.move({ direction = "u" }))
@@ -71,26 +66,9 @@ hl.bind(mod .. " + SHIFT + 7", hl.dsp.window.move({ workspace = 7 }))
 hl.bind(mod .. " + SHIFT + 8", hl.dsp.window.move({ workspace = 8 }))
 hl.bind(mod .. " + SHIFT + 9", hl.dsp.window.move({ workspace = 9 }))
 hl.bind(mod .. " + SHIFT + 0", hl.dsp.window.move({ workspace = 10 }))
-hl.bind("Print", hl.dsp.exec_cmd("/nix/store/6dhz2ql5yxsgd3ccfwrczkv8q0b7k3yr-screenie/bin/screenie output"))
-hl.bind("SHIFT + Print", hl.dsp.exec_cmd("/nix/store/6dhz2ql5yxsgd3ccfwrczkv8q0b7k3yr-screenie/bin/screenie"))
-hl.bind("ALT + Space", hl.dsp.exec_cmd("noctalia-shell ipc call launcher toggle"))
-hl.bind("ALT + SHIFT + Space", hl.dsp.exec_cmd("noctalia-shell ipc call launcher toggle"))
-hl.bind(mod .. " + C", hl.dsp.exec_cmd("noctalia-shell ipc call launcher calculator"))
-hl.bind(mod .. " + L", hl.dsp.exec_cmd("noctalia-shell ipc call lockScreen lock"))
-hl.bind(mod .. " + V", hl.dsp.exec_cmd("noctalia-shell ipc call sessionMenu toggle"))
-
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("noctalia-shell ipc call volume increase"),
-    { locked = true, repeating = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("noctalia-shell ipc call volume decrease"),
-    { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("noctalia-shell ipc call brightness increase"),
-    { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("noctalia-shell ipc call brightness decrease"),
-    { locked = true, repeating = true })
 
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ 0"), { locked = true })
 hl.bind("switch:Lid Switch", hl.dsp.exec_cmd("hyprlock"), { locked = true })
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd("noctalia-shell ipc call volume muteOutput"), { locked = true })
 
 hl.bind(mod .. " + mouse:272", hl.dsp.window.drag())
 hl.bind(mod .. " + mouse:273", hl.dsp.window.resize())
@@ -110,11 +88,21 @@ end)
 hl.config({
     decoration = {
         shadow = {
-            color = "rgba(19172499)",
+            enabled = true,
+            range = 4,
+            render_power = 3,
+            color = 0xee1a1a1a,
         },
         active_opacity = 1,
         inactive_opacity = 0.900000,
-        rounding = 10,
+        rounding = 20,
+        rounding_power = 2,
+        blur = {
+            enabled = true,
+            size = 3,
+            passes = 2,
+            vibrancy = 0.1696,
+        },
     },
     ecosystem = {
         no_donation_nag = true,

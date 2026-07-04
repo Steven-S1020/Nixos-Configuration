@@ -31,14 +31,6 @@
       config.classes = lib.mkDefault [ "homeManager" ];
     };
 
-  den.ctx.user.includes = [ <den/mutual-provider> ];
-
-  den.ctx.hm-host.nixos.home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    backupFileExtension = "backup";
-  };
-
   # Uncomment when needed for debug.
   # flake.den = den;
 }
