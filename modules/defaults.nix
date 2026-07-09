@@ -30,7 +30,13 @@
     {
       config.classes = lib.mkDefault [ "homeManager" ];
     };
-
+  den.schema.host = { host, lib, ... }: {
+    options.minimal = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Whether host ${host.name} should be provisioned with a minimal footprint";
+    };
+  };
   # Uncomment when needed for debug.
   # flake.den = den;
 }

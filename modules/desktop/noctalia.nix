@@ -1,6 +1,6 @@
 {
   den.aspects.desktop._.noctalia =
-    ({ host, ...}:
+    { host, ...}:
     {
     nixos =
       { inputs', ... }:
@@ -59,5 +59,5 @@
             })
           '';
     };
-    });
+    };
 }
