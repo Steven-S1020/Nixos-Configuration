@@ -6,43 +6,15 @@
     {
         programs.hyprland = {
             enable = true;
-            withUWSM = true;
+            # withUWSM = true;
             # xwayland.enable = true;
         };
 
-        environment.sessionVariables.NIXOS_OZONE_WL = "1";
+        # environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
         environment.systemPackages = with pkgs; [
           brightnessctl
         ];
-
-        # maybe installing gnome fixes hyprland screensharing
-    services.desktopManager.gnome.enable = true;
-    # Exclude unnecessary packages (i.e., bloat)
-    environment.gnome.excludePackages = with pkgs; [
-      decibels
-      epiphany
-      geary
-      gnome-calculator
-      gnome-calendar
-      gnome-clocks
-      gnome-connections
-      gnome-console
-      gnome-contacts
-      gnome-maps
-      gnome-music
-      gnome-system-monitor
-      gnome-text-editor
-      gnome-tour
-      gnome-weather
-      loupe
-      papers
-      showtime
-      simple-scan
-      snapshot
-      totem
-      yelp
-    ];
     };
     homeManager =
       { pkgs, config, ... }:
@@ -55,14 +27,6 @@
             After = [ "graphical-session-pre.target" ];
             # PropagatesStopTo = [ "graphical-session.target" ];
           };
-        };
-
-        xdg.portal = {
-          enable = true;
-          extraPortals = with pkgs; [ 
-            xdg-desktop-portal-gtk
-          ];
-          config.common.default = [ "gtk" ];
         };
 
         xdg.configFile."hypr/hyprland.lua".text = /* lua */ ''

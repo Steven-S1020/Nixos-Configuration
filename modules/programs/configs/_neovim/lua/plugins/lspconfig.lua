@@ -20,18 +20,10 @@ return {
                 },
             },
             jdtls = true,
-            julials = {
-                settings = {
-                    julia = {
-                        symbolCacheDownload = true,
-                        lint = {
-                            run = true,
-                            call = false,
-                            missingrefs = "none"
-                        },
-                    },
-                    useRevise = true,
-                },
+            jetls = {
+                cmd = { "jetls", "--threads=auto", "--", "serve" },
+                filetypes = { "julia" },
+                root_markers = { "Project.toml" },
             },
             lua_ls = {
                 settings = {

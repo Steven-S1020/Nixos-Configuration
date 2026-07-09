@@ -6,6 +6,10 @@
       environment.systemPackages = with pkgs; [
         julia-bin
       ];
+
+      environment.sessionVariables = {
+        PATH = [ "$HOME/.julia/bin" ];
+      };
     };
 
     homeManager = {

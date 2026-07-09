@@ -12,7 +12,7 @@ return {
 
                 repl_definition = {
                     julia = {
-                        command = { "julia-env" },
+                        command = { "julia", "--project=." },
                         format = common.bracketed_paste,
                     },
                 },
