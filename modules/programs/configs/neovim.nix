@@ -1,5 +1,8 @@
+{ lib, ... }:
 {
-  den.aspects.programs._.neovim = {
+  den.aspects.programs._.neovim = 
+  { host, ... }:  
+  {
     nixos =
       { pkgs, ... }:
       {
@@ -14,7 +17,7 @@
 
         environment = {
           sessionVariables.EDITOR = "nvim";
-          systemPackages = with pkgs; [
+          systemPackages = lib.optionals (!host.minimal) (with pkgs; [
             ## LSP
             basedpyright # Python
             bash-language-server # Bash/Shell/Zsh
@@ -33,7 +36,7 @@
             gcc
             tree-sitter
             texlive.combined.scheme-full
-          ];
+          ]);
         };
       };
 
@@ -41,7 +44,11 @@
       { config, ... }:
       {
         xdg.configFile."nvim".source =
-          config.lib.file.mkOutOfStoreSymlink "/etc/nixos/modules/programs/configs/_neovim";
+          config.lib.file.mkOutOfStoreSymlink (
+            if host.minimal
+            then "/etc/nixos/modules/programs/configs/_neovim-minimal"
+            else "/etc/nixos/modules/programs/configs/_neovim"
+          );
       };
   };
 }
