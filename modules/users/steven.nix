@@ -10,9 +10,9 @@
     ];
 
     nixos =
-      { pkgs, ... }:
       {
-        environment.systemPackages = with pkgs; [
+        users.users.steven.openssh.authorizedKeys.keys = [
+            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC1PL0TvhcULpeXSAev5h46IMH/ZxjmFaAcNQptcrSdT steven@Vigil"
         ];
       };
   };
