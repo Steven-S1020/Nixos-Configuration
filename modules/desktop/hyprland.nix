@@ -6,11 +6,8 @@
     {
         programs.hyprland = {
             enable = true;
-            # withUWSM = true;
-            # xwayland.enable = true;
+            withUWSM = true;
         };
-
-        # environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
         environment.systemPackages = with pkgs; [
           brightnessctl
@@ -19,16 +16,6 @@
     homeManager =
       { pkgs, config, ... }:
       {
-        systemd.user.targets.hyprland-session = {
-          Unit = {
-            Description = "Hyprland session";
-            BindsTo = [ "graphical-session.target" ];
-            Wants = [ "graphical-session-pre.target" ];
-            After = [ "graphical-session-pre.target" ];
-            # PropagatesStopTo = [ "graphical-session.target" ];
-          };
-        };
-
         xdg.configFile."hypr/hyprland.lua".text = /* lua */ ''
           require 'config'
         '';

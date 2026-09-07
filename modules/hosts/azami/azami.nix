@@ -30,6 +30,7 @@
       <system/printing>
       <system/services>
       <system/syncthing>
+      <system/tailscale>
     ];
 
     nixos =

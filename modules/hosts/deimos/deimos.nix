@@ -27,6 +27,7 @@
       <system/networking>
       <system/audio>
       <system/bluetooth>
+      <system/tailscale>
     ];
 
     nixos =
