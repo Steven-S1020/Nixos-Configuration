@@ -29,6 +29,7 @@
       <system/networking>
       <system/printing>
       <system/services>
+      <system/secrets>
       <system/syncthing>
       <system/tailscale>
     ];

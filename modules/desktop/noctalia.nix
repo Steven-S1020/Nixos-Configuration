@@ -27,23 +27,34 @@
             local mod = 'SUPER'
             local ipc = 'noctalia msg'
 
+            -- Core Binds
             hl.bind('ALT + Space', hl.dsp.exec_cmd(ipc .. ' panel-toggle launcher'))
             hl.bind('ALT + Tab', hl.dsp.exec_cmd(ipc .. ' window-switcher'))
             hl.bind(mod .. ' + L', hl.dsp.exec_cmd(ipc .. ' session lock'))
             hl.bind(mod .. ' + V', hl.dsp.exec_cmd(ipc .. ' panel-toggle session'))
             hl.bind('Print', hl.dsp.exec_cmd(ipc .. ' screenshot-fullscreen'))
 
+            -- Media Keys
             hl.bind('XF86AudioRaiseVolume', hl.dsp.exec_cmd(ipc .. ' volume-up'),
                 { locked = true, repeating = true })
             hl.bind('XF86AudioLowerVolume', hl.dsp.exec_cmd(ipc .. ' volume-down'),
                 { locked = true, repeating = true })
             hl.bind('XF86MonBrightnessUp', hl.dsp.exec_cmd(ipc .. ' brightness-up'),
                 { locked = true, repeating = true })
-            hl.bind('XF86MonBrightnessDown', hl.dsp.exec_cmd(ipc .. ' brightness-down * 5%'),
+            hl.bind('XF86MonBrightnessDown', hl.dsp.exec_cmd(ipc .. ' brightness-down'),
                 { locked = true, repeating = true })
             hl.bind('XF86AudioMute', hl.dsp.exec_cmd(ipc .. ' mic-mute'), { locked = true })
 
+            -- Noctalia Settings
+            hl.window_rule({
+                match = { class = "dev.noctalia.Noctalia" },
+                float = true,
+                size = { 1080, 920 },
+            })
+
+            -- Host Specific
             ${ if host.hostName == "Deimos" then "
+                -- Force Workspace 1 & 2 to Main Monitor
                 hl.workspace_rule({ workspace = '1', monitor = 'DP-1', persistent = true })
                 hl.workspace_rule({ workspace = '2', monitor = 'DP-1', persistent = true })
             " else ""}

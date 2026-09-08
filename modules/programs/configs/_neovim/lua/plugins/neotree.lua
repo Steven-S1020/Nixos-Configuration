@@ -77,7 +77,7 @@ return {
         end
 
         Neotree_is_open = false
-        map('n', '<leader>f', function()
+        map('n', '<leader>e', function()
             if Neotree_is_open then
                 vim.cmd('Neotree close')
             else

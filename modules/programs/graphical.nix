@@ -6,6 +6,7 @@
   den.aspects.programs._.graphical = {
     includes = [
       <programs/kitty>
+      <programs/wireshark>
     ];
     nixos =
       { pkgs, inputs', ... }:

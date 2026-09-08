@@ -56,7 +56,6 @@ hl.bind(mod .. " + SHIFT + 8", hl.dsp.window.move({ workspace = 8 }))
 hl.bind(mod .. " + SHIFT + 9", hl.dsp.window.move({ workspace = 9 }))
 hl.bind(mod .. " + SHIFT + 0", hl.dsp.window.move({ workspace = 10 }))
 
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ 0"), { locked = true })
 hl.bind("switch:Lid Switch", hl.dsp.exec_cmd("hyprlock"), { locked = true })
 
 hl.bind(mod .. " + mouse:272", hl.dsp.window.drag())
