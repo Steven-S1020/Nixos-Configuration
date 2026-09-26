@@ -21,12 +21,15 @@
 
     includes = [
       # System Aspects
+      <system/audio>
+      <system/bluetooth>
       <system/boot>
       <system/dm>
       <system/locale>
       <system/networking>
-      <system/audio>
-      <system/bluetooth>
+      <system/services>
+      <system/secrets>
+      <system/syncthing>
       <system/tailscale>
     ];
 

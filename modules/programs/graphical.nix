@@ -14,6 +14,7 @@
         environment.systemPackages = with pkgs; [
           # Desktop Apps
           brave
+          bitwarden-desktop
           inputs'.zen-browser.packages.default
           nautilus
           spotify
