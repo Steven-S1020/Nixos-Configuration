@@ -25,6 +25,7 @@
       <system/bluetooth>
       <system/boot>
       <system/dm>
+      <system/howdy>
       <system/locale>
       <system/networking>
       <system/printing>
