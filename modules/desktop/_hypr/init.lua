@@ -82,7 +82,7 @@ hl.config({
             color = 0xee1a1a1a,
         },
         active_opacity = 1,
-        inactive_opacity = 0.900000,
+        inactive_opacity = 1,
         rounding = 20,
         rounding_power = 2,
         blur = {
